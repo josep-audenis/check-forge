@@ -1,0 +1,44 @@
+{
+  "benchmark": "cutechess",
+  "engine": "build/engine/checkforge.exe",
+  "engine_version": "CheckForge 0.1.0-phase4",
+  "git_commit": "094e45bf31872de668284be2bbda63e4b8f2ff1e",
+  "config": {
+    "path": "configs/default.json",
+    "sha256": "db680e1ff84e257412cf9ad581f8e6d8e7f49474d6de384d7395d293df564111"
+  },
+  "created_at": "2026-06-12T15:38:27.724982+00:00",
+  "opponent": {
+    "engine": "versions/v002-positional-eval/checkforge.exe",
+    "config": "versions/v002-positional-eval/default.json"
+  },
+  "passed": true,
+  "skipped": false,
+  "command": [
+    "C:\\Users\\Josep\\AppData\\Local\\Microsoft\\WinGet\\Packages\\CuteChess.CuteChess_Microsoft.Winget.Source_8wekyb3d8bbwe\\cutechess-1.4.0-win64\\cutechess-cli.exe",
+    "-engine",
+    "cmd=C:\\CODE\\check-forge\\build\\engine\\checkforge.exe",
+    "arg=--config",
+    "arg=C:\\CODE\\check-forge\\configs\\default.json",
+    "arg=uci",
+    "proto=uci",
+    "name=checkforge",
+    "-engine",
+    "cmd=C:\\CODE\\check-forge\\versions\\v002-positional-eval\\checkforge.exe",
+    "arg=--config",
+    "arg=C:\\CODE\\check-forge\\versions\\v002-positional-eval\\default.json",
+    "arg=uci",
+    "proto=uci",
+    "name=opponent",
+    "-each",
+    "tc=1+0.05",
+    "-games",
+    "40",
+    "-pgnout",
+    "matches/exp003-avoid-reversal-vs-v002.pgn"
+  ],
+  "returncode": 0,
+  "stdout": "Started game 1 of 40 (checkforge vs opponent)\nFinished game 1 (checkforge vs opponent): 0-1 {White loses on time}\nScore of checkforge vs opponent: 0 - 1 - 0  [0.000] 1\nStarted game 2 of 40 (opponent vs checkforge)\nFinished game 2 (opponent vs checkforge): 0-1 {White loses on time}\nScore of checkforge vs opponent: 1 - 1 - 0  [0.500] 2\nStarted game 3 of 40 (checkforge vs opponent)\nFinished game 3 (checkforge vs opponent): 0-1 {White loses on time}\nScore of checkforge vs opponent: 1 - 2 - 0  [0.333] 3\nStarted game 4 of 40 (opponent vs checkforge)\nFinished game 4 (opponent vs checkforge): 0-1 {White loses on time}\nScore of checkforge vs opponent: 2 - 2 - 0  [0.500] 4\nStarted game 5 of 40 (checkforge vs opponent)\nFinished game 5 (checkforge vs opponent): 0-1 {White loses on time}\nScore of checkforge vs opponent: 2 - 3 - 0  [0.400] 5\nStarted game 6 of 40 (opponent vs checkforge)\nFinished game 6 (opponent vs checkforge): 0-1 {White loses on time}\nScore of checkforge vs opponent: 3 - 3 - 0  [0.500] 6\nStarted game 7 of 40 (checkforge vs opponent)\nFinished game 7 (checkforge vs opponent): 0-1 {White loses on time}\nScore of checkforge vs opponent: 3 - 4 - 0  [0.429] 7\nStarted game 8 of 40 (opponent vs checkforge)\nFinished game 8 (opponent vs checkforge): 0-1 {White loses on time}\nScore of checkforge vs opponent: 4 - 4 - 0  [0.500] 8\nStarted game 9 of 40 (checkforge vs opponent)\nFinished game 9 (checkforge vs opponent): 0-1 {White loses on time}\nScore of checkforge vs opponent: 4 - 5 - 0  [0.444] 9\nStarted game 10 of 40 (opponent vs checkforge)\nFinished game 10 (opponent vs checkforge): 0-1 {White loses on time}\nScore of checkforge vs opponent: 5 - 5 - 0  [0.500] 10\nStarted game 11 of 40 (checkforge vs opponent)\nFinished game 11 (checkforge vs opponent): 0-1 {White loses on time}\nScore of checkforge vs opponent: 5 - 6 - 0  [0.455] 11\nStarted game 12 of 40 (opponent vs checkforge)\nFinished game 12 (opponent vs checkforge): 0-1 {White loses on time}\nScore of checkforge vs opponent: 6 - 6 - 0  [0.500] 12\nStarted game 13 of 40 (checkforge vs opponent)\nFinished game 13 (checkforge vs opponent): 0-1 {White loses on time}\nScore of checkforge vs opponent: 6 - 7 - 0  [0.462] 13\nStarted game 14 of 40 (opponent vs checkforge)\nFinished game 14 (opponent vs checkforge): 0-1 {White loses on time}\nScore of checkforge vs opponent: 7 - 7 - 0  [0.500] 14\nStarted game 15 of 40 (checkforge vs opponent)\nFinished game 15 (checkforge vs opponent): 0-1 {White loses on time}\nScore of checkforge vs opponent: 7 - 8 - 0  [0.467] 15\nStarted game 16 of 40 (opponent vs checkforge)\nFinished game 16 (opponent vs checkforge): 0-1 {White loses on time}\nScore of checkforge vs opponent: 8 - 8 - 0  [0.500] 16\nStarted game 17 of 40 (checkforge vs opponent)\nFinished game 17 (checkforge vs opponent): 0-1 {White loses on time}\nScore of checkforge vs opponent: 8 - 9 - 0  [0.471] 17\nStarted game 18 of 40 (opponent vs checkforge)\nFinished game 18 (opponent vs checkforge): 0-1 {White loses on time}\nScore of checkforge vs opponent: 9 - 9 - 0  [0.500] 18\nStarted game 19 of 40 (checkforge vs opponent)\nFinished game 19 (checkforge vs opponent): 0-1 {White loses on time}\nScore of checkforge vs opponent: 9 - 10 - 0  [0.474] 19\nStarted game 20 of 40 (opponent vs checkforge)\nFinished game 20 (opponent vs checkforge): 0-1 {White loses on time}\nScore of checkforge vs opponent: 10 - 10 - 0  [0.500] 20\nStarted game 21 of 40 (checkforge vs opponent)\nFinished game 21 (checkforge vs opponent): 0-1 {White loses on time}\nScore of checkforge vs opponent: 10 - 11 - 0  [0.476] 21\nStarted game 22 of 40 (opponent vs checkforge)\nFinished game 22 (opponent vs checkforge): 0-1 {White loses on time}\nScore of checkforge vs opponent: 11 - 11 - 0  [0.500] 22\nStarted game 23 of 40 (checkforge vs opponent)\nFinished game 23 (checkforge vs opponent): 0-1 {White loses on time}\nScore of checkforge vs opponent: 11 - 12 - 0  [0.478] 23\nStarted game 24 of 40 (opponent vs checkforge)\nFinished game 24 (opponent vs checkforge): 0-1 {White loses on time}\nScore of checkforge vs opponent: 12 - 12 - 0  [0.500] 24\nStarted game 25 of 40 (checkforge vs opponent)\nFinished game 25 (checkforge vs opponent): 0-1 {White loses on time}\nScore of checkforge vs opponent: 12 - 13 - 0  [0.480] 25\nStarted game 26 of 40 (opponent vs checkforge)\nFinished game 26 (opponent vs checkforge): 0-1 {White loses on time}\nScore of checkforge vs opponent: 13 - 13 - 0  [0.500] 26\nStarted game 27 of 40 (checkforge vs opponent)\nFinished game 27 (checkforge vs opponent): 0-1 {White loses on time}\nScore of checkforge vs opponent: 13 - 14 - 0  [0.481] 27\nStarted game 28 of 40 (opponent vs checkforge)\nFinished game 28 (opponent vs checkforge): 0-1 {White loses on time}\nScore of checkforge vs opponent: 14 - 14 - 0  [0.500] 28\nStarted game 29 of 40 (checkforge vs opponent)\nFinished game 29 (checkforge vs opponent): 0-1 {White loses on time}\nScore of checkforge vs opponent: 14 - 15 - 0  [0.483] 29\nStarted game 30 of 40 (opponent vs checkforge)\nFinished game 30 (opponent vs checkforge): 0-1 {White loses on time}\nScore of checkforge vs opponent: 15 - 15 - 0  [0.500] 30\nStarted game 31 of 40 (checkforge vs opponent)\nFinished game 31 (checkforge vs opponent): 0-1 {White loses on time}\nScore of checkforge vs opponent: 15 - 16 - 0  [0.484] 31\nStarted game 32 of 40 (opponent vs checkforge)\nFinished game 32 (opponent vs checkforge): 0-1 {White loses on time}\nScore of checkforge vs opponent: 16 - 16 - 0  [0.500] 32\nStarted game 33 of 40 (checkforge vs opponent)\nFinished game 33 (checkforge vs opponent): 0-1 {White loses on time}\nScore of checkforge vs opponent: 16 - 17 - 0  [0.485] 33\nStarted game 34 of 40 (opponent vs checkforge)\nFinished game 34 (opponent vs checkforge): 0-1 {White loses on time}\nScore of checkforge vs opponent: 17 - 17 - 0  [0.500] 34\nStarted game 35 of 40 (checkforge vs opponent)\nFinished game 35 (checkforge vs opponent): 0-1 {White loses on time}\nScore of checkforge vs opponent: 17 - 18 - 0  [0.486] 35\nStarted game 36 of 40 (opponent vs checkforge)\nFinished game 36 (opponent vs checkforge): 0-1 {White loses on time}\nScore of checkforge vs opponent: 18 - 18 - 0  [0.500] 36\nStarted game 37 of 40 (checkforge vs opponent)\nFinished game 37 (checkforge vs opponent): 0-1 {White loses on time}\nScore of checkforge vs opponent: 18 - 19 - 0  [0.486] 37\nStarted game 38 of 40 (opponent vs checkforge)\nFinished game 38 (opponent vs checkforge): 0-1 {White loses on time}\nScore of checkforge vs opponent: 19 - 19 - 0  [0.500] 38\nStarted game 39 of 40 (checkforge vs opponent)\nFinished game 39 (checkforge vs opponent): 0-1 {White loses on time}\nScore of checkforge vs opponent: 19 - 20 - 0  [0.487] 39\nStarted game 40 of 40 (opponent vs checkforge)\nFinished game 40 (opponent vs checkforge): 0-1 {White loses on time}\nScore of checkforge vs opponent: 20 - 20 - 0  [0.500] 40\n...      checkforge playing White: 0 - 20 - 0  [0.000] 20\n...      checkforge playing Black: 20 - 0 - 0  [1.000] 20\n...      White vs Black: 0 - 40 - 0  [0.000] 40\nElo difference: 0.0 +/- 111.2, LOS: 50.0 %, DrawRatio: 0.0 %\nSPRT: llr 0 (0.0%), lbound -inf, ubound inf\n\nPlayer: checkforge\n   \"Loss: White loses on time\": 20\n   \"Win: White loses on time\": 20\nPlayer: opponent\n   \"Loss: White loses on time\": 20\n   \"Win: White loses on time\": 20\nFinished match",
+  "stderr": "",
+  "pgn": "matches/exp003-avoid-reversal-vs-v002.pgn"
+}

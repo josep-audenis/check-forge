@@ -113,6 +113,15 @@ void test_configurable_eval() {
     expect(checkforge::evaluate_material(white_up_queen, config) == 1000, "configurable queen material eval");
 }
 
+void test_static_eval_prefers_development() {
+    const checkforge::Board start = checkforge::Board::from_fen("startpos");
+    const checkforge::Board developed =
+        checkforge::Board::from_fen("rnbqkbnr/pppppppp/8/8/8/5N2/PPPPPPPP/RNBQKB1R b KQkq - 1 1");
+    const checkforge::EngineConfig config = checkforge::default_config();
+
+    expect(checkforge::evaluate_static(developed, config) > checkforge::evaluate_static(start, config), "static eval prefers developed knight");
+}
+
 void test_bestmove_is_legal() {
     const checkforge::Board board = checkforge::Board::from_fen("startpos");
     const checkforge::SearchResult result = checkforge::search_bestmove(board, 2);
@@ -136,6 +145,17 @@ void test_bestmove_wins_free_queen() {
     const checkforge::SearchResult result = checkforge::search_bestmove(board, 1);
 
     expect_equal(checkforge::move_to_uci(result.best_move), "e2e4", "bestmove captures free queen");
+}
+
+void test_quiescence_avoids_poisoned_pawn() {
+    const checkforge::Board board =
+        checkforge::Board::from_fen("4r1k1/8/8/8/4p3/8/4Q3/4K3 w - - 0 1");
+    checkforge::EngineConfig config = checkforge::default_config();
+    config.quiescence_depth = 4;
+    const checkforge::SearchResult result = checkforge::search_bestmove(board, 1, config);
+
+    expect(result.has_move, "quiescence bestmove exists");
+    expect(checkforge::move_to_uci(result.best_move) != "e2e4", "quiescence avoids poisoned pawn capture");
 }
 
 void test_full_game_smoke() {
@@ -196,8 +216,10 @@ int main() {
     test_kiwipete_perft();
     test_material_eval();
     test_configurable_eval();
+    test_static_eval_prefers_development();
     test_bestmove_is_legal();
     test_bestmove_wins_free_queen();
+    test_quiescence_avoids_poisoned_pawn();
     test_full_game_smoke();
     test_uci_handshake();
     test_uci_go_depth();

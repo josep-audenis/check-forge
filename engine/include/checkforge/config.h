@@ -11,6 +11,7 @@ struct EngineConfig {
     int rook_value = 500;
     int queen_value = 900;
     int default_depth = 3;
+    int quiescence_depth = 4;
 };
 
 EngineConfig default_config();

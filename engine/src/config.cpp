@@ -78,6 +78,7 @@ EngineConfig load_config_file(const std::string& path) {
     config.rook_value = parse_positive_int_after_key(text, "rook", config.rook_value);
     config.queen_value = parse_positive_int_after_key(text, "queen", config.queen_value);
     config.default_depth = parse_positive_int_after_key(text, "default_depth", config.default_depth);
+    config.quiescence_depth = parse_positive_int_after_key(text, "quiescence_depth", config.quiescence_depth);
 
     return config;
 }
@@ -87,13 +88,14 @@ std::string config_to_json(const EngineConfig& config) {
     std::snprintf(
         buffer,
         sizeof(buffer),
-        "{\"piece_values\":{\"pawn\":%d,\"knight\":%d,\"bishop\":%d,\"rook\":%d,\"queen\":%d},\"search_params\":{\"default_depth\":%d}}",
+        "{\"piece_values\":{\"pawn\":%d,\"knight\":%d,\"bishop\":%d,\"rook\":%d,\"queen\":%d},\"search_params\":{\"default_depth\":%d,\"quiescence_depth\":%d}}",
         config.pawn_value,
         config.knight_value,
         config.bishop_value,
         config.rook_value,
         config.queen_value,
-        config.default_depth);
+        config.default_depth,
+        config.quiescence_depth);
     return std::string(buffer);
 }
 

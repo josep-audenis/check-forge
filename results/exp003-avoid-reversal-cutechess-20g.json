@@ -1,0 +1,44 @@
+{
+  "benchmark": "cutechess",
+  "engine": "versions/v003-avoid-reversal/checkforge.exe",
+  "engine_version": "CheckForge 0.1.0-phase4",
+  "git_commit": "094e45bf31872de668284be2bbda63e4b8f2ff1e",
+  "config": {
+    "path": "versions/v003-avoid-reversal/default.json",
+    "sha256": "db680e1ff84e257412cf9ad581f8e6d8e7f49474d6de384d7395d293df564111"
+  },
+  "created_at": "2026-06-12T15:46:07.110095+00:00",
+  "opponent": {
+    "engine": "versions/v002-positional-eval/checkforge.exe",
+    "config": "versions/v002-positional-eval/default.json"
+  },
+  "passed": true,
+  "skipped": false,
+  "command": [
+    "C:\\Users\\Josep\\AppData\\Local\\Microsoft\\WinGet\\Packages\\CuteChess.CuteChess_Microsoft.Winget.Source_8wekyb3d8bbwe\\cutechess-1.4.0-win64\\cutechess-cli.exe",
+    "-engine",
+    "cmd=C:\\CODE\\check-forge\\versions\\v003-avoid-reversal\\checkforge.exe",
+    "arg=--config",
+    "arg=C:\\CODE\\check-forge\\versions\\v003-avoid-reversal\\default.json",
+    "arg=uci",
+    "proto=uci",
+    "name=checkforge",
+    "-engine",
+    "cmd=C:\\CODE\\check-forge\\versions\\v002-positional-eval\\checkforge.exe",
+    "arg=--config",
+    "arg=C:\\CODE\\check-forge\\versions\\v002-positional-eval\\default.json",
+    "arg=uci",
+    "proto=uci",
+    "name=opponent",
+    "-each",
+    "tc=2+0.1",
+    "-games",
+    "20",
+    "-pgnout",
+    "matches/exp003-avoid-reversal-vs-v002-20g.pgn"
+  ],
+  "returncode": 0,
+  "stdout": "Started game 1 of 20 (checkforge vs opponent)\nFinished game 1 (checkforge vs opponent): 1/2-1/2 {Draw by 3-fold repetition}\nScore of checkforge vs opponent: 0 - 0 - 1  [0.500] 1\nStarted game 2 of 20 (opponent vs checkforge)\nFinished game 2 (opponent vs checkforge): 1-0 {White mates}\nScore of checkforge vs opponent: 0 - 1 - 1  [0.250] 2\nStarted game 3 of 20 (checkforge vs opponent)\nFinished game 3 (checkforge vs opponent): 1/2-1/2 {Draw by 3-fold repetition}\nScore of checkforge vs opponent: 0 - 1 - 2  [0.333] 3\nStarted game 4 of 20 (opponent vs checkforge)\nFinished game 4 (opponent vs checkforge): 1-0 {White mates}\nScore of checkforge vs opponent: 0 - 2 - 2  [0.250] 4\nStarted game 5 of 20 (checkforge vs opponent)\nFinished game 5 (checkforge vs opponent): 1/2-1/2 {Draw by 3-fold repetition}\nScore of checkforge vs opponent: 0 - 2 - 3  [0.300] 5\nStarted game 6 of 20 (opponent vs checkforge)\nFinished game 6 (opponent vs checkforge): 1-0 {White mates}\nScore of checkforge vs opponent: 0 - 3 - 3  [0.250] 6\nStarted game 7 of 20 (checkforge vs opponent)\nFinished game 7 (checkforge vs opponent): 1/2-1/2 {Draw by 3-fold repetition}\nScore of checkforge vs opponent: 0 - 3 - 4  [0.286] 7\nStarted game 8 of 20 (opponent vs checkforge)\nFinished game 8 (opponent vs checkforge): 1-0 {White mates}\nScore of checkforge vs opponent: 0 - 4 - 4  [0.250] 8\nStarted game 9 of 20 (checkforge vs opponent)\nFinished game 9 (checkforge vs opponent): 1/2-1/2 {Draw by 3-fold repetition}\nScore of checkforge vs opponent: 0 - 4 - 5  [0.278] 9\nStarted game 10 of 20 (opponent vs checkforge)\nFinished game 10 (opponent vs checkforge): 1-0 {White mates}\nScore of checkforge vs opponent: 0 - 5 - 5  [0.250] 10\nStarted game 11 of 20 (checkforge vs opponent)\nFinished game 11 (checkforge vs opponent): 1/2-1/2 {Draw by 3-fold repetition}\nScore of checkforge vs opponent: 0 - 5 - 6  [0.273] 11\nStarted game 12 of 20 (opponent vs checkforge)\nFinished game 12 (opponent vs checkforge): 1-0 {White mates}\nScore of checkforge vs opponent: 0 - 6 - 6  [0.250] 12\nStarted game 13 of 20 (checkforge vs opponent)\nFinished game 13 (checkforge vs opponent): 1/2-1/2 {Draw by 3-fold repetition}\nScore of checkforge vs opponent: 0 - 6 - 7  [0.269] 13\nStarted game 14 of 20 (opponent vs checkforge)\nFinished game 14 (opponent vs checkforge): 1-0 {White mates}\nScore of checkforge vs opponent: 0 - 7 - 7  [0.250] 14\nStarted game 15 of 20 (checkforge vs opponent)\nFinished game 15 (checkforge vs opponent): 1/2-1/2 {Draw by 3-fold repetition}\nScore of checkforge vs opponent: 0 - 7 - 8  [0.267] 15\nStarted game 16 of 20 (opponent vs checkforge)\nFinished game 16 (opponent vs checkforge): 1-0 {White mates}\nScore of checkforge vs opponent: 0 - 8 - 8  [0.250] 16\nStarted game 17 of 20 (checkforge vs opponent)\nFinished game 17 (checkforge vs opponent): 1/2-1/2 {Draw by 3-fold repetition}\nScore of checkforge vs opponent: 0 - 8 - 9  [0.265] 17\nStarted game 18 of 20 (opponent vs checkforge)\nFinished game 18 (opponent vs checkforge): 1-0 {White mates}\nScore of checkforge vs opponent: 0 - 9 - 9  [0.250] 18\nStarted game 19 of 20 (checkforge vs opponent)\nFinished game 19 (checkforge vs opponent): 1/2-1/2 {Draw by 3-fold repetition}\nScore of checkforge vs opponent: 0 - 9 - 10  [0.263] 19\nStarted game 20 of 20 (opponent vs checkforge)\nFinished game 20 (opponent vs checkforge): 1-0 {White mates}\nScore of checkforge vs opponent: 0 - 10 - 10  [0.250] 20\n...      checkforge playing White: 0 - 0 - 10  [0.500] 10\n...      checkforge playing Black: 0 - 10 - 0  [0.000] 10\n...      White vs Black: 10 - 0 - 10  [0.750] 20\nElo difference: -190.8 +/- 107.0, LOS: 0.1 %, DrawRatio: 50.0 %\nSPRT: llr 0 (0.0%), lbound -inf, ubound inf\n\nPlayer: checkforge\n   \"Draw by 3-fold repetition\": 10\n   \"Loss: White mates\": 10\nPlayer: opponent\n   \"Draw by 3-fold repetition\": 10\n   \"Win: White mates\": 10\nFinished match",
+  "stderr": "",
+  "pgn": "matches/exp003-avoid-reversal-vs-v002-20g.pgn"
+}

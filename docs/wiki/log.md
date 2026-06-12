@@ -148,3 +148,86 @@ Touched:
 
 - [[implementation-roadmap]]
 - [[system-architecture]]
+
+## [2026-06-12] autoresearch | exp001 quiescence
+
+Implemented bounded capture/promotion quiescence at search leaves with configurable `quiescence_depth`.
+
+Verified:
+
+```text
+powershell -ExecutionPolicy Bypass -File task.ps1 test
+python research/run_benchmark.py --engine build/engine/checkforge.exe --opponent-engine versions/v000-phase4-baseline/checkforge.exe --opponent-config versions/v000-phase4-baseline/default.json --experiment-id exp001-quiescence --output results/exp001-quiescence.json
+python research/run_cutechess.py --engine build/engine/checkforge.exe --opponent-engine versions/v000-phase4-baseline/checkforge.exe --opponent-config versions/v000-phase4-baseline/default.json --games 40 --tc 2+0.1 --output results/exp001-quiescence-cutechess.json --pgn matches/exp001-quiescence-vs-v000.pgn
+```
+
+Results:
+
+```text
+benchmark accepted=true
+cutechess passed=true
+score vs v000: 0 - 0 - 40 [0.500]
+decision: accepted as infrastructure; no Elo gain detected
+```
+
+## [2026-06-12] autoresearch | exp002 positional eval
+
+Added static search eval with piece-square and development bonuses.
+
+Verified:
+
+```text
+powershell -ExecutionPolicy Bypass -File task.ps1 test
+python research/run_benchmark.py --engine build/engine/checkforge.exe --opponent-engine versions/v001-quiescence/checkforge.exe --opponent-config versions/v001-quiescence/default.json --experiment-id exp002-positional-eval --output results/exp002-positional-eval.json
+python research/run_cutechess.py --engine build/engine/checkforge.exe --opponent-engine versions/v001-quiescence/checkforge.exe --opponent-config versions/v001-quiescence/default.json --games 60 --tc 2+0.1 --output results/exp002-positional-eval-cutechess.json --pgn matches/exp002-positional-eval-vs-v001.pgn
+```
+
+Results:
+
+```text
+benchmark accepted=true
+cutechess passed=true
+score vs v001: 0 - 0 - 60 [0.500]
+decision: accepted; improves opening choices but still repeats
+weak point: immediate move reversal / threefold repetition
+```
+
+## [2026-06-12] autoresearch | exp003 avoid reversal
+
+Added UCI history-aware root fallback to avoid immediate reversal of previous own move.
+
+Results:
+
+```text
+benchmark accepted=true
+fast cutechess exposed time-control weakness
+score vs v002 at 1+0.05: 20 - 20 - 0, all games lost by White on time
+decision: needs follow-up, kept as current candidate after exp004 rejected
+```
+
+## [2026-06-12] autoresearch | exp004 time management
+
+Tested shallow depth cap for UCI time controls.
+
+Results:
+
+```text
+benchmark accepted=true
+cutechess score vs v002: 0 - 60 - 0
+failure: lost every game by mate
+decision: rejected and reverted
+saved rejected binary: versions/v004-rejected-time-management
+```
+
+## [2026-06-12] autoresearch | exp005 check extension
+
+Added one-ply extension when a leaf node is in check.
+
+Results:
+
+```text
+benchmark accepted=true
+cutechess score vs v002: 0 - 0 - 20 [0.500]
+decision: accepted as safe search infrastructure; no Elo gain detected
+saved version: versions/v005-check-extension
+```

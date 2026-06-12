@@ -42,6 +42,44 @@ void order_moves(const Board& board, const EngineConfig& config, std::vector<Mov
     });
 }
 
+bool is_capture_or_promotion(const Board& board, const Move& move) {
+    return board.squares[move.to] != '\0' || move.is_en_passant || move.promotion != '\0';
+}
+
+int quiescence(const Board& board, int alpha, int beta, int remaining_depth, const EngineConfig& config) {
+    const int stand_pat = evaluate_static_for_side_to_move(board, config);
+    if (stand_pat >= beta) {
+        return beta;
+    }
+    if (stand_pat > alpha) {
+        alpha = stand_pat;
+    }
+
+    if (remaining_depth <= 0) {
+        return stand_pat;
+    }
+
+    std::vector<Move> moves = generate_legal_moves(board);
+    order_moves(board, config, &moves);
+
+    for (const Move& move : moves) {
+        if (!is_capture_or_promotion(board, move)) {
+            continue;
+        }
+
+        const Board next = make_move(board, move);
+        const int score = -quiescence(next, -beta, -alpha, remaining_depth - 1, config);
+        if (score >= beta) {
+            return beta;
+        }
+        if (score > alpha) {
+            alpha = score;
+        }
+    }
+
+    return alpha;
+}
+
 int negamax(const Board& board, int depth, int alpha, int beta, int ply, const EngineConfig& config) {
     std::vector<Move> moves = generate_legal_moves(board);
 
@@ -52,8 +90,12 @@ int negamax(const Board& board, int depth, int alpha, int beta, int ply, const E
         return 0;
     }
 
+    if (depth == 0 && is_in_check(board, board.side_to_move)) {
+        depth = 1;
+    }
+
     if (depth == 0) {
-        return evaluate_for_side_to_move(board, config);
+        return quiescence(board, alpha, beta, config.quiescence_depth, config);
     }
 
     order_moves(board, config, &moves);

@@ -1,0 +1,42 @@
+{
+  "benchmark": "tactics",
+  "engine": "build/engine/checkforge.exe",
+  "engine_version": "CheckForge 0.1.0-phase4",
+  "git_commit": "094e45bf31872de668284be2bbda63e4b8f2ff1e",
+  "config": {
+    "path": "configs/default.json",
+    "sha256": "db680e1ff84e257412cf9ad581f8e6d8e7f49474d6de384d7395d293df564111"
+  },
+  "created_at": "2026-06-12T15:30:19.560754+00:00",
+  "passed": true,
+  "solved": 2,
+  "total": 2,
+  "cases": [
+    {
+      "id": "free-queen",
+      "fen": "4k3/8/8/8/4q3/8/4R3/4K3 w - - 0 1",
+      "depth": 1,
+      "expected": [
+        "e2e4"
+      ],
+      "actual": "e2e4",
+      "passed": true,
+      "stdout": "bestmove e2e4 score cp 503",
+      "stderr": "",
+      "returncode": 0
+    },
+    {
+      "id": "free-rook",
+      "fen": "4k3/8/8/8/4r3/3B4/8/4K3 w - - 0 1",
+      "depth": 1,
+      "expected": [
+        "d3e4"
+      ],
+      "actual": "d3e4",
+      "passed": true,
+      "stdout": "bestmove d3e4 score cp 362",
+      "stderr": "",
+      "returncode": 0
+    }
+  ]
+}

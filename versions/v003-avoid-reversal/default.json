@@ -9,6 +9,7 @@
   "eval_weights": {},
   "search_params": {
     "default_depth": 3,
-    "quiescence_depth": 4
+    "quiescence_depth": 4,
+    "avoid_repetition": 1
   }
 }

@@ -1,0 +1,760 @@
+[Event "?"]
+[Site "?"]
+[Date "2026.06.12"]
+[Round "1"]
+[White "checkforge"]
+[Black "opponent"]
+[Result "1/2-1/2"]
+[ECO "A00"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-06-12T17:24:31.955 Hora de verano romance"]
+[GameStartTime "2026-06-12T17:24:30.615 Hora de verano romance"]
+[Opening "Anderssen's Opening"]
+[PlyCount "49"]
+[TimeControl "2+0.1"]
+
+1. a3 Na6 2. a4 Rb8 3. a5 c6 4. b3 Ra8 5. c3 Rb8 6. b4 Ra8 7. d3 Rb8 8. d4 Ra8
+9. d5 cxd5 10. Qxd5 Rb8 11. Qc4 Ra8 12. b5 d5 13. Qb3 Nb8 14. Qa4 Nd7 15. a6
+bxa6 16. bxa6 Rb8 17. Qc6 Rb6 18. Qxd5 Ngf6 19. Qa8 Rb8 20. Qxa7 Rb6 21. Qa8 Rb8
+22. Qc6 Rb6 23. Qa8 Rb8 24. Qc6 Rb6 25. Qa8 {Draw by 3-fold repetition} 1/2-1/2
+
+[Event "?"]
+[Site "?"]
+[Date "2026.06.12"]
+[Round "1"]
+[White "opponent"]
+[Black "checkforge"]
+[Result "1/2-1/2"]
+[ECO "A00"]
+[GameDuration "00:00:00"]
+[GameEndTime "2026-06-12T17:24:32.133 Hora de verano romance"]
+[GameStartTime "2026-06-12T17:24:31.958 Hora de verano romance"]
+[Opening "Anderssen's Opening"]
+[PlyCount "17"]
+[TimeControl "2+0.1"]
+
+1. a3 Na6 2. a4 Rb8 3. a5 Ra8 4. b3 Rb8 5. Bb2 Ra8 6. Ba3 Rb8 7. Bb2 Ra8 8. Ba3
+Rb8 9. Bb2 {Draw by 3-fold repetition} 1/2-1/2
+
+[Event "?"]
+[Site "?"]
+[Date "2026.06.12"]
+[Round "1"]
+[White "checkforge"]
+[Black "opponent"]
+[Result "1/2-1/2"]
+[ECO "A00"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-06-12T17:24:33.460 Hora de verano romance"]
+[GameStartTime "2026-06-12T17:24:32.133 Hora de verano romance"]
+[Opening "Anderssen's Opening"]
+[PlyCount "49"]
+[TimeControl "2+0.1"]
+
+1. a3 Na6 2. a4 Rb8 3. a5 c6 4. b3 Ra8 5. c3 Rb8 6. b4 Ra8 7. d3 Rb8 8. d4 Ra8
+9. d5 cxd5 10. Qxd5 Rb8 11. Qc4 Ra8 12. b5 d5 13. Qb3 Nb8 14. Qa4 Nd7 15. a6
+bxa6 16. bxa6 Rb8 17. Qc6 Rb6 18. Qxd5 Ngf6 19. Qa8 Rb8 20. Qxa7 Rb6 21. Qa8 Rb8
+22. Qc6 Rb6 23. Qa8 Rb8 24. Qc6 Rb6 25. Qa8 {Draw by 3-fold repetition} 1/2-1/2
+
+[Event "?"]
+[Site "?"]
+[Date "2026.06.12"]
+[Round "1"]
+[White "opponent"]
+[Black "checkforge"]
+[Result "1/2-1/2"]
+[ECO "A00"]
+[GameDuration "00:00:00"]
+[GameEndTime "2026-06-12T17:24:33.659 Hora de verano romance"]
+[GameStartTime "2026-06-12T17:24:33.463 Hora de verano romance"]
+[Opening "Anderssen's Opening"]
+[PlyCount "17"]
+[TimeControl "2+0.1"]
+
+1. a3 Na6 2. a4 Rb8 3. a5 Ra8 4. b3 Rb8 5. Bb2 Ra8 6. Ba3 Rb8 7. Bb2 Ra8 8. Ba3
+Rb8 9. Bb2 {Draw by 3-fold repetition} 1/2-1/2
+
+[Event "?"]
+[Site "?"]
+[Date "2026.06.12"]
+[Round "1"]
+[White "checkforge"]
+[Black "opponent"]
+[Result "1/2-1/2"]
+[ECO "A00"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-06-12T17:24:35.185 Hora de verano romance"]
+[GameStartTime "2026-06-12T17:24:33.665 Hora de verano romance"]
+[Opening "Anderssen's Opening"]
+[PlyCount "49"]
+[TimeControl "2+0.1"]
+
+1. a3 Na6 2. a4 Rb8 3. a5 c6 4. b3 Ra8 5. c3 Rb8 6. b4 Ra8 7. d3 Rb8 8. d4 Ra8
+9. d5 cxd5 10. Qxd5 Rb8 11. Qc4 Ra8 12. b5 d5 13. Qb3 Nb8 14. Qa4 Nd7 15. a6
+bxa6 16. bxa6 Rb8 17. Qc6 Rb6 18. Qxd5 Ngf6 19. Qa8 Rb8 20. Qxa7 Rb6 21. Qa8 Rb8
+22. Qc6 Rb6 23. Qa8 Rb8 24. Qc6 Rb6 25. Qa8 {Draw by 3-fold repetition} 1/2-1/2
+
+[Event "?"]
+[Site "?"]
+[Date "2026.06.12"]
+[Round "1"]
+[White "opponent"]
+[Black "checkforge"]
+[Result "1/2-1/2"]
+[ECO "A00"]
+[GameDuration "00:00:00"]
+[GameEndTime "2026-06-12T17:24:35.391 Hora de verano romance"]
+[GameStartTime "2026-06-12T17:24:35.188 Hora de verano romance"]
+[Opening "Anderssen's Opening"]
+[PlyCount "17"]
+[TimeControl "2+0.1"]
+
+1. a3 Na6 2. a4 Rb8 3. a5 Ra8 4. b3 Rb8 5. Bb2 Ra8 6. Ba3 Rb8 7. Bb2 Ra8 8. Ba3
+Rb8 9. Bb2 {Draw by 3-fold repetition} 1/2-1/2
+
+[Event "?"]
+[Site "?"]
+[Date "2026.06.12"]
+[Round "1"]
+[White "checkforge"]
+[Black "opponent"]
+[Result "1/2-1/2"]
+[ECO "A00"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-06-12T17:24:37.133 Hora de verano romance"]
+[GameStartTime "2026-06-12T17:24:35.393 Hora de verano romance"]
+[Opening "Anderssen's Opening"]
+[PlyCount "49"]
+[TimeControl "2+0.1"]
+
+1. a3 Na6 2. a4 Rb8 3. a5 c6 4. b3 Ra8 5. c3 Rb8 6. b4 Ra8 7. d3 Rb8 8. d4 Ra8
+9. d5 cxd5 10. Qxd5 Rb8 11. Qc4 Ra8 12. b5 d5 13. Qb3 Nb8 14. Qa4 Nd7 15. a6
+bxa6 16. bxa6 Rb8 17. Qc6 Rb6 18. Qxd5 Ngf6 19. Qa8 Rb8 20. Qxa7 Rb6 21. Qa8 Rb8
+22. Qc6 Rb6 23. Qa8 Rb8 24. Qc6 Rb6 25. Qa8 {Draw by 3-fold repetition} 1/2-1/2
+
+[Event "?"]
+[Site "?"]
+[Date "2026.06.12"]
+[Round "1"]
+[White "opponent"]
+[Black "checkforge"]
+[Result "1/2-1/2"]
+[ECO "A00"]
+[GameDuration "00:00:00"]
+[GameEndTime "2026-06-12T17:24:37.386 Hora de verano romance"]
+[GameStartTime "2026-06-12T17:24:37.136 Hora de verano romance"]
+[Opening "Anderssen's Opening"]
+[PlyCount "17"]
+[TimeControl "2+0.1"]
+
+1. a3 Na6 2. a4 Rb8 3. a5 Ra8 4. b3 Rb8 5. Bb2 Ra8 6. Ba3 Rb8 7. Bb2 Ra8 8. Ba3
+Rb8 9. Bb2 {Draw by 3-fold repetition} 1/2-1/2
+
+[Event "?"]
+[Site "?"]
+[Date "2026.06.12"]
+[Round "1"]
+[White "checkforge"]
+[Black "opponent"]
+[Result "1/2-1/2"]
+[ECO "A00"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-06-12T17:24:39.031 Hora de verano romance"]
+[GameStartTime "2026-06-12T17:24:37.388 Hora de verano romance"]
+[Opening "Anderssen's Opening"]
+[PlyCount "49"]
+[TimeControl "2+0.1"]
+
+1. a3 Na6 2. a4 Rb8 3. a5 c6 4. b3 Ra8 5. c3 Rb8 6. b4 Ra8 7. d3 Rb8 8. d4 Ra8
+9. d5 cxd5 10. Qxd5 Rb8 11. Qc4 Ra8 12. b5 d5 13. Qb3 Nb8 14. Qa4 Nd7 15. a6
+bxa6 16. bxa6 Rb8 17. Qc6 Rb6 18. Qxd5 Ngf6 19. Qa8 Rb8 20. Qxa7 Rb6 21. Qa8 Rb8
+22. Qc6 Rb6 23. Qa8 Rb8 24. Qc6 Rb6 25. Qa8 {Draw by 3-fold repetition} 1/2-1/2
+
+[Event "?"]
+[Site "?"]
+[Date "2026.06.12"]
+[Round "1"]
+[White "opponent"]
+[Black "checkforge"]
+[Result "1/2-1/2"]
+[ECO "A00"]
+[GameDuration "00:00:00"]
+[GameEndTime "2026-06-12T17:24:39.252 Hora de verano romance"]
+[GameStartTime "2026-06-12T17:24:39.033 Hora de verano romance"]
+[Opening "Anderssen's Opening"]
+[PlyCount "17"]
+[TimeControl "2+0.1"]
+
+1. a3 Na6 2. a4 Rb8 3. a5 Ra8 4. b3 Rb8 5. Bb2 Ra8 6. Ba3 Rb8 7. Bb2 Ra8 8. Ba3
+Rb8 9. Bb2 {Draw by 3-fold repetition} 1/2-1/2
+
+[Event "?"]
+[Site "?"]
+[Date "2026.06.12"]
+[Round "1"]
+[White "checkforge"]
+[Black "opponent"]
+[Result "1/2-1/2"]
+[ECO "A00"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-06-12T17:24:40.825 Hora de verano romance"]
+[GameStartTime "2026-06-12T17:24:39.254 Hora de verano romance"]
+[Opening "Anderssen's Opening"]
+[PlyCount "49"]
+[TimeControl "2+0.1"]
+
+1. a3 Na6 2. a4 Rb8 3. a5 c6 4. b3 Ra8 5. c3 Rb8 6. b4 Ra8 7. d3 Rb8 8. d4 Ra8
+9. d5 cxd5 10. Qxd5 Rb8 11. Qc4 Ra8 12. b5 d5 13. Qb3 Nb8 14. Qa4 Nd7 15. a6
+bxa6 16. bxa6 Rb8 17. Qc6 Rb6 18. Qxd5 Ngf6 19. Qa8 Rb8 20. Qxa7 Rb6 21. Qa8 Rb8
+22. Qc6 Rb6 23. Qa8 Rb8 24. Qc6 Rb6 25. Qa8 {Draw by 3-fold repetition} 1/2-1/2
+
+[Event "?"]
+[Site "?"]
+[Date "2026.06.12"]
+[Round "1"]
+[White "opponent"]
+[Black "checkforge"]
+[Result "1/2-1/2"]
+[ECO "A00"]
+[GameDuration "00:00:00"]
+[GameEndTime "2026-06-12T17:24:41.072 Hora de verano romance"]
+[GameStartTime "2026-06-12T17:24:40.827 Hora de verano romance"]
+[Opening "Anderssen's Opening"]
+[PlyCount "17"]
+[TimeControl "2+0.1"]
+
+1. a3 Na6 2. a4 Rb8 3. a5 Ra8 4. b3 Rb8 5. Bb2 Ra8 6. Ba3 Rb8 7. Bb2 Ra8 8. Ba3
+Rb8 9. Bb2 {Draw by 3-fold repetition} 1/2-1/2
+
+[Event "?"]
+[Site "?"]
+[Date "2026.06.12"]
+[Round "1"]
+[White "checkforge"]
+[Black "opponent"]
+[Result "1/2-1/2"]
+[ECO "A00"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-06-12T17:24:42.504 Hora de verano romance"]
+[GameStartTime "2026-06-12T17:24:41.074 Hora de verano romance"]
+[Opening "Anderssen's Opening"]
+[PlyCount "49"]
+[TimeControl "2+0.1"]
+
+1. a3 Na6 2. a4 Rb8 3. a5 c6 4. b3 Ra8 5. c3 Rb8 6. b4 Ra8 7. d3 Rb8 8. d4 Ra8
+9. d5 cxd5 10. Qxd5 Rb8 11. Qc4 Ra8 12. b5 d5 13. Qb3 Nb8 14. Qa4 Nd7 15. a6
+bxa6 16. bxa6 Rb8 17. Qc6 Rb6 18. Qxd5 Ngf6 19. Qa8 Rb8 20. Qxa7 Rb6 21. Qa8 Rb8
+22. Qc6 Rb6 23. Qa8 Rb8 24. Qc6 Rb6 25. Qa8 {Draw by 3-fold repetition} 1/2-1/2
+
+[Event "?"]
+[Site "?"]
+[Date "2026.06.12"]
+[Round "1"]
+[White "opponent"]
+[Black "checkforge"]
+[Result "1/2-1/2"]
+[ECO "A00"]
+[GameDuration "00:00:00"]
+[GameEndTime "2026-06-12T17:24:42.692 Hora de verano romance"]
+[GameStartTime "2026-06-12T17:24:42.506 Hora de verano romance"]
+[Opening "Anderssen's Opening"]
+[PlyCount "17"]
+[TimeControl "2+0.1"]
+
+1. a3 Na6 2. a4 Rb8 3. a5 Ra8 4. b3 Rb8 5. Bb2 Ra8 6. Ba3 Rb8 7. Bb2 Ra8 8. Ba3
+Rb8 9. Bb2 {Draw by 3-fold repetition} 1/2-1/2
+
+[Event "?"]
+[Site "?"]
+[Date "2026.06.12"]
+[Round "1"]
+[White "checkforge"]
+[Black "opponent"]
+[Result "1/2-1/2"]
+[ECO "A00"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-06-12T17:24:44.216 Hora de verano romance"]
+[GameStartTime "2026-06-12T17:24:42.694 Hora de verano romance"]
+[Opening "Anderssen's Opening"]
+[PlyCount "49"]
+[TimeControl "2+0.1"]
+
+1. a3 Na6 2. a4 Rb8 3. a5 c6 4. b3 Ra8 5. c3 Rb8 6. b4 Ra8 7. d3 Rb8 8. d4 Ra8
+9. d5 cxd5 10. Qxd5 Rb8 11. Qc4 Ra8 12. b5 d5 13. Qb3 Nb8 14. Qa4 Nd7 15. a6
+bxa6 16. bxa6 Rb8 17. Qc6 Rb6 18. Qxd5 Ngf6 19. Qa8 Rb8 20. Qxa7 Rb6 21. Qa8 Rb8
+22. Qc6 Rb6 23. Qa8 Rb8 24. Qc6 Rb6 25. Qa8 {Draw by 3-fold repetition} 1/2-1/2
+
+[Event "?"]
+[Site "?"]
+[Date "2026.06.12"]
+[Round "1"]
+[White "opponent"]
+[Black "checkforge"]
+[Result "1/2-1/2"]
+[ECO "A00"]
+[GameDuration "00:00:00"]
+[GameEndTime "2026-06-12T17:24:44.436 Hora de verano romance"]
+[GameStartTime "2026-06-12T17:24:44.218 Hora de verano romance"]
+[Opening "Anderssen's Opening"]
+[PlyCount "17"]
+[TimeControl "2+0.1"]
+
+1. a3 Na6 2. a4 Rb8 3. a5 Ra8 4. b3 Rb8 5. Bb2 Ra8 6. Ba3 Rb8 7. Bb2 Ra8 8. Ba3
+Rb8 9. Bb2 {Draw by 3-fold repetition} 1/2-1/2
+
+[Event "?"]
+[Site "?"]
+[Date "2026.06.12"]
+[Round "1"]
+[White "checkforge"]
+[Black "opponent"]
+[Result "1/2-1/2"]
+[ECO "A00"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-06-12T17:24:45.870 Hora de verano romance"]
+[GameStartTime "2026-06-12T17:24:44.438 Hora de verano romance"]
+[Opening "Anderssen's Opening"]
+[PlyCount "49"]
+[TimeControl "2+0.1"]
+
+1. a3 Na6 2. a4 Rb8 3. a5 c6 4. b3 Ra8 5. c3 Rb8 6. b4 Ra8 7. d3 Rb8 8. d4 Ra8
+9. d5 cxd5 10. Qxd5 Rb8 11. Qc4 Ra8 12. b5 d5 13. Qb3 Nb8 14. Qa4 Nd7 15. a6
+bxa6 16. bxa6 Rb8 17. Qc6 Rb6 18. Qxd5 Ngf6 19. Qa8 Rb8 20. Qxa7 Rb6 21. Qa8 Rb8
+22. Qc6 Rb6 23. Qa8 Rb8 24. Qc6 Rb6 25. Qa8 {Draw by 3-fold repetition} 1/2-1/2
+
+[Event "?"]
+[Site "?"]
+[Date "2026.06.12"]
+[Round "1"]
+[White "opponent"]
+[Black "checkforge"]
+[Result "1/2-1/2"]
+[ECO "A00"]
+[GameDuration "00:00:00"]
+[GameEndTime "2026-06-12T17:24:46.080 Hora de verano romance"]
+[GameStartTime "2026-06-12T17:24:45.872 Hora de verano romance"]
+[Opening "Anderssen's Opening"]
+[PlyCount "17"]
+[TimeControl "2+0.1"]
+
+1. a3 Na6 2. a4 Rb8 3. a5 Ra8 4. b3 Rb8 5. Bb2 Ra8 6. Ba3 Rb8 7. Bb2 Ra8 8. Ba3
+Rb8 9. Bb2 {Draw by 3-fold repetition} 1/2-1/2
+
+[Event "?"]
+[Site "?"]
+[Date "2026.06.12"]
+[Round "1"]
+[White "checkforge"]
+[Black "opponent"]
+[Result "1/2-1/2"]
+[ECO "A00"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-06-12T17:24:47.488 Hora de verano romance"]
+[GameStartTime "2026-06-12T17:24:46.080 Hora de verano romance"]
+[Opening "Anderssen's Opening"]
+[PlyCount "49"]
+[TimeControl "2+0.1"]
+
+1. a3 Na6 2. a4 Rb8 3. a5 c6 4. b3 Ra8 5. c3 Rb8 6. b4 Ra8 7. d3 Rb8 8. d4 Ra8
+9. d5 cxd5 10. Qxd5 Rb8 11. Qc4 Ra8 12. b5 d5 13. Qb3 Nb8 14. Qa4 Nd7 15. a6
+bxa6 16. bxa6 Rb8 17. Qc6 Rb6 18. Qxd5 Ngf6 19. Qa8 Rb8 20. Qxa7 Rb6 21. Qa8 Rb8
+22. Qc6 Rb6 23. Qa8 Rb8 24. Qc6 Rb6 25. Qa8 {Draw by 3-fold repetition} 1/2-1/2
+
+[Event "?"]
+[Site "?"]
+[Date "2026.06.12"]
+[Round "1"]
+[White "opponent"]
+[Black "checkforge"]
+[Result "1/2-1/2"]
+[ECO "A00"]
+[GameDuration "00:00:00"]
+[GameEndTime "2026-06-12T17:24:47.665 Hora de verano romance"]
+[GameStartTime "2026-06-12T17:24:47.490 Hora de verano romance"]
+[Opening "Anderssen's Opening"]
+[PlyCount "17"]
+[TimeControl "2+0.1"]
+
+1. a3 Na6 2. a4 Rb8 3. a5 Ra8 4. b3 Rb8 5. Bb2 Ra8 6. Ba3 Rb8 7. Bb2 Ra8 8. Ba3
+Rb8 9. Bb2 {Draw by 3-fold repetition} 1/2-1/2
+
+[Event "?"]
+[Site "?"]
+[Date "2026.06.12"]
+[Round "1"]
+[White "checkforge"]
+[Black "opponent"]
+[Result "1/2-1/2"]
+[ECO "A00"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-06-12T17:24:49.150 Hora de verano romance"]
+[GameStartTime "2026-06-12T17:24:47.666 Hora de verano romance"]
+[Opening "Anderssen's Opening"]
+[PlyCount "49"]
+[TimeControl "2+0.1"]
+
+1. a3 Na6 2. a4 Rb8 3. a5 c6 4. b3 Ra8 5. c3 Rb8 6. b4 Ra8 7. d3 Rb8 8. d4 Ra8
+9. d5 cxd5 10. Qxd5 Rb8 11. Qc4 Ra8 12. b5 d5 13. Qb3 Nb8 14. Qa4 Nd7 15. a6
+bxa6 16. bxa6 Rb8 17. Qc6 Rb6 18. Qxd5 Ngf6 19. Qa8 Rb8 20. Qxa7 Rb6 21. Qa8 Rb8
+22. Qc6 Rb6 23. Qa8 Rb8 24. Qc6 Rb6 25. Qa8 {Draw by 3-fold repetition} 1/2-1/2
+
+[Event "?"]
+[Site "?"]
+[Date "2026.06.12"]
+[Round "1"]
+[White "opponent"]
+[Black "checkforge"]
+[Result "1/2-1/2"]
+[ECO "A00"]
+[GameDuration "00:00:00"]
+[GameEndTime "2026-06-12T17:24:49.335 Hora de verano romance"]
+[GameStartTime "2026-06-12T17:24:49.152 Hora de verano romance"]
+[Opening "Anderssen's Opening"]
+[PlyCount "17"]
+[TimeControl "2+0.1"]
+
+1. a3 Na6 2. a4 Rb8 3. a5 Ra8 4. b3 Rb8 5. Bb2 Ra8 6. Ba3 Rb8 7. Bb2 Ra8 8. Ba3
+Rb8 9. Bb2 {Draw by 3-fold repetition} 1/2-1/2
+
+[Event "?"]
+[Site "?"]
+[Date "2026.06.12"]
+[Round "1"]
+[White "checkforge"]
+[Black "opponent"]
+[Result "1/2-1/2"]
+[ECO "A00"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-06-12T17:24:50.711 Hora de verano romance"]
+[GameStartTime "2026-06-12T17:24:49.335 Hora de verano romance"]
+[Opening "Anderssen's Opening"]
+[PlyCount "49"]
+[TimeControl "2+0.1"]
+
+1. a3 Na6 2. a4 Rb8 3. a5 c6 4. b3 Ra8 5. c3 Rb8 6. b4 Ra8 7. d3 Rb8 8. d4 Ra8
+9. d5 cxd5 10. Qxd5 Rb8 11. Qc4 Ra8 12. b5 d5 13. Qb3 Nb8 14. Qa4 Nd7 15. a6
+bxa6 16. bxa6 Rb8 17. Qc6 Rb6 18. Qxd5 Ngf6 19. Qa8 Rb8 20. Qxa7 Rb6 21. Qa8 Rb8
+22. Qc6 Rb6 23. Qa8 Rb8 24. Qc6 Rb6 25. Qa8 {Draw by 3-fold repetition} 1/2-1/2
+
+[Event "?"]
+[Site "?"]
+[Date "2026.06.12"]
+[Round "1"]
+[White "opponent"]
+[Black "checkforge"]
+[Result "1/2-1/2"]
+[ECO "A00"]
+[GameDuration "00:00:00"]
+[GameEndTime "2026-06-12T17:24:50.913 Hora de verano romance"]
+[GameStartTime "2026-06-12T17:24:50.713 Hora de verano romance"]
+[Opening "Anderssen's Opening"]
+[PlyCount "17"]
+[TimeControl "2+0.1"]
+
+1. a3 Na6 2. a4 Rb8 3. a5 Ra8 4. b3 Rb8 5. Bb2 Ra8 6. Ba3 Rb8 7. Bb2 Ra8 8. Ba3
+Rb8 9. Bb2 {Draw by 3-fold repetition} 1/2-1/2
+
+[Event "?"]
+[Site "?"]
+[Date "2026.06.12"]
+[Round "1"]
+[White "checkforge"]
+[Black "opponent"]
+[Result "1/2-1/2"]
+[ECO "A00"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-06-12T17:24:52.358 Hora de verano romance"]
+[GameStartTime "2026-06-12T17:24:50.916 Hora de verano romance"]
+[Opening "Anderssen's Opening"]
+[PlyCount "49"]
+[TimeControl "2+0.1"]
+
+1. a3 Na6 2. a4 Rb8 3. a5 c6 4. b3 Ra8 5. c3 Rb8 6. b4 Ra8 7. d3 Rb8 8. d4 Ra8
+9. d5 cxd5 10. Qxd5 Rb8 11. Qc4 Ra8 12. b5 d5 13. Qb3 Nb8 14. Qa4 Nd7 15. a6
+bxa6 16. bxa6 Rb8 17. Qc6 Rb6 18. Qxd5 Ngf6 19. Qa8 Rb8 20. Qxa7 Rb6 21. Qa8 Rb8
+22. Qc6 Rb6 23. Qa8 Rb8 24. Qc6 Rb6 25. Qa8 {Draw by 3-fold repetition} 1/2-1/2
+
+[Event "?"]
+[Site "?"]
+[Date "2026.06.12"]
+[Round "1"]
+[White "opponent"]
+[Black "checkforge"]
+[Result "1/2-1/2"]
+[ECO "A00"]
+[GameDuration "00:00:00"]
+[GameEndTime "2026-06-12T17:24:52.568 Hora de verano romance"]
+[GameStartTime "2026-06-12T17:24:52.358 Hora de verano romance"]
+[Opening "Anderssen's Opening"]
+[PlyCount "17"]
+[TimeControl "2+0.1"]
+
+1. a3 Na6 2. a4 Rb8 3. a5 Ra8 4. b3 Rb8 5. Bb2 Ra8 6. Ba3 Rb8 7. Bb2 Ra8 8. Ba3
+Rb8 9. Bb2 {Draw by 3-fold repetition} 1/2-1/2
+
+[Event "?"]
+[Site "?"]
+[Date "2026.06.12"]
+[Round "1"]
+[White "checkforge"]
+[Black "opponent"]
+[Result "1/2-1/2"]
+[ECO "A00"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-06-12T17:24:54.030 Hora de verano romance"]
+[GameStartTime "2026-06-12T17:24:52.570 Hora de verano romance"]
+[Opening "Anderssen's Opening"]
+[PlyCount "49"]
+[TimeControl "2+0.1"]
+
+1. a3 Na6 2. a4 Rb8 3. a5 c6 4. b3 Ra8 5. c3 Rb8 6. b4 Ra8 7. d3 Rb8 8. d4 Ra8
+9. d5 cxd5 10. Qxd5 Rb8 11. Qc4 Ra8 12. b5 d5 13. Qb3 Nb8 14. Qa4 Nd7 15. a6
+bxa6 16. bxa6 Rb8 17. Qc6 Rb6 18. Qxd5 Ngf6 19. Qa8 Rb8 20. Qxa7 Rb6 21. Qa8 Rb8
+22. Qc6 Rb6 23. Qa8 Rb8 24. Qc6 Rb6 25. Qa8 {Draw by 3-fold repetition} 1/2-1/2
+
+[Event "?"]
+[Site "?"]
+[Date "2026.06.12"]
+[Round "1"]
+[White "opponent"]
+[Black "checkforge"]
+[Result "1/2-1/2"]
+[ECO "A00"]
+[GameDuration "00:00:00"]
+[GameEndTime "2026-06-12T17:24:54.267 Hora de verano romance"]
+[GameStartTime "2026-06-12T17:24:54.032 Hora de verano romance"]
+[Opening "Anderssen's Opening"]
+[PlyCount "17"]
+[TimeControl "2+0.1"]
+
+1. a3 Na6 2. a4 Rb8 3. a5 Ra8 4. b3 Rb8 5. Bb2 Ra8 6. Ba3 Rb8 7. Bb2 Ra8 8. Ba3
+Rb8 9. Bb2 {Draw by 3-fold repetition} 1/2-1/2
+
+[Event "?"]
+[Site "?"]
+[Date "2026.06.12"]
+[Round "1"]
+[White "checkforge"]
+[Black "opponent"]
+[Result "1/2-1/2"]
+[ECO "A00"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-06-12T17:24:55.626 Hora de verano romance"]
+[GameStartTime "2026-06-12T17:24:54.269 Hora de verano romance"]
+[Opening "Anderssen's Opening"]
+[PlyCount "49"]
+[TimeControl "2+0.1"]
+
+1. a3 Na6 2. a4 Rb8 3. a5 c6 4. b3 Ra8 5. c3 Rb8 6. b4 Ra8 7. d3 Rb8 8. d4 Ra8
+9. d5 cxd5 10. Qxd5 Rb8 11. Qc4 Ra8 12. b5 d5 13. Qb3 Nb8 14. Qa4 Nd7 15. a6
+bxa6 16. bxa6 Rb8 17. Qc6 Rb6 18. Qxd5 Ngf6 19. Qa8 Rb8 20. Qxa7 Rb6 21. Qa8 Rb8
+22. Qc6 Rb6 23. Qa8 Rb8 24. Qc6 Rb6 25. Qa8 {Draw by 3-fold repetition} 1/2-1/2
+
+[Event "?"]
+[Site "?"]
+[Date "2026.06.12"]
+[Round "1"]
+[White "opponent"]
+[Black "checkforge"]
+[Result "1/2-1/2"]
+[ECO "A00"]
+[GameDuration "00:00:00"]
+[GameEndTime "2026-06-12T17:24:55.801 Hora de verano romance"]
+[GameStartTime "2026-06-12T17:24:55.628 Hora de verano romance"]
+[Opening "Anderssen's Opening"]
+[PlyCount "17"]
+[TimeControl "2+0.1"]
+
+1. a3 Na6 2. a4 Rb8 3. a5 Ra8 4. b3 Rb8 5. Bb2 Ra8 6. Ba3 Rb8 7. Bb2 Ra8 8. Ba3
+Rb8 9. Bb2 {Draw by 3-fold repetition} 1/2-1/2
+
+[Event "?"]
+[Site "?"]
+[Date "2026.06.12"]
+[Round "1"]
+[White "checkforge"]
+[Black "opponent"]
+[Result "1/2-1/2"]
+[ECO "A00"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-06-12T17:24:57.196 Hora de verano romance"]
+[GameStartTime "2026-06-12T17:24:55.803 Hora de verano romance"]
+[Opening "Anderssen's Opening"]
+[PlyCount "49"]
+[TimeControl "2+0.1"]
+
+1. a3 Na6 2. a4 Rb8 3. a5 c6 4. b3 Ra8 5. c3 Rb8 6. b4 Ra8 7. d3 Rb8 8. d4 Ra8
+9. d5 cxd5 10. Qxd5 Rb8 11. Qc4 Ra8 12. b5 d5 13. Qb3 Nb8 14. Qa4 Nd7 15. a6
+bxa6 16. bxa6 Rb8 17. Qc6 Rb6 18. Qxd5 Ngf6 19. Qa8 Rb8 20. Qxa7 Rb6 21. Qa8 Rb8
+22. Qc6 Rb6 23. Qa8 Rb8 24. Qc6 Rb6 25. Qa8 {Draw by 3-fold repetition} 1/2-1/2
+
+[Event "?"]
+[Site "?"]
+[Date "2026.06.12"]
+[Round "1"]
+[White "opponent"]
+[Black "checkforge"]
+[Result "1/2-1/2"]
+[ECO "A00"]
+[GameDuration "00:00:00"]
+[GameEndTime "2026-06-12T17:24:57.374 Hora de verano romance"]
+[GameStartTime "2026-06-12T17:24:57.196 Hora de verano romance"]
+[Opening "Anderssen's Opening"]
+[PlyCount "17"]
+[TimeControl "2+0.1"]
+
+1. a3 Na6 2. a4 Rb8 3. a5 Ra8 4. b3 Rb8 5. Bb2 Ra8 6. Ba3 Rb8 7. Bb2 Ra8 8. Ba3
+Rb8 9. Bb2 {Draw by 3-fold repetition} 1/2-1/2
+
+[Event "?"]
+[Site "?"]
+[Date "2026.06.12"]
+[Round "1"]
+[White "checkforge"]
+[Black "opponent"]
+[Result "1/2-1/2"]
+[ECO "A00"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-06-12T17:24:58.791 Hora de verano romance"]
+[GameStartTime "2026-06-12T17:24:57.377 Hora de verano romance"]
+[Opening "Anderssen's Opening"]
+[PlyCount "49"]
+[TimeControl "2+0.1"]
+
+1. a3 Na6 2. a4 Rb8 3. a5 c6 4. b3 Ra8 5. c3 Rb8 6. b4 Ra8 7. d3 Rb8 8. d4 Ra8
+9. d5 cxd5 10. Qxd5 Rb8 11. Qc4 Ra8 12. b5 d5 13. Qb3 Nb8 14. Qa4 Nd7 15. a6
+bxa6 16. bxa6 Rb8 17. Qc6 Rb6 18. Qxd5 Ngf6 19. Qa8 Rb8 20. Qxa7 Rb6 21. Qa8 Rb8
+22. Qc6 Rb6 23. Qa8 Rb8 24. Qc6 Rb6 25. Qa8 {Draw by 3-fold repetition} 1/2-1/2
+
+[Event "?"]
+[Site "?"]
+[Date "2026.06.12"]
+[Round "1"]
+[White "opponent"]
+[Black "checkforge"]
+[Result "1/2-1/2"]
+[ECO "A00"]
+[GameDuration "00:00:00"]
+[GameEndTime "2026-06-12T17:24:58.981 Hora de verano romance"]
+[GameStartTime "2026-06-12T17:24:58.793 Hora de verano romance"]
+[Opening "Anderssen's Opening"]
+[PlyCount "17"]
+[TimeControl "2+0.1"]
+
+1. a3 Na6 2. a4 Rb8 3. a5 Ra8 4. b3 Rb8 5. Bb2 Ra8 6. Ba3 Rb8 7. Bb2 Ra8 8. Ba3
+Rb8 9. Bb2 {Draw by 3-fold repetition} 1/2-1/2
+
+[Event "?"]
+[Site "?"]
+[Date "2026.06.12"]
+[Round "1"]
+[White "checkforge"]
+[Black "opponent"]
+[Result "1/2-1/2"]
+[ECO "A00"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-06-12T17:25:00.397 Hora de verano romance"]
+[GameStartTime "2026-06-12T17:24:58.983 Hora de verano romance"]
+[Opening "Anderssen's Opening"]
+[PlyCount "49"]
+[TimeControl "2+0.1"]
+
+1. a3 Na6 2. a4 Rb8 3. a5 c6 4. b3 Ra8 5. c3 Rb8 6. b4 Ra8 7. d3 Rb8 8. d4 Ra8
+9. d5 cxd5 10. Qxd5 Rb8 11. Qc4 Ra8 12. b5 d5 13. Qb3 Nb8 14. Qa4 Nd7 15. a6
+bxa6 16. bxa6 Rb8 17. Qc6 Rb6 18. Qxd5 Ngf6 19. Qa8 Rb8 20. Qxa7 Rb6 21. Qa8 Rb8
+22. Qc6 Rb6 23. Qa8 Rb8 24. Qc6 Rb6 25. Qa8 {Draw by 3-fold repetition} 1/2-1/2
+
+[Event "?"]
+[Site "?"]
+[Date "2026.06.12"]
+[Round "1"]
+[White "opponent"]
+[Black "checkforge"]
+[Result "1/2-1/2"]
+[ECO "A00"]
+[GameDuration "00:00:00"]
+[GameEndTime "2026-06-12T17:25:00.593 Hora de verano romance"]
+[GameStartTime "2026-06-12T17:25:00.399 Hora de verano romance"]
+[Opening "Anderssen's Opening"]
+[PlyCount "17"]
+[TimeControl "2+0.1"]
+
+1. a3 Na6 2. a4 Rb8 3. a5 Ra8 4. b3 Rb8 5. Bb2 Ra8 6. Ba3 Rb8 7. Bb2 Ra8 8. Ba3
+Rb8 9. Bb2 {Draw by 3-fold repetition} 1/2-1/2
+
+[Event "?"]
+[Site "?"]
+[Date "2026.06.12"]
+[Round "1"]
+[White "checkforge"]
+[Black "opponent"]
+[Result "1/2-1/2"]
+[ECO "A00"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-06-12T17:25:01.955 Hora de verano romance"]
+[GameStartTime "2026-06-12T17:25:00.594 Hora de verano romance"]
+[Opening "Anderssen's Opening"]
+[PlyCount "49"]
+[TimeControl "2+0.1"]
+
+1. a3 Na6 2. a4 Rb8 3. a5 c6 4. b3 Ra8 5. c3 Rb8 6. b4 Ra8 7. d3 Rb8 8. d4 Ra8
+9. d5 cxd5 10. Qxd5 Rb8 11. Qc4 Ra8 12. b5 d5 13. Qb3 Nb8 14. Qa4 Nd7 15. a6
+bxa6 16. bxa6 Rb8 17. Qc6 Rb6 18. Qxd5 Ngf6 19. Qa8 Rb8 20. Qxa7 Rb6 21. Qa8 Rb8
+22. Qc6 Rb6 23. Qa8 Rb8 24. Qc6 Rb6 25. Qa8 {Draw by 3-fold repetition} 1/2-1/2
+
+[Event "?"]
+[Site "?"]
+[Date "2026.06.12"]
+[Round "1"]
+[White "opponent"]
+[Black "checkforge"]
+[Result "1/2-1/2"]
+[ECO "A00"]
+[GameDuration "00:00:00"]
+[GameEndTime "2026-06-12T17:25:02.143 Hora de verano romance"]
+[GameStartTime "2026-06-12T17:25:01.955 Hora de verano romance"]
+[Opening "Anderssen's Opening"]
+[PlyCount "17"]
+[TimeControl "2+0.1"]
+
+1. a3 Na6 2. a4 Rb8 3. a5 Ra8 4. b3 Rb8 5. Bb2 Ra8 6. Ba3 Rb8 7. Bb2 Ra8 8. Ba3
+Rb8 9. Bb2 {Draw by 3-fold repetition} 1/2-1/2
+
+[Event "?"]
+[Site "?"]
+[Date "2026.06.12"]
+[Round "1"]
+[White "checkforge"]
+[Black "opponent"]
+[Result "1/2-1/2"]
+[ECO "A00"]
+[GameDuration "00:00:01"]
+[GameEndTime "2026-06-12T17:25:03.480 Hora de verano romance"]
+[GameStartTime "2026-06-12T17:25:02.144 Hora de verano romance"]
+[Opening "Anderssen's Opening"]
+[PlyCount "49"]
+[TimeControl "2+0.1"]
+
+1. a3 Na6 2. a4 Rb8 3. a5 c6 4. b3 Ra8 5. c3 Rb8 6. b4 Ra8 7. d3 Rb8 8. d4 Ra8
+9. d5 cxd5 10. Qxd5 Rb8 11. Qc4 Ra8 12. b5 d5 13. Qb3 Nb8 14. Qa4 Nd7 15. a6
+bxa6 16. bxa6 Rb8 17. Qc6 Rb6 18. Qxd5 Ngf6 19. Qa8 Rb8 20. Qxa7 Rb6 21. Qa8 Rb8
+22. Qc6 Rb6 23. Qa8 Rb8 24. Qc6 Rb6 25. Qa8 {Draw by 3-fold repetition} 1/2-1/2
+
+[Event "?"]
+[Site "?"]
+[Date "2026.06.12"]
+[Round "1"]
+[White "opponent"]
+[Black "checkforge"]
+[Result "1/2-1/2"]
+[ECO "A00"]
+[GameDuration "00:00:00"]
+[GameEndTime "2026-06-12T17:25:03.658 Hora de verano romance"]
+[GameStartTime "2026-06-12T17:25:03.480 Hora de verano romance"]
+[Opening "Anderssen's Opening"]
+[PlyCount "17"]
+[TimeControl "2+0.1"]
+
+1. a3 Na6 2. a4 Rb8 3. a5 Ra8 4. b3 Rb8 5. Bb2 Ra8 6. Ba3 Rb8 7. Bb2 Ra8 8. Ba3
+Rb8 9. Bb2 {Draw by 3-fold repetition} 1/2-1/2
+

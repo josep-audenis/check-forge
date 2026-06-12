@@ -9,5 +9,7 @@ int evaluate_material(const Board& board);
 int evaluate_for_side_to_move(const Board& board);
 int evaluate_material(const Board& board, const EngineConfig& config);
 int evaluate_for_side_to_move(const Board& board, const EngineConfig& config);
+int evaluate_static(const Board& board, const EngineConfig& config);
+int evaluate_static_for_side_to_move(const Board& board, const EngineConfig& config);
 
 }  // namespace checkforge
