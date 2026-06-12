@@ -1,0 +1,44 @@
+{
+  "benchmark": "cutechess",
+  "engine": "build/engine/checkforge.exe",
+  "engine_version": "CheckForge 0.1.0-phase4",
+  "git_commit": "51da13aa01ee69f81a10aa3d6e22023f9a0e13bf",
+  "config": {
+    "path": "configs/default.json",
+    "sha256": "143b11afbc9174de42e52e20ec5603e8e9e58d997e2a2f5d687b69d2770ac9b2"
+  },
+  "created_at": "2026-06-12T10:43:08.442257+00:00",
+  "opponent": {
+    "engine": "build/engine/checkforge.exe",
+    "config": "configs/default.json"
+  },
+  "passed": true,
+  "skipped": false,
+  "command": [
+    "C:\\Users\\Josep\\AppData\\Local\\Microsoft\\WinGet\\Packages\\CuteChess.CuteChess_Microsoft.Winget.Source_8wekyb3d8bbwe\\cutechess-1.4.0-win64\\cutechess-cli.exe",
+    "-engine",
+    "cmd=C:\\CODE\\check-forge\\build\\engine\\checkforge.exe",
+    "arg=--config",
+    "arg=C:\\CODE\\check-forge\\configs\\default.json",
+    "arg=uci",
+    "proto=uci",
+    "name=checkforge",
+    "-engine",
+    "cmd=C:\\CODE\\check-forge\\build\\engine\\checkforge.exe",
+    "arg=--config",
+    "arg=C:\\CODE\\check-forge\\configs\\default.json",
+    "arg=uci",
+    "proto=uci",
+    "name=opponent",
+    "-each",
+    "tc=10+0.1",
+    "-games",
+    "20",
+    "-pgnout",
+    "matches/latest.pgn"
+  ],
+  "returncode": 0,
+  "stdout": "Started game 1 of 20 (checkforge vs opponent)\nFinished game 1 (checkforge vs opponent): 1/2-1/2 {Draw by 3-fold repetition}\nScore of checkforge vs opponent: 0 - 0 - 1  [0.500] 1\nStarted game 2 of 20 (opponent vs checkforge)\nFinished game 2 (opponent vs checkforge): 1/2-1/2 {Draw by 3-fold repetition}\nScore of checkforge vs opponent: 0 - 0 - 2  [0.500] 2\nStarted game 3 of 20 (checkforge vs opponent)\nFinished game 3 (checkforge vs opponent): 1/2-1/2 {Draw by 3-fold repetition}\nScore of checkforge vs opponent: 0 - 0 - 3  [0.500] 3\nStarted game 4 of 20 (opponent vs checkforge)\nFinished game 4 (opponent vs checkforge): 1/2-1/2 {Draw by 3-fold repetition}\nScore of checkforge vs opponent: 0 - 0 - 4  [0.500] 4\nStarted game 5 of 20 (checkforge vs opponent)\nFinished game 5 (checkforge vs opponent): 1/2-1/2 {Draw by 3-fold repetition}\nScore of checkforge vs opponent: 0 - 0 - 5  [0.500] 5\nStarted game 6 of 20 (opponent vs checkforge)\nFinished game 6 (opponent vs checkforge): 1/2-1/2 {Draw by 3-fold repetition}\nScore of checkforge vs opponent: 0 - 0 - 6  [0.500] 6\nStarted game 7 of 20 (checkforge vs opponent)\nFinished game 7 (checkforge vs opponent): 1/2-1/2 {Draw by 3-fold repetition}\nScore of checkforge vs opponent: 0 - 0 - 7  [0.500] 7\nStarted game 8 of 20 (opponent vs checkforge)\nFinished game 8 (opponent vs checkforge): 1/2-1/2 {Draw by 3-fold repetition}\nScore of checkforge vs opponent: 0 - 0 - 8  [0.500] 8\nStarted game 9 of 20 (checkforge vs opponent)\nFinished game 9 (checkforge vs opponent): 1/2-1/2 {Draw by 3-fold repetition}\nScore of checkforge vs opponent: 0 - 0 - 9  [0.500] 9\nStarted game 10 of 20 (opponent vs checkforge)\nFinished game 10 (opponent vs checkforge): 1/2-1/2 {Draw by 3-fold repetition}\nScore of checkforge vs opponent: 0 - 0 - 10  [0.500] 10\nStarted game 11 of 20 (checkforge vs opponent)\nFinished game 11 (checkforge vs opponent): 1/2-1/2 {Draw by 3-fold repetition}\nScore of checkforge vs opponent: 0 - 0 - 11  [0.500] 11\nStarted game 12 of 20 (opponent vs checkforge)\nFinished game 12 (opponent vs checkforge): 1/2-1/2 {Draw by 3-fold repetition}\nScore of checkforge vs opponent: 0 - 0 - 12  [0.500] 12\nStarted game 13 of 20 (checkforge vs opponent)\nFinished game 13 (checkforge vs opponent): 1/2-1/2 {Draw by 3-fold repetition}\nScore of checkforge vs opponent: 0 - 0 - 13  [0.500] 13\nStarted game 14 of 20 (opponent vs checkforge)\nFinished game 14 (opponent vs checkforge): 1/2-1/2 {Draw by 3-fold repetition}\nScore of checkforge vs opponent: 0 - 0 - 14  [0.500] 14\nStarted game 15 of 20 (checkforge vs opponent)\nFinished game 15 (checkforge vs opponent): 1/2-1/2 {Draw by 3-fold repetition}\nScore of checkforge vs opponent: 0 - 0 - 15  [0.500] 15\nStarted game 16 of 20 (opponent vs checkforge)\nFinished game 16 (opponent vs checkforge): 1/2-1/2 {Draw by 3-fold repetition}\nScore of checkforge vs opponent: 0 - 0 - 16  [0.500] 16\nStarted game 17 of 20 (checkforge vs opponent)\nFinished game 17 (checkforge vs opponent): 1/2-1/2 {Draw by 3-fold repetition}\nScore of checkforge vs opponent: 0 - 0 - 17  [0.500] 17\nStarted game 18 of 20 (opponent vs checkforge)\nFinished game 18 (opponent vs checkforge): 1/2-1/2 {Draw by 3-fold repetition}\nScore of checkforge vs opponent: 0 - 0 - 18  [0.500] 18\nStarted game 19 of 20 (checkforge vs opponent)\nFinished game 19 (checkforge vs opponent): 1/2-1/2 {Draw by 3-fold repetition}\nScore of checkforge vs opponent: 0 - 0 - 19  [0.500] 19\nStarted game 20 of 20 (opponent vs checkforge)\nFinished game 20 (opponent vs checkforge): 1/2-1/2 {Draw by 3-fold repetition}\nScore of checkforge vs opponent: 0 - 0 - 20  [0.500] 20\n...      checkforge playing White: 0 - 0 - 10  [0.500] 10\n...      checkforge playing Black: 0 - 0 - 10  [0.500] 10\n...      White vs Black: 0 - 0 - 20  [0.500] 20\nElo difference: 0.0 +/- 0.0, LOS: nan %, DrawRatio: 100.0 %\nSPRT: llr 0 (0.0%), lbound -inf, ubound inf\n\nPlayer: checkforge\n   \"Draw by 3-fold repetition\": 20\nPlayer: opponent\n   \"Draw by 3-fold repetition\": 20\nFinished match",
+  "stderr": "",
+  "pgn": "matches/latest.pgn"
+}

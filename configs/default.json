@@ -1,0 +1,13 @@
+{
+  "piece_values": {
+    "pawn": 100,
+    "knight": 320,
+    "bishop": 330,
+    "rook": 500,
+    "queen": 900
+  },
+  "eval_weights": {},
+  "search_params": {
+    "default_depth": 3
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "benchmark": "perft",
+  "engine": "build/engine/checkforge.exe",
+  "engine_version": "CheckForge 0.1.0-phase4",
+  "git_commit": "51da13aa01ee69f81a10aa3d6e22023f9a0e13bf",
+  "config": {
+    "path": "configs/default.json",
+    "sha256": "143b11afbc9174de42e52e20ec5603e8e9e58d997e2a2f5d687b69d2770ac9b2"
+  },
+  "created_at": "2026-06-12T10:39:47.052294+00:00",
+  "perft_passed": true,
+  "passed": true,
+  "cases": [
+    {
+      "fen": "startpos",
+      "depth": 1,
+      "expected": 20,
+      "actual": 20,
+      "passed": true
+    },
+    {
+      "fen": "startpos",
+      "depth": 2,
+      "expected": 400,
+      "actual": 400,
+      "passed": true
+    },
+    {
+      "fen": "startpos",
+      "depth": 3,
+      "expected": 8902,
+      "actual": 8902,
+      "passed": true
+    },
+    {
+      "fen": "startpos",
+      "depth": 4,
+      "expected": 197281,
+      "actual": 197281,
+      "passed": true
+    },
+    {
+      "fen": "startpos",
+      "depth": 5,
+      "expected": 4865609,
+      "actual": 4865609,
+      "passed": true
+    },
+    {
+      "fen": "r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 1",
+      "depth": 1,
+      "expected": 48,
+      "actual": 48,
+      "passed": true
+    },
+    {
+      "fen": "r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 1",
+      "depth": 2,
+      "expected": 2039,
+      "actual": 2039,
+      "passed": true
+    }
+  ]
+}

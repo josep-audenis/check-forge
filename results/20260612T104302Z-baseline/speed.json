@@ -1,0 +1,20 @@
+{
+  "benchmark": "speed",
+  "engine": "build/engine/checkforge.exe",
+  "engine_version": "CheckForge 0.1.0-phase4",
+  "git_commit": "51da13aa01ee69f81a10aa3d6e22023f9a0e13bf",
+  "config": {
+    "path": "configs/default.json",
+    "sha256": "143b11afbc9174de42e52e20ec5603e8e9e58d997e2a2f5d687b69d2770ac9b2"
+  },
+  "created_at": "2026-06-12T10:43:08.077546+00:00",
+  "passed": true,
+  "fen": "startpos",
+  "depth": 5,
+  "nodes": 4865609,
+  "elapsed_seconds": 2.3982667999807745,
+  "nodes_per_second": 2028802,
+  "stdout": "{\"fen\":\"startpos\",\"depth\":5,\"nodes\":4865609}",
+  "stderr": "",
+  "returncode": 0
+}
