@@ -1,0 +1,12 @@
+{
+  "engine": "checkforge",
+  "pgn": "matches/_exp020-combined.pgn",
+  "wins": 45,
+  "losses": 44,
+  "draws": 112,
+  "games": 201,
+  "illegal": false,
+  "score": 0.5025,
+  "elo_diff": 1.7,
+  "elo_err": 24.5
+}

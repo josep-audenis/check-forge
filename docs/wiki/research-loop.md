@@ -32,6 +32,39 @@ Start semi-manual:
 
 Automate only after commands, schemas, and acceptance rules stabilize.
 
+## Current State And Commands
+
+Head version is the highest-numbered `versions/vNNN-*/` (v010-tt-move-ordering as of
+2026-06-13). The live tree builds the head; accepted experiments freeze a new snapshot.
+
+Build and gate (call tools directly; `task.ps1 -ExecutionPolicy Bypass` is blocked by
+the sandbox):
+
+```text
+cmake -S . -B build; cmake --build build
+ctest --test-dir build --output-on-failure
+python research/run_tactics.py --engine build/engine/checkforge.exe   # 8/8
+python research/run_perft.py   --engine build/engine/checkforge.exe
+python research/run_benchmark.py --engine build/engine/checkforge.exe \
+  --opponent-engine versions/<head>/checkforge.exe \
+  --opponent-config versions/<head>/default.json \
+  --experiment-id expNNN-<slug> --output results/expNNN-<slug>.json
+python research/run_cutechess.py --engine build/engine/checkforge.exe \
+  --opponent-engine versions/<head>/checkforge.exe \
+  --opponent-config versions/<head>/default.json \
+  --tc 8+0.08 --output results/expNNN-<slug>-cutechess.json \
+  --pgn matches/expNNN-<slug>.pgn
+```
+
+## Screening vs Verification
+
+```text
+- Screening (<= ~40 games): kill disasters fast; cannot confirm small gains.
+- Verification (200+ games or SPRT): required before any strength accept/reject.
+```
+
+See [[acceptance-rules]]. Strategy and priority order: [[roadmap-to-2000]].
+
 ## Experiment Discipline
 
 Rules:

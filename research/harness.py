@@ -24,7 +24,15 @@ def file_sha256(path: str | None) -> str | None:
     return hashlib.sha256(data).hexdigest()
 
 
+def _resolve_engine(engine: str) -> str:
+    # Python 3.14 on Windows no longer resolves relative executable paths against
+    # cwd, so make any real file path absolute before handing it to subprocess.
+    p = Path(engine)
+    return str(p.resolve()) if p.exists() else engine
+
+
 def run_engine(engine: str, args: list[str], config: str | None = DEFAULT_CONFIG, timeout: float = 10.0) -> subprocess.CompletedProcess[str]:
+    engine = _resolve_engine(engine)
     command = [engine]
     if config:
         command += ["--config", config]
@@ -33,7 +41,7 @@ def run_engine(engine: str, args: list[str], config: str | None = DEFAULT_CONFIG
 
 
 def engine_version(engine: str) -> str:
-    completed = subprocess.run([engine, "--version"], check=False, capture_output=True, text=True, timeout=5.0)
+    completed = subprocess.run([_resolve_engine(engine), "--version"], check=False, capture_output=True, text=True, timeout=5.0)
     if completed.returncode != 0:
         return "unknown"
     return completed.stdout.strip()

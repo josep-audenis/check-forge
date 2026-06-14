@@ -1,0 +1,500 @@
+{
+  "experiment_id": "exp007-mvv-lva",
+  "engine": "build/engine/checkforge.exe",
+  "engine_version": "CheckForge 0.1.0-phase4",
+  "git_commit": "5bb997e8024f43ecf482d3c2ce8e2795a7e613af",
+  "config": {
+    "path": "configs/default.json",
+    "sha256": "caa48937cb6c1315cd3cd3fa3df84e3d59c0673d7f6c1a0a8f8ad281499086eb"
+  },
+  "created_at": "2026-06-13T10:19:16.042116+00:00",
+  "opponent": {
+    "engine": "versions/v005-check-extension/checkforge.exe",
+    "config": "versions/v005-check-extension/default.json"
+  },
+  "steps": [
+    {
+      "name": "perft",
+      "command": [
+        "python",
+        "research/run_perft.py",
+        "--engine",
+        "build/engine/checkforge.exe",
+        "--config",
+        "configs/default.json",
+        "--output",
+        "results\\exp007-mvv-lva\\perft.json"
+      ],
+      "returncode": 0,
+      "stdout": "{\"benchmark\": \"perft\", \"engine\": \"build/engine/checkforge.exe\", \"engine_version\": \"CheckForge 0.1.0-phase4\", \"git_commit\": \"5bb997e8024f43ecf482d3c2ce8e2795a7e613af\", \"config\": {\"path\": \"configs/default.json\", \"sha256\": \"caa48937cb6c1315cd3cd3fa3df84e3d59c0673d7f6c1a0a8f8ad281499086eb\"}, \"created_at\": \"2026-06-13T10:19:10.682487+00:00\", \"perft_passed\": true, \"passed\": true, \"cases\": [{\"fen\": \"startpos\", \"depth\": 1, \"expected\": 20, \"actual\": 20, \"passed\": true}, {\"fen\": \"startpos\", \"depth\": 2, \"expected\": 400, \"actual\": 400, \"passed\": true}, {\"fen\": \"startpos\", \"depth\": 3, \"expected\": 8902, \"actual\": 8902, \"passed\": true}, {\"fen\": \"startpos\", \"depth\": 4, \"expected\": 197281, \"actual\": 197281, \"passed\": true}, {\"fen\": \"startpos\", \"depth\": 5, \"expected\": 4865609, \"actual\": 4865609, \"passed\": true}, {\"fen\": \"r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 1\", \"depth\": 1, \"expected\": 48, \"actual\": 48, \"passed\": true}, {\"fen\": \"r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 1\", \"depth\": 2, \"expected\": 2039, \"actual\": 2039, \"passed\": true}]}",
+      "stderr": "",
+      "output": "results\\exp007-mvv-lva\\perft.json",
+      "result": {
+        "benchmark": "perft",
+        "engine": "build/engine/checkforge.exe",
+        "engine_version": "CheckForge 0.1.0-phase4",
+        "git_commit": "5bb997e8024f43ecf482d3c2ce8e2795a7e613af",
+        "config": {
+          "path": "configs/default.json",
+          "sha256": "caa48937cb6c1315cd3cd3fa3df84e3d59c0673d7f6c1a0a8f8ad281499086eb"
+        },
+        "created_at": "2026-06-13T10:19:10.682487+00:00",
+        "perft_passed": true,
+        "passed": true,
+        "cases": [
+          {
+            "fen": "startpos",
+            "depth": 1,
+            "expected": 20,
+            "actual": 20,
+            "passed": true
+          },
+          {
+            "fen": "startpos",
+            "depth": 2,
+            "expected": 400,
+            "actual": 400,
+            "passed": true
+          },
+          {
+            "fen": "startpos",
+            "depth": 3,
+            "expected": 8902,
+            "actual": 8902,
+            "passed": true
+          },
+          {
+            "fen": "startpos",
+            "depth": 4,
+            "expected": 197281,
+            "actual": 197281,
+            "passed": true
+          },
+          {
+            "fen": "startpos",
+            "depth": 5,
+            "expected": 4865609,
+            "actual": 4865609,
+            "passed": true
+          },
+          {
+            "fen": "r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 1",
+            "depth": 1,
+            "expected": 48,
+            "actual": 48,
+            "passed": true
+          },
+          {
+            "fen": "r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 1",
+            "depth": 2,
+            "expected": 2039,
+            "actual": 2039,
+            "passed": true
+          }
+        ]
+      },
+      "passed": true
+    },
+    {
+      "name": "tactics",
+      "command": [
+        "python",
+        "research/run_tactics.py",
+        "--engine",
+        "build/engine/checkforge.exe",
+        "--config",
+        "configs/default.json",
+        "--output",
+        "results\\exp007-mvv-lva\\tactics.json"
+      ],
+      "returncode": 0,
+      "stdout": "{\"benchmark\": \"tactics\", \"engine\": \"build/engine/checkforge.exe\", \"engine_version\": \"CheckForge 0.1.0-phase4\", \"git_commit\": \"5bb997e8024f43ecf482d3c2ce8e2795a7e613af\", \"config\": {\"path\": \"configs/default.json\", \"sha256\": \"caa48937cb6c1315cd3cd3fa3df84e3d59c0673d7f6c1a0a8f8ad281499086eb\"}, \"created_at\": \"2026-06-13T10:19:10.948104+00:00\", \"passed\": true, \"solved\": 8, \"total\": 8, \"cases\": [{\"id\": \"free-queen\", \"fen\": \"4k3/8/8/8/4q3/8/4R3/4K3 w - - 0 1\", \"depth\": 1, \"expected\": [\"e2e4\"], \"actual\": \"e2e4\", \"passed\": true, \"stdout\": \"bestmove e2e4 score cp 503\", \"stderr\": \"\", \"returncode\": 0}, {\"id\": \"free-rook\", \"fen\": \"4k3/8/8/8/4r3/3B4/8/4K3 w - - 0 1\", \"depth\": 1, \"expected\": [\"d3e4\"], \"actual\": \"d3e4\", \"passed\": true, \"stdout\": \"bestmove d3e4 score cp 362\", \"stderr\": \"\", \"returncode\": 0}, {\"id\": \"mate-back-rank\", \"fen\": \"6k1/5ppp/8/8/8/8/8/R3K3 w - - 0 1\", \"depth\": 3, \"expected\": [\"a1a8\"], \"actual\": \"a1a8\", \"passed\": true, \"stdout\": \"bestmove a1a8 score cp 99999\", \"stderr\": \"\", \"returncode\": 0}, {\"id\": \"mate-scholars-qf7\", \"fen\": \"r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/5Q2/PPPP1PPP/RNB1K1NR w KQkq - 0 1\", \"depth\": 3, \"expected\": [\"f3f7\"], \"actual\": \"f3f7\", \"passed\": true, \"stdout\": \"bestmove f3f7 score cp 99999\", \"stderr\": \"\", \"returncode\": 0}, {\"id\": \"win-bishop-rxd3\", \"fen\": \"4k3/8/8/8/8/3b4/3R4/4K3 w - - 0 1\", \"depth\": 2, \"expected\": [\"d2d3\"], \"actual\": \"d2d3\", \"passed\": true, \"stdout\": \"bestmove d2d3 score cp 503\", \"stderr\": \"\", \"returncode\": 0}, {\"id\": \"win-rook-fork-nxe6\", \"fen\": \"4k3/8/4r3/8/3N4/8/8/4K3 w - - 0 1\", \"depth\": 3, \"expected\": [\"d4e6\"], \"actual\": \"d4e6\", \"passed\": true, \"stdout\": \"bestmove d4e6 score cp 378\", \"stderr\": \"\", \"returncode\": 0}, {\"id\": \"win-knight-rxd5\", \"fen\": \"4k3/8/8/3n4/8/8/3R4/4K3 w - - 0 1\", \"depth\": 2, \"expected\": [\"d2d5\"], \"actual\": \"d2d5\", \"passed\": true, \"stdout\": \"bestmove d2d5 score cp 503\", \"stderr\": \"\", \"returncode\": 0}, {\"id\": \"royal-fork-nc7\", \"fen\": \"r3k3/8/8/3N4/8/8/8/4K3 w - - 0 1\", \"depth\": 3, \"expected\": [\"d5c7\"], \"actual\": \"d5c7\", \"passed\": true, \"stdout\": \"bestmove d5c7 score cp 330\", \"stderr\": \"\", \"returncode\": 0}]}",
+      "stderr": "",
+      "output": "results\\exp007-mvv-lva\\tactics.json",
+      "result": {
+        "benchmark": "tactics",
+        "engine": "build/engine/checkforge.exe",
+        "engine_version": "CheckForge 0.1.0-phase4",
+        "git_commit": "5bb997e8024f43ecf482d3c2ce8e2795a7e613af",
+        "config": {
+          "path": "configs/default.json",
+          "sha256": "caa48937cb6c1315cd3cd3fa3df84e3d59c0673d7f6c1a0a8f8ad281499086eb"
+        },
+        "created_at": "2026-06-13T10:19:10.948104+00:00",
+        "passed": true,
+        "solved": 8,
+        "total": 8,
+        "cases": [
+          {
+            "id": "free-queen",
+            "fen": "4k3/8/8/8/4q3/8/4R3/4K3 w - - 0 1",
+            "depth": 1,
+            "expected": [
+              "e2e4"
+            ],
+            "actual": "e2e4",
+            "passed": true,
+            "stdout": "bestmove e2e4 score cp 503",
+            "stderr": "",
+            "returncode": 0
+          },
+          {
+            "id": "free-rook",
+            "fen": "4k3/8/8/8/4r3/3B4/8/4K3 w - - 0 1",
+            "depth": 1,
+            "expected": [
+              "d3e4"
+            ],
+            "actual": "d3e4",
+            "passed": true,
+            "stdout": "bestmove d3e4 score cp 362",
+            "stderr": "",
+            "returncode": 0
+          },
+          {
+            "id": "mate-back-rank",
+            "fen": "6k1/5ppp/8/8/8/8/8/R3K3 w - - 0 1",
+            "depth": 3,
+            "expected": [
+              "a1a8"
+            ],
+            "actual": "a1a8",
+            "passed": true,
+            "stdout": "bestmove a1a8 score cp 99999",
+            "stderr": "",
+            "returncode": 0
+          },
+          {
+            "id": "mate-scholars-qf7",
+            "fen": "r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/5Q2/PPPP1PPP/RNB1K1NR w KQkq - 0 1",
+            "depth": 3,
+            "expected": [
+              "f3f7"
+            ],
+            "actual": "f3f7",
+            "passed": true,
+            "stdout": "bestmove f3f7 score cp 99999",
+            "stderr": "",
+            "returncode": 0
+          },
+          {
+            "id": "win-bishop-rxd3",
+            "fen": "4k3/8/8/8/8/3b4/3R4/4K3 w - - 0 1",
+            "depth": 2,
+            "expected": [
+              "d2d3"
+            ],
+            "actual": "d2d3",
+            "passed": true,
+            "stdout": "bestmove d2d3 score cp 503",
+            "stderr": "",
+            "returncode": 0
+          },
+          {
+            "id": "win-rook-fork-nxe6",
+            "fen": "4k3/8/4r3/8/3N4/8/8/4K3 w - - 0 1",
+            "depth": 3,
+            "expected": [
+              "d4e6"
+            ],
+            "actual": "d4e6",
+            "passed": true,
+            "stdout": "bestmove d4e6 score cp 378",
+            "stderr": "",
+            "returncode": 0
+          },
+          {
+            "id": "win-knight-rxd5",
+            "fen": "4k3/8/8/3n4/8/8/3R4/4K3 w - - 0 1",
+            "depth": 2,
+            "expected": [
+              "d2d5"
+            ],
+            "actual": "d2d5",
+            "passed": true,
+            "stdout": "bestmove d2d5 score cp 503",
+            "stderr": "",
+            "returncode": 0
+          },
+          {
+            "id": "royal-fork-nc7",
+            "fen": "r3k3/8/8/3N4/8/8/8/4K3 w - - 0 1",
+            "depth": 3,
+            "expected": [
+              "d5c7"
+            ],
+            "actual": "d5c7",
+            "passed": true,
+            "stdout": "bestmove d5c7 score cp 330",
+            "stderr": "",
+            "returncode": 0
+          }
+        ]
+      },
+      "passed": true
+    },
+    {
+      "name": "speed",
+      "command": [
+        "python",
+        "research/run_speed.py",
+        "--engine",
+        "build/engine/checkforge.exe",
+        "--config",
+        "configs/default.json",
+        "--output",
+        "results\\exp007-mvv-lva\\speed.json"
+      ],
+      "returncode": 0,
+      "stdout": "{\"benchmark\": \"speed\", \"engine\": \"build/engine/checkforge.exe\", \"engine_version\": \"CheckForge 0.1.0-phase4\", \"git_commit\": \"5bb997e8024f43ecf482d3c2ce8e2795a7e613af\", \"config\": {\"path\": \"configs/default.json\", \"sha256\": \"caa48937cb6c1315cd3cd3fa3df84e3d59c0673d7f6c1a0a8f8ad281499086eb\"}, \"created_at\": \"2026-06-13T10:19:13.038032+00:00\", \"passed\": true, \"fen\": \"startpos\", \"depth\": 5, \"nodes\": 4865609, \"elapsed_seconds\": 1.9340463999997155, \"nodes_per_second\": 2515766, \"stdout\": \"{\\\"fen\\\":\\\"startpos\\\",\\\"depth\\\":5,\\\"nodes\\\":4865609}\", \"stderr\": \"\", \"returncode\": 0}",
+      "stderr": "",
+      "output": "results\\exp007-mvv-lva\\speed.json",
+      "result": {
+        "benchmark": "speed",
+        "engine": "build/engine/checkforge.exe",
+        "engine_version": "CheckForge 0.1.0-phase4",
+        "git_commit": "5bb997e8024f43ecf482d3c2ce8e2795a7e613af",
+        "config": {
+          "path": "configs/default.json",
+          "sha256": "caa48937cb6c1315cd3cd3fa3df84e3d59c0673d7f6c1a0a8f8ad281499086eb"
+        },
+        "created_at": "2026-06-13T10:19:13.038032+00:00",
+        "passed": true,
+        "fen": "startpos",
+        "depth": 5,
+        "nodes": 4865609,
+        "elapsed_seconds": 1.9340463999997155,
+        "nodes_per_second": 2515766,
+        "stdout": "{\"fen\":\"startpos\",\"depth\":5,\"nodes\":4865609}",
+        "stderr": "",
+        "returncode": 0
+      },
+      "passed": true
+    },
+    {
+      "name": "match",
+      "command": [
+        "python",
+        "research/run_match.py",
+        "--engine",
+        "build/engine/checkforge.exe",
+        "--config",
+        "configs/default.json",
+        "--opponent-engine",
+        "versions/v005-check-extension/checkforge.exe",
+        "--opponent-config",
+        "versions/v005-check-extension/default.json",
+        "--output",
+        "results\\exp007-mvv-lva\\match.json"
+      ],
+      "returncode": 0,
+      "stdout": "{\"benchmark\": \"match\", \"engine\": \"build/engine/checkforge.exe\", \"engine_version\": \"CheckForge 0.1.0-phase4\", \"git_commit\": \"5bb997e8024f43ecf482d3c2ce8e2795a7e613af\", \"config\": {\"path\": \"configs/default.json\", \"sha256\": \"caa48937cb6c1315cd3cd3fa3df84e3d59c0673d7f6c1a0a8f8ad281499086eb\"}, \"created_at\": \"2026-06-13T10:19:15.969320+00:00\", \"opponent\": {\"engine\": \"versions/v005-check-extension/checkforge.exe\", \"config\": \"versions/v005-check-extension/default.json\"}, \"passed\": true, \"games_requested\": 2, \"max_plies\": 80, \"games\": [{\"game\": 1, \"white_engine\": \"build/engine/checkforge.exe\", \"black_engine\": \"versions/v005-check-extension/checkforge.exe\", \"plies\": 80, \"moves\": [\"b1c3\", \"b8c6\", \"g1f3\", \"g8f6\", \"a2a4\", \"a7a5\", \"d2d4\", \"d7d5\", \"c1e3\", \"c8e6\", \"f3e5\", \"c6e5\", \"d4e5\", \"f6e4\", \"f2f3\", \"e4c3\", \"b2c3\", \"f7f6\", \"d1d4\", \"c7c5\", \"d4c5\", \"f6e5\", \"g2g4\", \"a8c8\", \"c5b5\", \"e8f7\", \"e3b6\", \"d8d6\", \"b6a5\", \"c8c5\", \"a5b4\", \"c5b5\", \"b4d6\", \"b5b2\", \"e1c1\", \"b2a2\", \"d6e5\", \"a2a1\", \"c1d2\", \"a1a4\", \"f1g2\", \"h7h5\", \"g4g5\", \"b7b5\", \"e2e4\", \"h5h4\", \"d2e3\", \"d5e4\", \"f3e4\", \"h8h5\", \"d1f1\", \"f7e8\", \"e3f4\", \"e6d5\", \"g2f3\", \"h5h7\", \"e5d4\", \"d5e6\", \"g5g6\", \"h7h6\", \"f4g5\", \"b5b4\", \"c3b4\", \"a4b4\", \"c2c3\", \"b4b5\", \"e4e5\", \"e6d5\", \"f3d5\", \"b5d5\", \"f1f2\", \"h4h3\", \"h1f1\", \"h6h8\", \"g5g4\", \"e7e6\", \"g4g5\", \"f8c5\", \"f2f4\", \"c5d4\"], \"result\": \"1/2-1/2\", \"failed\": null}, {\"game\": 2, \"white_engine\": \"versions/v005-check-extension/checkforge.exe\", \"black_engine\": \"build/engine/checkforge.exe\", \"plies\": 80, \"moves\": [\"b1c3\", \"b8c6\", \"g1f3\", \"g8f6\", \"a2a4\", \"a7a5\", \"d2d4\", \"d7d5\", \"c1e3\", \"c8e6\", \"f3e5\", \"c6e5\", \"d4e5\", \"f6e4\", \"f2f3\", \"e4c3\", \"b2c3\", \"f7f6\", \"d1d4\", \"c7c5\", \"d4c5\", \"f6e5\", \"g2g4\", \"a8c8\", \"c5b5\", \"e8f7\", \"e3b6\", \"d8d6\", \"b6a5\", \"c8c5\", \"a5b4\", \"c5b5\", \"b4d6\", \"b5b2\", \"e1c1\", \"b2a2\", \"d6e5\", \"a2a1\", \"c1d2\", \"a1a4\", \"f1g2\", \"h7h5\", \"g4g5\", \"b7b5\", \"e2e4\", \"h5h4\", \"d2e3\", \"d5e4\", \"f3e4\", \"h8h5\", \"d1f1\", \"f7e8\", \"e3f4\", \"e6d5\", \"g2f3\", \"h5h7\", \"e5d4\", \"d5e6\", \"g5g6\", \"h7h6\", \"f4g5\", \"b5b4\", \"c3b4\", \"a4b4\", \"c2c3\", \"b4b5\", \"e4e5\", \"e6d5\", \"f3d5\", \"b5d5\", \"f1f2\", \"h4h3\", \"h1f1\", \"h6h8\", \"g5g4\", \"e7e6\", \"g4g5\", \"f8c5\", \"f2f4\", \"c5d4\"], \"result\": \"1/2-1/2\", \"failed\": null}], \"note\": \"Internal UCI runner checks protocol stability and version-vs-version plies. Cutechess remains stronger external validation.\"}",
+      "stderr": "",
+      "output": "results\\exp007-mvv-lva\\match.json",
+      "result": {
+        "benchmark": "match",
+        "engine": "build/engine/checkforge.exe",
+        "engine_version": "CheckForge 0.1.0-phase4",
+        "git_commit": "5bb997e8024f43ecf482d3c2ce8e2795a7e613af",
+        "config": {
+          "path": "configs/default.json",
+          "sha256": "caa48937cb6c1315cd3cd3fa3df84e3d59c0673d7f6c1a0a8f8ad281499086eb"
+        },
+        "created_at": "2026-06-13T10:19:15.969320+00:00",
+        "opponent": {
+          "engine": "versions/v005-check-extension/checkforge.exe",
+          "config": "versions/v005-check-extension/default.json"
+        },
+        "passed": true,
+        "games_requested": 2,
+        "max_plies": 80,
+        "games": [
+          {
+            "game": 1,
+            "white_engine": "build/engine/checkforge.exe",
+            "black_engine": "versions/v005-check-extension/checkforge.exe",
+            "plies": 80,
+            "moves": [
+              "b1c3",
+              "b8c6",
+              "g1f3",
+              "g8f6",
+              "a2a4",
+              "a7a5",
+              "d2d4",
+              "d7d5",
+              "c1e3",
+              "c8e6",
+              "f3e5",
+              "c6e5",
+              "d4e5",
+              "f6e4",
+              "f2f3",
+              "e4c3",
+              "b2c3",
+              "f7f6",
+              "d1d4",
+              "c7c5",
+              "d4c5",
+              "f6e5",
+              "g2g4",
+              "a8c8",
+              "c5b5",
+              "e8f7",
+              "e3b6",
+              "d8d6",
+              "b6a5",
+              "c8c5",
+              "a5b4",
+              "c5b5",
+              "b4d6",
+              "b5b2",
+              "e1c1",
+              "b2a2",
+              "d6e5",
+              "a2a1",
+              "c1d2",
+              "a1a4",
+              "f1g2",
+              "h7h5",
+              "g4g5",
+              "b7b5",
+              "e2e4",
+              "h5h4",
+              "d2e3",
+              "d5e4",
+              "f3e4",
+              "h8h5",
+              "d1f1",
+              "f7e8",
+              "e3f4",
+              "e6d5",
+              "g2f3",
+              "h5h7",
+              "e5d4",
+              "d5e6",
+              "g5g6",
+              "h7h6",
+              "f4g5",
+              "b5b4",
+              "c3b4",
+              "a4b4",
+              "c2c3",
+              "b4b5",
+              "e4e5",
+              "e6d5",
+              "f3d5",
+              "b5d5",
+              "f1f2",
+              "h4h3",
+              "h1f1",
+              "h6h8",
+              "g5g4",
+              "e7e6",
+              "g4g5",
+              "f8c5",
+              "f2f4",
+              "c5d4"
+            ],
+            "result": "1/2-1/2",
+            "failed": null
+          },
+          {
+            "game": 2,
+            "white_engine": "versions/v005-check-extension/checkforge.exe",
+            "black_engine": "build/engine/checkforge.exe",
+            "plies": 80,
+            "moves": [
+              "b1c3",
+              "b8c6",
+              "g1f3",
+              "g8f6",
+              "a2a4",
+              "a7a5",
+              "d2d4",
+              "d7d5",
+              "c1e3",
+              "c8e6",
+              "f3e5",
+              "c6e5",
+              "d4e5",
+              "f6e4",
+              "f2f3",
+              "e4c3",
+              "b2c3",
+              "f7f6",
+              "d1d4",
+              "c7c5",
+              "d4c5",
+              "f6e5",
+              "g2g4",
+              "a8c8",
+              "c5b5",
+              "e8f7",
+              "e3b6",
+              "d8d6",
+              "b6a5",
+              "c8c5",
+              "a5b4",
+              "c5b5",
+              "b4d6",
+              "b5b2",
+              "e1c1",
+              "b2a2",
+              "d6e5",
+              "a2a1",
+              "c1d2",
+              "a1a4",
+              "f1g2",
+              "h7h5",
+              "g4g5",
+              "b7b5",
+              "e2e4",
+              "h5h4",
+              "d2e3",
+              "d5e4",
+              "f3e4",
+              "h8h5",
+              "d1f1",
+              "f7e8",
+              "e3f4",
+              "e6d5",
+              "g2f3",
+              "h5h7",
+              "e5d4",
+              "d5e6",
+              "g5g6",
+              "h7h6",
+              "f4g5",
+              "b5b4",
+              "c3b4",
+              "a4b4",
+              "c2c3",
+              "b4b5",
+              "e4e5",
+              "e6d5",
+              "f3d5",
+              "b5d5",
+              "f1f2",
+              "h4h3",
+              "h1f1",
+              "h6h8",
+              "g5g4",
+              "e7e6",
+              "g4g5",
+              "f8c5",
+              "f2f4",
+              "c5d4"
+            ],
+            "result": "1/2-1/2",
+            "failed": null
+          }
+        ],
+        "note": "Internal UCI runner checks protocol stability and version-vs-version plies. Cutechess remains stronger external validation."
+      },
+      "passed": true
+    }
+  ],
+  "accepted": true,
+  "reason": "All correctness and smoke benchmarks passed."
+}

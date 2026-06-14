@@ -21,6 +21,42 @@ CASES = [
         "depth": 1,
         "expected": ["d3e4"],
     },
+    {
+        "id": "mate-back-rank",
+        "fen": "6k1/5ppp/8/8/8/8/8/R3K3 w - - 0 1",
+        "depth": 3,
+        "expected": ["a1a8"],
+    },
+    {
+        "id": "mate-scholars-qf7",
+        "fen": "r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/5Q2/PPPP1PPP/RNB1K1NR w KQkq - 0 1",
+        "depth": 3,
+        "expected": ["f3f7"],
+    },
+    {
+        "id": "win-bishop-rxd3",
+        "fen": "4k3/8/8/8/8/3b4/3R4/4K3 w - - 0 1",
+        "depth": 2,
+        "expected": ["d2d3"],
+    },
+    {
+        "id": "win-rook-fork-nxe6",
+        "fen": "4k3/8/4r3/8/3N4/8/8/4K3 w - - 0 1",
+        "depth": 3,
+        "expected": ["d4e6"],
+    },
+    {
+        "id": "win-knight-rxd5",
+        "fen": "4k3/8/8/3n4/8/8/3R4/4K3 w - - 0 1",
+        "depth": 2,
+        "expected": ["d2d5"],
+    },
+    {
+        "id": "royal-fork-nc7",
+        "fen": "r3k3/8/8/3N4/8/8/8/4K3 w - - 0 1",
+        "depth": 3,
+        "expected": ["d5c7"],
+    },
 ]
 
 

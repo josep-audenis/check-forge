@@ -1,0 +1,49 @@
+{
+  "benchmark": "cutechess",
+  "engine": "build/engine/checkforge.exe",
+  "engine_version": "CheckForge 0.1.0-phase4",
+  "git_commit": "5bb997e8024f43ecf482d3c2ce8e2795a7e613af",
+  "config": {
+    "path": "configs/default.json",
+    "sha256": "caa48937cb6c1315cd3cd3fa3df84e3d59c0673d7f6c1a0a8f8ad281499086eb"
+  },
+  "created_at": "2026-06-13T11:32:35.132998+00:00",
+  "opponent": {
+    "engine": "versions/v008-time-management/checkforge.exe",
+    "config": "versions/v008-time-management/default.json"
+  },
+  "passed": true,
+  "skipped": false,
+  "command": [
+    "C:\\Users\\Josep\\AppData\\Local\\Microsoft\\WinGet\\Packages\\CuteChess.CuteChess_Microsoft.Winget.Source_8wekyb3d8bbwe\\cutechess-1.4.0-win64\\cutechess-cli.EXE",
+    "-engine",
+    "cmd=C:\\CODE\\check-forge\\build\\engine\\checkforge.exe",
+    "arg=--config",
+    "arg=C:\\CODE\\check-forge\\configs\\default.json",
+    "arg=uci",
+    "proto=uci",
+    "name=checkforge",
+    "-engine",
+    "cmd=C:\\CODE\\check-forge\\versions\\v008-time-management\\checkforge.exe",
+    "arg=--config",
+    "arg=C:\\CODE\\check-forge\\versions\\v008-time-management\\default.json",
+    "arg=uci",
+    "proto=uci",
+    "name=opponent",
+    "-each",
+    "tc=4+0.1",
+    "-games",
+    "40",
+    "-pgnout",
+    "matches/exp013-transposition-vs-v008.pgn",
+    "-openings",
+    "file=C:\\CODE\\check-forge\\data\\openings.epd",
+    "format=epd",
+    "order=random",
+    "-repeat"
+  ],
+  "returncode": 0,
+  "stdout": "Indexing opening suite...\nStarted game 1 of 40 (checkforge vs opponent)\nFinished game 1 (checkforge vs opponent): 0-1 {Black mates}\nScore of checkforge vs opponent: 0 - 1 - 0  [0.000] 1\nStarted game 2 of 40 (opponent vs checkforge)\nFinished game 2 (opponent vs checkforge): 0-1 {Black mates}\nScore of checkforge vs opponent: 1 - 1 - 0  [0.500] 2\nStarted game 3 of 40 (checkforge vs opponent)\nFinished game 3 (checkforge vs opponent): 1/2-1/2 {Draw by 3-fold repetition}\nScore of checkforge vs opponent: 1 - 1 - 1  [0.500] 3\nStarted game 4 of 40 (opponent vs checkforge)\nFinished game 4 (opponent vs checkforge): 1-0 {White mates}\nScore of checkforge vs opponent: 1 - 2 - 1  [0.375] 4\nStarted game 5 of 40 (checkforge vs opponent)\nFinished game 5 (checkforge vs opponent): 1-0 {White mates}\nScore of checkforge vs opponent: 2 - 2 - 1  [0.500] 5\nStarted game 6 of 40 (opponent vs checkforge)\nFinished game 6 (opponent vs checkforge): 1-0 {White mates}\nScore of checkforge vs opponent: 2 - 3 - 1  [0.417] 6\nStarted game 7 of 40 (checkforge vs opponent)\nFinished game 7 (checkforge vs opponent): 1-0 {White mates}\nScore of checkforge vs opponent: 3 - 3 - 1  [0.500] 7\nStarted game 8 of 40 (opponent vs checkforge)\nFinished game 8 (opponent vs checkforge): 1/2-1/2 {Draw by 3-fold repetition}\nScore of checkforge vs opponent: 3 - 3 - 2  [0.500] 8\nStarted game 9 of 40 (checkforge vs opponent)\nFinished game 9 (checkforge vs opponent): 0-1 {Black mates}\nScore of checkforge vs opponent: 3 - 4 - 2  [0.444] 9\nStarted game 10 of 40 (opponent vs checkforge)\nFinished game 10 (opponent vs checkforge): 1/2-1/2 {Draw by 3-fold repetition}\nScore of checkforge vs opponent: 3 - 4 - 3  [0.450] 10\nStarted game 11 of 40 (checkforge vs opponent)\nFinished game 11 (checkforge vs opponent): 1/2-1/2 {Draw by 3-fold repetition}\nScore of checkforge vs opponent: 3 - 4 - 4  [0.455] 11\nStarted game 12 of 40 (opponent vs checkforge)\nFinished game 12 (opponent vs checkforge): 1/2-1/2 {Draw by 3-fold repetition}\nScore of checkforge vs opponent: 3 - 4 - 5  [0.458] 12\nStarted game 13 of 40 (checkforge vs opponent)\nFinished game 13 (checkforge vs opponent): 1/2-1/2 {Draw by 3-fold repetition}\nScore of checkforge vs opponent: 3 - 4 - 6  [0.462] 13\nStarted game 14 of 40 (opponent vs checkforge)\nFinished game 14 (opponent vs checkforge): 0-1 {Black mates}\nScore of checkforge vs opponent: 4 - 4 - 6  [0.500] 14\nStarted game 15 of 40 (checkforge vs opponent)\nFinished game 15 (checkforge vs opponent): 0-1 {Black mates}\nScore of checkforge vs opponent: 4 - 5 - 6  [0.467] 15\nStarted game 16 of 40 (opponent vs checkforge)\nFinished game 16 (opponent vs checkforge): 1-0 {White mates}\nScore of checkforge vs opponent: 4 - 6 - 6  [0.438] 16\nStarted game 17 of 40 (checkforge vs opponent)\nFinished game 17 (checkforge vs opponent): 1-0 {White mates}\nScore of checkforge vs opponent: 5 - 6 - 6  [0.471] 17\nStarted game 18 of 40 (opponent vs checkforge)\nFinished game 18 (opponent vs checkforge): 1/2-1/2 {Draw by 3-fold repetition}\nScore of checkforge vs opponent: 5 - 6 - 7  [0.472] 18\nStarted game 19 of 40 (checkforge vs opponent)\nFinished game 19 (checkforge vs opponent): 1/2-1/2 {Draw by 3-fold repetition}\nScore of checkforge vs opponent: 5 - 6 - 8  [0.474] 19\nStarted game 20 of 40 (opponent vs checkforge)\nFinished game 20 (opponent vs checkforge): 1/2-1/2 {Draw by 3-fold repetition}\nScore of checkforge vs opponent: 5 - 6 - 9  [0.475] 20\nStarted game 21 of 40 (checkforge vs opponent)\nFinished game 21 (checkforge vs opponent): 1-0 {White mates}\nScore of checkforge vs opponent: 6 - 6 - 9  [0.500] 21\nStarted game 22 of 40 (opponent vs checkforge)\nFinished game 22 (opponent vs checkforge): 1/2-1/2 {Draw by 3-fold repetition}\nScore of checkforge vs opponent: 6 - 6 - 10  [0.500] 22\nStarted game 23 of 40 (checkforge vs opponent)\nFinished game 23 (checkforge vs opponent): 1-0 {White mates}\nScore of checkforge vs opponent: 7 - 6 - 10  [0.522] 23\nStarted game 24 of 40 (opponent vs checkforge)\nFinished game 24 (opponent vs checkforge): 1/2-1/2 {Draw by 3-fold repetition}\nScore of checkforge vs opponent: 7 - 6 - 11  [0.521] 24\nStarted game 25 of 40 (checkforge vs opponent)\nFinished game 25 (checkforge vs opponent): 0-1 {Black mates}\nScore of checkforge vs opponent: 7 - 7 - 11  [0.500] 25\nStarted game 26 of 40 (opponent vs checkforge)\nFinished game 26 (opponent vs checkforge): 0-1 {Black mates}\nScore of checkforge vs opponent: 8 - 7 - 11  [0.519] 26\nStarted game 27 of 40 (checkforge vs opponent)\nFinished game 27 (checkforge vs opponent): 1-0 {White mates}\nScore of checkforge vs opponent: 9 - 7 - 11  [0.537] 27\nStarted game 28 of 40 (opponent vs checkforge)\nFinished game 28 (opponent vs checkforge): 1-0 {White mates}\nScore of checkforge vs opponent: 9 - 8 - 11  [0.518] 28\nStarted game 29 of 40 (checkforge vs opponent)\nFinished game 29 (checkforge vs opponent): 1/2-1/2 {Draw by 3-fold repetition}\nScore of checkforge vs opponent: 9 - 8 - 12  [0.517] 29\nStarted game 30 of 40 (opponent vs checkforge)\nFinished game 30 (opponent vs checkforge): 1/2-1/2 {Draw by 3-fold repetition}\nScore of checkforge vs opponent: 9 - 8 - 13  [0.517] 30\nStarted game 31 of 40 (checkforge vs opponent)\nFinished game 31 (checkforge vs opponent): 1/2-1/2 {Draw by 3-fold repetition}\nScore of checkforge vs opponent: 9 - 8 - 14  [0.516] 31\nStarted game 32 of 40 (opponent vs checkforge)\nFinished game 32 (opponent vs checkforge): 1/2-1/2 {Draw by 3-fold repetition}\nScore of checkforge vs opponent: 9 - 8 - 15  [0.516] 32\nStarted game 33 of 40 (checkforge vs opponent)\nFinished game 33 (checkforge vs opponent): 1/2-1/2 {Draw by 3-fold repetition}\nScore of checkforge vs opponent: 9 - 8 - 16  [0.515] 33\nStarted game 34 of 40 (opponent vs checkforge)\nFinished game 34 (opponent vs checkforge): 0-1 {Black mates}\nScore of checkforge vs opponent: 10 - 8 - 16  [0.529] 34\nStarted game 35 of 40 (checkforge vs opponent)\nFinished game 35 (checkforge vs opponent): 1/2-1/2 {Draw by 3-fold repetition}\nScore of checkforge vs opponent: 10 - 8 - 17  [0.529] 35\nStarted game 36 of 40 (opponent vs checkforge)\nFinished game 36 (opponent vs checkforge): 1-0 {White mates}\nScore of checkforge vs opponent: 10 - 9 - 17  [0.514] 36\nStarted game 37 of 40 (checkforge vs opponent)\nFinished game 37 (checkforge vs opponent): 1/2-1/2 {Draw by 3-fold repetition}\nScore of checkforge vs opponent: 10 - 9 - 18  [0.514] 37\nStarted game 38 of 40 (opponent vs checkforge)\nFinished game 38 (opponent vs checkforge): 1/2-1/2 {Draw by 3-fold repetition}\nScore of checkforge vs opponent: 10 - 9 - 19  [0.513] 38\nStarted game 39 of 40 (checkforge vs opponent)\nFinished game 39 (checkforge vs opponent): 1-0 {White mates}\nScore of checkforge vs opponent: 11 - 9 - 19  [0.526] 39\nStarted game 40 of 40 (opponent vs checkforge)\nFinished game 40 (opponent vs checkforge): 1-0 {White mates}\nScore of checkforge vs opponent: 11 - 10 - 19  [0.512] 40\n...      checkforge playing White: 7 - 4 - 9  [0.575] 20\n...      checkforge playing Black: 4 - 6 - 10  [0.450] 20\n...      White vs Black: 13 - 8 - 19  [0.563] 40\nElo difference: 8.7 +/- 79.3, LOS: 58.6 %, DrawRatio: 47.5 %\nSPRT: llr 0 (0.0%), lbound -inf, ubound inf\n\nPlayer: checkforge\n   \"Draw by 3-fold repetition\": 19\n   \"Loss: Black mates\": 4\n   \"Loss: White mates\": 6\n   \"Win: Black mates\": 4\n   \"Win: White mates\": 7\nPlayer: opponent\n   \"Draw by 3-fold repetition\": 19\n   \"Loss: Black mates\": 4\n   \"Loss: White mates\": 7\n   \"Win: Black mates\": 4\n   \"Win: White mates\": 6\nFinished match",
+  "stderr": "",
+  "pgn": "matches/exp013-transposition-vs-v008.pgn"
+}

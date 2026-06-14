@@ -1,0 +1,15 @@
+{
+  "benchmark": "cutechess",
+  "experiment": "exp019-king-safety",
+  "opponent": "v013-pawn-structure",
+  "note": "wrapper died before writing JSON; reconstructed from PGN ground truth",
+  "wins": 47,
+  "losses": 44,
+  "draws": 112,
+  "games": 203,
+  "score": 0.5074,
+  "elo_diff": 5.1,
+  "elo_err_approx": 24.4,
+  "illegal": 0,
+  "passed": true
+}

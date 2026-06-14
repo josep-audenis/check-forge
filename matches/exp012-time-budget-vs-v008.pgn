@@ -1,0 +1,921 @@
+[Event "?"]
+[Site "?"]
+[Date "2026.06.13"]
+[Round "1"]
+[White "checkforge"]
+[Black "opponent"]
+[Result "1/2-1/2"]
+[FEN "rnbqkbnr/pp1ppppp/2p5/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 1"]
+[GameDuration "00:00:05"]
+[GameEndTime "2026-06-13T13:10:02.875 Hora de verano romance"]
+[GameStartTime "2026-06-13T13:09:57.800 Hora de verano romance"]
+[PlyCount "21"]
+[SetUp "1"]
+[TimeControl "4+0.1"]
+
+1. Nc3 Na6 2. Nf3 Nf6 3. d4 d5 4. e5 Ne4 5. Nd2 Nxc3 6. bxc3 Qa5 7. Bb2 Qb6
+8. Ba3 Qa5 9. Bb2 Qb6 10. Ba3 Qa5 11. Bb2 {Draw by 3-fold repetition} 1/2-1/2
+
+[Event "?"]
+[Site "?"]
+[Date "2026.06.13"]
+[Round "1"]
+[White "opponent"]
+[Black "checkforge"]
+[Result "1/2-1/2"]
+[FEN "rnbqkbnr/pp1ppppp/2p5/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 1"]
+[GameDuration "00:00:16"]
+[GameEndTime "2026-06-13T13:10:19.098 Hora de verano romance"]
+[GameStartTime "2026-06-13T13:10:02.878 Hora de verano romance"]
+[PlyCount "92"]
+[SetUp "1"]
+[TimeControl "4+0.1"]
+
+1. Nc3 Na6 2. Nf3 Nf6 3. d4 d5 4. e5 Ne4 5. Nd2 Bf5 6. Qf3 Nb4 7. Bd3 Nxc3
+8. Bxf5 Ncxa2 9. c3 Nxc1 10. cxb4 e6 11. Bc2 Bxb4 12. Rxc1 Qb6 13. Qf4 Bxd2+
+14. Qxd2 a5 15. Qc3 f5 16. Bd3 Ra7 17. f4 h5 18. h4 Rh7 19. Rc2 g6 20. g3 Kd8
+21. Rhh2 a4 22. Qc5 Qxc5 23. Rxc5 Kc8 24. Rc3 Kd7 25. Rhc2 Ra5 26. b3 axb3
+27. Rxb3 b5 28. Rb4 Rh8 29. Rb3 Ra4 30. Rbb2 Rxd4 31. Rb3 Rh7 32. Ra3 Rh6
+33. Ke2 Ra4 34. Rxa4 bxa4 35. Rc5 Kc7 36. Ra5 d4 37. Bc4 Rh8 38. Bxe6 Re8
+39. Bc4 Re7 40. e6 Kb7 41. Rxa4 Kb6 42. Ra6+ Kb7 43. Ra5 Kc7 44. Ra6 Kb7 45. Ra5
+Kc7 46. Ra6 Kb7 {Draw by 3-fold repetition} 1/2-1/2
+
+[Event "?"]
+[Site "?"]
+[Date "2026.06.13"]
+[Round "1"]
+[White "checkforge"]
+[Black "opponent"]
+[Result "0-1"]
+[FEN "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 1"]
+[GameDuration "00:00:11"]
+[GameEndTime "2026-06-13T13:10:30.280 Hora de verano romance"]
+[GameStartTime "2026-06-13T13:10:19.105 Hora de verano romance"]
+[PlyCount "58"]
+[SetUp "1"]
+[TimeControl "4+0.1"]
+
+1. Nc3 Nc6 2. Bd3 Bd6 3. Qg4 g5 4. Nf3 h6 5. Nb5 Bc5 6. Qg3 a6 7. Nc3 d6 8. Na4
+Ba7 9. Nc3 g4 10. Nh4 Be6 11. Nf5 Qg5 12. Nd5 Rc8 13. Nc3 Nge7 14. h4 gxh3
+15. Ng7+ Kd7 16. Qxg5 hxg5 17. Nxe6 hxg2 18. Nf8+ Rcxf8 19. Rg1 Rh1 20. Ne2 Nd4
+21. f4 Nxe2 22. Kxe2 Rxg1 23. Kf3 gxf4 24. Bc4 Rg8 25. Be6+ fxe6 26. Ke2 Rf1
+27. d4 g1=Q 28. dxe5 Rg2+ 29. Kd3 Qd4# {Black mates} 0-1
+
+[Event "?"]
+[Site "?"]
+[Date "2026.06.13"]
+[Round "1"]
+[White "opponent"]
+[Black "checkforge"]
+[Result "0-1"]
+[FEN "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 1"]
+[GameDuration "00:00:11"]
+[GameEndTime "2026-06-13T13:10:41.417 Hora de verano romance"]
+[GameStartTime "2026-06-13T13:10:30.282 Hora de verano romance"]
+[PlyCount "58"]
+[SetUp "1"]
+[TimeControl "4+0.1"]
+
+1. Nc3 Nc6 2. Bd3 Bd6 3. Qg4 g5 4. Nf3 h6 5. Nb5 Bc5 6. Qg3 a6 7. Nc3 d6 8. Na4
+Ba7 9. Nc3 g4 10. Nh4 Be6 11. Nf5 Qg5 12. Nd5 Rc8 13. Nc3 Nge7 14. h4 gxh3
+15. Ng7+ Kd7 16. Qxg5 hxg5 17. Nxe6 hxg2 18. Nf8+ Rcxf8 19. Rg1 Rh1 20. Ne2 Nd4
+21. f4 Nxe2 22. Kxe2 Rxg1 23. Kf3 gxf4 24. Bc4 Rg8 25. Be6+ fxe6 26. Ke2 Rf1
+27. d4 g1=Q 28. dxe5 Rg2+ 29. Kd3 Qd4# {Black mates} 0-1
+
+[Event "?"]
+[Site "?"]
+[Date "2026.06.13"]
+[Round "1"]
+[White "checkforge"]
+[Black "opponent"]
+[Result "0-1"]
+[FEN "rnbqkb1r/pppppppp/5n2/8/3P4/8/PPP1PPPP/RNBQKBNR w KQkq - 0 1"]
+[GameDuration "00:00:17"]
+[GameEndTime "2026-06-13T13:10:58.428 Hora de verano romance"]
+[GameStartTime "2026-06-13T13:10:41.422 Hora de verano romance"]
+[PlyCount "96"]
+[SetUp "1"]
+[Termination "time forfeit"]
+[TimeControl "4+0.1"]
+
+1. Nc3 Nc6 2. Nf3 d5 3. a4 Be6 4. Ng5 Bf5 5. Be3 e5 6. dxe5 Nxe5 7. Bd4 Bd6
+8. f4 Nc4 9. Bxf6 gxf6 10. Qxd5 fxg5 11. Qxf5 Ne3 12. Qe4+ Qe7 13. Qxb7 O-O
+14. Qb3 Rab8 15. Nd5 Nxd5 16. Qxd5 gxf4 17. Ra2 Be5 18. b3 Qd6 19. Qxd6 cxd6
+20. h4 a5 21. Rh3 Rb4 22. h5 f5 23. e3 Bc3+ 24. Kd1 d5 25. exf4 Rxf4 26. Rg3+
+Kh8 27. Rxc3 Rxf1+ 28. Ke2 Rg1 29. Rd3 Rd8 30. Kf2 Rh1 31. Rd4 Rxh5 32. c4 Rb8
+33. Rxd5 Rxb3 34. Rxa5 h6 35. Rb5 Rc3 36. c5 Kg8 37. Rb8+ Kf7 38. Rb7+ Ke8
+39. Rb8+ Kd7 40. Rd2+ Kc7 41. Rb5 Kc8 42. a5 f4 43. a6 Ra3 44. Rd4 Rf5 45. Rb6
+Rxc5 46. Rxf4 h5 47. Rd6 Kb8 48. Rb6+ Ka7 {White loses on time} 0-1
+
+[Event "?"]
+[Site "?"]
+[Date "2026.06.13"]
+[Round "1"]
+[White "opponent"]
+[Black "checkforge"]
+[Result "1/2-1/2"]
+[FEN "rnbqkb1r/pppppppp/5n2/8/3P4/8/PPP1PPPP/RNBQKBNR w KQkq - 0 1"]
+[GameDuration "00:00:13"]
+[GameEndTime "2026-06-13T13:11:11.553 Hora de verano romance"]
+[GameStartTime "2026-06-13T13:10:58.430 Hora de verano romance"]
+[PlyCount "69"]
+[SetUp "1"]
+[TimeControl "4+0.1"]
+
+1. Nc3 Nc6 2. Nf3 d5 3. a4 Be6 4. Ng5 Bf5 5. Be3 e5 6. Nf3 Nb4 7. Rc1 e4 8. Ne5
+a5 9. Nb5 c6 10. Nc3 Bd6 11. h4 Ng4 12. Nxg4 Bxg4 13. g3 f5 14. Bh3 h5 15. Qd2
+Ra7 16. Bg5 Qd7 17. Be3 Rh7 18. b3 b6 19. Rb1 c5 20. Nb5 Ra6 21. dxc5 Bxc5
+22. Bd4 g6 23. c4 dxc4 24. bxc4 Bxd4 25. Nxd4 Qxd4 26. Qxd4 Nc2+ 27. Kd2 Nxd4
+28. e3 Nf3+ 29. Kc3 Ne5 30. Rb5 Re7 31. Kd4 Nc6+ 32. Kd5 Ne5 33. Kd4 Nc6+
+34. Kd5 Ne5 35. Kd4 {Draw by 3-fold repetition} 1/2-1/2
+
+[Event "?"]
+[Site "?"]
+[Date "2026.06.13"]
+[Round "1"]
+[White "checkforge"]
+[Black "opponent"]
+[Result "1/2-1/2"]
+[FEN "rnbqkbnr/pppp1ppp/4p3/8/3P4/8/PPP1PPPP/RNBQKBNR w KQkq - 0 1"]
+[GameDuration "00:00:14"]
+[GameEndTime "2026-06-13T13:11:26.468 Hora de verano romance"]
+[GameStartTime "2026-06-13T13:11:11.556 Hora de verano romance"]
+[PlyCount "81"]
+[SetUp "1"]
+[TimeControl "4+0.1"]
+
+1. Nc3 Nc6 2. Be3 Bd6 3. d5 exd5 4. Nxd5 Nge7 5. Nf3 Nxd5 6. Qxd5 Nb4 7. Qc4 Nc6
+8. Qe4+ Qe7 9. Qxe7+ Nxe7 10. Nd2 Nd5 11. Bd4 f6 12. c4 Nb4 13. Kd1 Nc6 14. Bc3
+Be5 15. e3 Bxc3 16. bxc3 d6 17. Bd3 Ne5 18. Kc2 Bd7 19. Ne4 f5 20. Ng5 h6
+21. Nf3 a5 22. Nxe5 dxe5 23. e4 O-O 24. f3 c5 25. a4 g5 26. h4 Ra7 27. Ra2 Rf7
+28. Rh2 f4 29. hxg5 hxg5 30. Rh5 Rg7 31. Rh6 Kf7 32. Rh8 Be6 33. Rb8 g4 34. fxg4
+Rxg4 35. Kb3 Ke7 36. Rh8 Kd7 37. Rh7+ Kc6 38. Rh6 Kd7 39. Rh7+ Kc6 40. Rh6 Kd7
+41. Rh7+ {Draw by 3-fold repetition} 1/2-1/2
+
+[Event "?"]
+[Site "?"]
+[Date "2026.06.13"]
+[Round "1"]
+[White "opponent"]
+[Black "checkforge"]
+[Result "1-0"]
+[FEN "rnbqkbnr/pppp1ppp/4p3/8/3P4/8/PPP1PPPP/RNBQKBNR w KQkq - 0 1"]
+[GameDuration "00:00:17"]
+[GameEndTime "2026-06-13T13:11:43.472 Hora de verano romance"]
+[GameStartTime "2026-06-13T13:11:26.470 Hora de verano romance"]
+[PlyCount "97"]
+[SetUp "1"]
+[Termination "time forfeit"]
+[TimeControl "4+0.1"]
+
+1. Nc3 Nc6 2. Be3 Bd6 3. d5 exd5 4. Nxd5 Nge7 5. Nf3 Nxd5 6. Qxd5 Qf6 7. c3 a5
+8. Nd4 Qe5 9. Qxe5+ Nxe5 10. Nf5 g6 11. Nxd6+ cxd6 12. f4 Nc4 13. Bd4 O-O 14. b3
+Na3 15. Rc1 Nb5 16. Be3 Re8 17. Kd2 Nc7 18. c4 Ne6 19. g4 h5 20. Bh3 Nc5 21. Bd4
+Re4 22. e3 Re7 23. Kc2 Ne4 24. gxh5 Nf2 25. Bf6 Rxe3 26. Bg2 Nxh1 27. Bxh1 gxh5
+28. h4 Re2+ 29. Kb1 Rf2 30. Bg5 Ra7 31. Bd5 b6 32. Rg1 Kf8 33. Bh6+ Ke7 34. Re1+
+Kf6 35. Bg5+ Kg7 36. Re7 Rf1+ 37. Kb2 Ba6 38. Rxf7+ Kg6 39. Rf6+ Kg7 40. Rxd6
+Rf2+ 41. Kc3 Rxa2 42. Rxb6 a4 43. Bf6+ Kh7 44. bxa4 Rxa4 45. Be5 Ra3+ 46. Rb3
+Rxb3+ 47. Kxb3 Bc8 48. Be4+ Kh6 49. Bd6 {Black loses on time} 1-0
+
+[Event "?"]
+[Site "?"]
+[Date "2026.06.13"]
+[Round "1"]
+[White "checkforge"]
+[Black "opponent"]
+[Result "1-0"]
+[FEN "rnbqkbnr/pppp1ppp/4p3/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 1"]
+[GameDuration "00:00:11"]
+[GameEndTime "2026-06-13T13:11:55.193 Hora de verano romance"]
+[GameStartTime "2026-06-13T13:11:43.474 Hora de verano romance"]
+[PlyCount "61"]
+[SetUp "1"]
+[TimeControl "4+0.1"]
+
+1. Nc3 Nc6 2. Bd3 Nge7 3. Nf3 d6 4. Nb5 e5 5. b3 a6 6. Nc3 Be6 7. Bb2 h5 8. Ng5
+Bd7 9. Bc4 d5 10. Nxd5 Nxd5 11. exd5 Qxg5 12. dxc6 Bxc6 13. Rg1 Bxg2 14. Bf1 Qf4
+15. Rxg2 Bd6 16. Rxg7 Qxh2 17. Qf3 Qf4 18. Qxb7 Kd7 19. Bxa6 Rab8 20. Qd5 Rbf8
+21. Bb5+ Kd8 22. Bc4 Ke8 23. Bc3 Ke7 24. d4 Rhg8 25. dxe5 Ba3 26. e6 Bd6
+27. Rxg8 Rxg8 28. exf7 Rg1+ 29. Ke2 Rxa1 30. Qe6+ Kd8 31. Qe8# {White mates} 1-0
+
+[Event "?"]
+[Site "?"]
+[Date "2026.06.13"]
+[Round "1"]
+[White "opponent"]
+[Black "checkforge"]
+[Result "1/2-1/2"]
+[FEN "rnbqkbnr/pppp1ppp/4p3/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 1"]
+[GameDuration "00:00:16"]
+[GameEndTime "2026-06-13T13:12:12.116 Hora de verano romance"]
+[GameStartTime "2026-06-13T13:11:55.196 Hora de verano romance"]
+[PlyCount "97"]
+[SetUp "1"]
+[TimeControl "4+0.1"]
+
+1. Nc3 Nc6 2. Bd3 Bd6 3. Qg4 g5 4. Nf3 Bf4 5. a4 Nf6 6. Qh3 g4 7. Qh4 gxf3
+8. Qxf4 fxg2 9. Rg1 e5 10. Qf3 Nb4 11. Rxg2 Nxd3+ 12. cxd3 a5 13. b3 b6 14. Rg5
+d6 15. Bb2 h6 16. Rg7 Be6 17. Ra3 Kf8 18. Rg3 Ra7 19. Nb5 Rb7 20. Bc3 Rh7 21. h4
+c6 22. Nd4 exd4 23. Bxd4 Nd7 24. Rg6 Qe7 25. Bf6 Qe8 26. Bd4 c5 27. Bc3 f6
+28. Rg3 Qe7 29. Qe3 f5 30. Rf3 Qf7 31. Rf4 d5 32. exf5 Bxf5 33. d4 Ra7 34. f3
+Kg8 35. Ra2 cxd4 36. Bxd4 Qe6 37. Qxe6+ Bxe6 38. Rc2 Re7 39. Rc8+ Kh7 40. Rh8+
+Kg6 41. d3 h5 42. Kd2 Ra6 43. Kc3 Ra7 44. Kb2 Ra6 45. Ka3 Ra7 46. Ka2 Ra6
+47. Ka3 Ra7 48. Ka2 Ra6 49. Ka3 {Draw by 3-fold repetition} 1/2-1/2
+
+[Event "?"]
+[Site "?"]
+[Date "2026.06.13"]
+[Round "1"]
+[White "checkforge"]
+[Black "opponent"]
+[Result "1-0"]
+[FEN "rnbqkbnr/ppp1pppp/3p4/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 1"]
+[GameDuration "00:00:11"]
+[GameEndTime "2026-06-13T13:12:23.999 Hora de verano romance"]
+[GameStartTime "2026-06-13T13:12:12.117 Hora de verano romance"]
+[PlyCount "63"]
+[SetUp "1"]
+[TimeControl "4+0.1"]
+
+1. Nc3 Nd7 2. Bd3 Ngf6 3. Nf3 Nc5 4. Nd4 Nxd3+ 5. cxd3 c5 6. Nf5 Be6 7. Ne3 Nd7
+8. f4 g6 9. Ncd5 Bg7 10. Qb3 b6 11. Qc4 Bd4 12. a4 Nf6 13. h4 Kf8 14. f5 gxf5
+15. Nxf5 Be5 16. d4 cxd4 17. Nxd4 Bg3+ 18. Ke2 Nxe4 19. Nxe6+ fxe6 20. Qxe4 exd5
+21. Qf3+ Ke8 22. Qxg3 a5 23. d4 Rc8 24. Qd3 e5 25. Qb5+ Qd7 26. Qxd5 Qg4+
+27. Kd3 exd4 28. Qxd6 Rd8 29. Re1+ Qe2+ 30. Rxe2+ Kf7 31. Qe6+ Kf8
+32. Bh6# {White mates} 1-0
+
+[Event "?"]
+[Site "?"]
+[Date "2026.06.13"]
+[Round "1"]
+[White "opponent"]
+[Black "checkforge"]
+[Result "1/2-1/2"]
+[FEN "rnbqkbnr/ppp1pppp/3p4/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 1"]
+[GameDuration "00:00:12"]
+[GameEndTime "2026-06-13T13:12:36.298 Hora de verano romance"]
+[GameStartTime "2026-06-13T13:12:24.000 Hora de verano romance"]
+[PlyCount "62"]
+[SetUp "1"]
+[TimeControl "4+0.1"]
+
+1. Nc3 Nd7 2. Bd3 Ngf6 3. Nf3 Nc5 4. Nd4 Nxd3+ 5. cxd3 c5 6. Nf5 Be6 7. a4 g6
+8. Ne3 Bh6 9. Ncd5 a5 10. g4 Bg5 11. h4 Bh6 12. g5 Bxd5 13. exd5 Bxg5 14. hxg5
+Nd7 15. f4 e5 16. dxe6 fxe6 17. Qb3 e5 18. Qc4 exf4 19. Qxf4 Ne5 20. Ra3 Qxg5
+21. Qxg5 Nf3+ 22. Ke2 Nxg5 23. Nd5 Ra7 24. b3 O-O 25. Bb2 Re8+ 26. Kf2 Rf8+
+27. Bf6 Ne6 28. Ne7+ Kf7 29. Nd5 Kg8 30. Ne7+ Kf7 31. Nd5
+Kg8 {Draw by 3-fold repetition} 1/2-1/2
+
+[Event "?"]
+[Site "?"]
+[Date "2026.06.13"]
+[Round "1"]
+[White "checkforge"]
+[Black "opponent"]
+[Result "1-0"]
+[FEN "rnbqkbnr/ppp1pppp/8/3p4/3P4/8/PPP1PPPP/RNBQKBNR w KQkq - 0 1"]
+[GameDuration "00:00:16"]
+[GameEndTime "2026-06-13T13:12:52.681 Hora de verano romance"]
+[GameStartTime "2026-06-13T13:12:36.300 Hora de verano romance"]
+[PlyCount "97"]
+[SetUp "1"]
+[TimeControl "4+0.1"]
+
+1. Nc3 Nc6 2. Be3 Be6 3. Nh3 Nh6 4. Ng5 Nf5 5. Nxe6 fxe6 6. a4 e5 7. dxe5 d4
+8. Bf4 g5 9. e4 dxc3 10. Qh5+ Kd7 11. exf5 gxf4 12. Rd1+ Kc8 13. Rxd8+ Kxd8
+14. bxc3 Bg7 15. f6 exf6 16. Qf7 Re8 17. Qxg7 fxe5 18. Bb5 a6 19. Bxc6 bxc6
+20. Qxh7 Ra7 21. Qe4 Re6 22. g3 Kd7 23. Kf1 fxg3 24. hxg3 a5 25. f4 Kd6
+26. fxe5+ Rxe5 27. Rh6+ Kd7 28. Qxe5 Kc8 29. Rxc6 Kb8 30. Rc5 Ka8 31. c4 Kb8
+32. Rb5+ Rb7 33. Rxa5 Rb1+ 34. Ke2 Kb7 35. Rb5+ Rxb5 36. axb5 Kb6 37. Qd4+ Kb7
+38. Qd8 Kb6 39. Qc8 Ka5 40. Qxc7+ Ka4 41. b6 Kb4 42. b7 Kc3 43. Kd1 Kb4 44. c5
+Kb5 45. g4 Kb4 46. Qe5 Kc4 47. c6 Kb4 48. b8=Q+ Ka4 49. Qb3# {White mates} 1-0
+
+[Event "?"]
+[Site "?"]
+[Date "2026.06.13"]
+[Round "1"]
+[White "opponent"]
+[Black "checkforge"]
+[Result "1/2-1/2"]
+[FEN "rnbqkbnr/ppp1pppp/8/3p4/3P4/8/PPP1PPPP/RNBQKBNR w KQkq - 0 1"]
+[GameDuration "00:00:12"]
+[GameEndTime "2026-06-13T13:13:04.951 Hora de verano romance"]
+[GameStartTime "2026-06-13T13:12:52.682 Hora de verano romance"]
+[PlyCount "63"]
+[SetUp "1"]
+[TimeControl "4+0.1"]
+
+1. Nc3 Nc6 2. Be3 Be6 3. Nh3 Nh6 4. Ng5 Nf5 5. Nxe6 fxe6 6. a4 e5 7. dxe5 d4
+8. Bf4 g5 9. e4 dxc3 10. Qh5+ Kd7 11. exf5 gxf4 12. Rd1+ Kc8 13. Rxd8+ Kxd8
+14. bxc3 Bg7 15. f6 exf6 16. Qf7 Re8 17. Qxg7 fxe5 18. Bb5 a6 19. Bxc6 bxc6
+20. Qxh7 Ra7 21. Qe4 Re6 22. g3 Kd7 23. Kf1 fxg3 24. hxg3 a5 25. f4 Rb7 26. fxe5
+Rb1+ 27. Kg2 Rxh1 28. Qd4+ Rd6 29. Qg4+ Re6 30. Qd4+ Rd6 31. Qg4+ Re6
+32. Qd4+ {Draw by 3-fold repetition} 1/2-1/2
+
+[Event "?"]
+[Site "?"]
+[Date "2026.06.13"]
+[Round "1"]
+[White "checkforge"]
+[Black "opponent"]
+[Result "0-1"]
+[FEN "rnbqkbnr/pppp1ppp/8/4p3/2P5/8/PP1PPPPP/RNBQKBNR w KQkq - 0 1"]
+[GameDuration "00:00:11"]
+[GameEndTime "2026-06-13T13:13:16.752 Hora de verano romance"]
+[GameStartTime "2026-06-13T13:13:04.952 Hora de verano romance"]
+[PlyCount "62"]
+[SetUp "1"]
+[TimeControl "4+0.1"]
+
+1. Nc3 Nc6 2. a4 Na5 3. e4 Bd6 4. Qg4 g5 5. d3 f6 6. Qh5+ Kf8 7. Be3 Nb3 8. Ra2
+Ne7 9. Qf3 Kg7 10. Nge2 Nc5 11. Ng3 Rf8 12. Nh5+ Kg6 13. Nb5 a6 14. Nxd6 cxd6
+15. b4 Qb6 16. Bxc5 dxc5 17. b5 axb5 18. cxb5 Qe6 19. Qe2 Qb3 20. Rd2 Rxa4
+21. Qf3 Ra1+ 22. Ke2 Qxb5 23. h4 Qb1 24. d4 Qe1+ 25. Kd3 Ra3+ 26. Kc2 Rxf3
+27. gxf3 Nc6 28. Bg2 Nb4+ 29. Kb3 Qxd2 30. hxg5 Qc2+ 31. Ka3 Qa2# {Black mates}
+0-1
+
+[Event "?"]
+[Site "?"]
+[Date "2026.06.13"]
+[Round "1"]
+[White "opponent"]
+[Black "checkforge"]
+[Result "1-0"]
+[FEN "rnbqkbnr/pppp1ppp/8/4p3/2P5/8/PP1PPPPP/RNBQKBNR w KQkq - 0 1"]
+[GameDuration "00:00:16"]
+[GameEndTime "2026-06-13T13:13:33.114 Hora de verano romance"]
+[GameStartTime "2026-06-13T13:13:16.754 Hora de verano romance"]
+[PlyCount "97"]
+[SetUp "1"]
+[TimeControl "4+0.1"]
+
+1. Nc3 Nc6 2. a4 Na5 3. e4 Bd6 4. Qg4 g5 5. d3 f6 6. Qh5+ Kf8 7. Nd5 c6 8. Ne3
+Nb3 9. Rb1 Qa5+ 10. Kd1 Nxc1 11. Kxc1 Qe1+ 12. Qd1 Qxf2 13. Qe2 Qxe2 14. Nxe2
+Ne7 15. b4 b6 16. g4 a5 17. c5 bxc5 18. Nc4 Bc7 19. bxc5 Ba6 20. h4 Rg8 21. hxg5
+Rxg5 22. Rh4 Ra7 23. Rb2 Rb7 24. Rxb7 Bxb7 25. Nc3 Kg7 26. Be2 Ng6 27. Rh5 Rxh5
+28. gxh5 Nf4 29. Nd6 Bxd6 30. cxd6 Kf7 31. d4 Ke6 32. dxe5 fxe5 33. h6 c5
+34. Bc4+ Kxd6 35. Bg8 Bc6 36. Bxh7 Ne6 37. Bf5 Nf4 38. h7 Ne2+ 39. Nxe2 Kc7
+40. h8=Q Bxa4 41. Qxe5+ Kb6 42. Qd6+ Kb7 43. Qxc5 Bc6 44. Qxa5 Kb8 45. Qe5+ Kc8
+46. Nd4 Kd8 47. Nxc6+ dxc6 48. Qd6+ Ke8 49. Bg6# {White mates} 1-0
+
+[Event "?"]
+[Site "?"]
+[Date "2026.06.13"]
+[Round "1"]
+[White "checkforge"]
+[Black "opponent"]
+[Result "0-1"]
+[FEN "rnbqkbnr/pp1ppppp/8/2p5/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 1"]
+[GameDuration "00:00:17"]
+[GameEndTime "2026-06-13T13:13:50.580 Hora de verano romance"]
+[GameStartTime "2026-06-13T13:13:33.116 Hora de verano romance"]
+[PlyCount "102"]
+[SetUp "1"]
+[Termination "time forfeit"]
+[TimeControl "4+0.1"]
+
+1. Nc3 Nc6 2. Bd3 Nf6 3. Nf3 e5 4. b3 Bd6 5. Nb5 Be7 6. Bb2 d6 7. a3 a6 8. Nc3
+Be6 9. Ng5 Bd7 10. Bc4 O-O 11. Nf3 b5 12. Bd3 h5 13. h4 Bg4 14. a4 Nd4 15. axb5
+axb5 16. Nxb5 Rxa1 17. Qxa1 Nxb5 18. Bxb5 Nxe4 19. Bd3 f5 20. Nh2 Bxh4 21. g3
+Bg5 22. Nxg4 hxg4 23. Bc3 Nxc3 24. Qxc3 e4 25. Bb5 Rf7 26. d4 cxd4 27. Qc4 Qa5+
+28. Kf1 Qa1+ 29. Kg2 Qc3 30. Rh2 Bf6 31. Qxc3 dxc3 32. Bc4 Be5 33. Bxf7+ Kxf7
+34. b4 g5 35. b5 d5 36. b6 Kg7 37. b7 d4 38. Kf1 f4 39. gxf4 gxf4 40. Rh5 Bc7
+41. Rb5 Bb8 42. Rb4 d3 43. cxd3 exd3 44. Rb5 c2 45. Rg5+ Kf6 46. Rc5 Be5
+47. Rc6+ Kf7 48. Ke1 Ke8 49. Rc8+ Kd7 50. Kd2 g3 51. fxg3
+fxg3 {White loses on time} 0-1
+
+[Event "?"]
+[Site "?"]
+[Date "2026.06.13"]
+[Round "1"]
+[White "opponent"]
+[Black "checkforge"]
+[Result "1/2-1/2"]
+[FEN "rnbqkbnr/pp1ppppp/8/2p5/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 1"]
+[GameDuration "00:00:15"]
+[GameEndTime "2026-06-13T13:14:05.750 Hora de verano romance"]
+[GameStartTime "2026-06-13T13:13:50.581 Hora de verano romance"]
+[PlyCount "84"]
+[SetUp "1"]
+[TimeControl "4+0.1"]
+
+1. Nc3 Nc6 2. Bd3 Nf6 3. Nf3 e5 4. b3 Bd6 5. Nb5 Be7 6. Bb2 d6 7. Bc3 a6 8. Na3
+b5 9. Ng5 b4 10. Nc4 bxc3 11. dxc3 h6 12. Nf3 Be6 13. a4 g5 14. Ra2 g4 15. Nfd2
+d5 16. Ne3 dxe4 17. Bxe4 Qd7 18. Bxc6 Qxc6 19. Ndc4 Rd8 20. Qe2 Qe4 21. f3 Qf4
+22. fxg4 Nxg4 23. Rf1 Bxc4 24. Rxf4 Bxe2 25. Rxg4 Bxg4 26. Nxg4 Rd6 27. a5 Bh4+
+28. g3 Bg5 29. b4 Bd2+ 30. Ke2 Bxc3 31. bxc5 Rc6 32. Nf2 Rxc5 33. Ne4 Rc6 34. g4
+h5 35. g5 h4 36. Nf6+ Kd8 37. Ne4 h3 38. Ra4 Rh7 39. Nf6 Rg7 40. Ne4 Rh7 41. Nf6
+Rg7 42. Ne4 Rh7 {Draw by 3-fold repetition} 1/2-1/2
+
+[Event "?"]
+[Site "?"]
+[Date "2026.06.13"]
+[Round "1"]
+[White "checkforge"]
+[Black "opponent"]
+[Result "0-1"]
+[FEN "rnbqkbnr/pppppppp/8/8/2P5/8/PP1PPPPP/RNBQKBNR b KQkq - 0 1"]
+[GameDuration "00:00:15"]
+[GameEndTime "2026-06-13T13:14:21.381 Hora de verano romance"]
+[GameStartTime "2026-06-13T13:14:05.752 Hora de verano romance"]
+[PlyCount "85"]
+[SetUp "1"]
+[Termination "time forfeit"]
+[TimeControl "4+0.1"]
+
+1... Nc6 2. Nf3 d5 3. cxd5 Qxd5 4. Nc3 Qd7 5. d4 Nf6 6. d5 Nb4 7. Ne5 Qd6 8. Nc4
+Qc5 9. e4 Bd7 10. Be3 Nc2+ 11. Qxc2 Qb4 12. a3 Ba4 13. Qxa4+ Qxa4 14. Nxa4 b5
+15. Nc5 bxc4 16. Bxc4 e5 17. dxe6 fxe6 18. Nxe6 Kd7 19. f3 a5 20. e5 Ne8 21. Bd5
+c6 22. Bc4 Nc7 23. Rd1+ Kc8 24. Rd8+ Kb7 25. Rd7 Rc8 26. Nd8+ Rxd8 27. Rxd8 Bb4+
+28. axb4 Rxd8 29. bxa5 Nd5 30. a6+ Ka8 31. Bc5 h5 32. h4 Rd7 33. e6 Rd8 34. e7
+Nxe7 35. g4 hxg4 36. fxg4 Nd5 37. Bd4 Nf6 38. Bc3 Nxg4 39. Bxg7 Ne3 40. Be2 Nc2+
+41. Kf2 Nd4 42. Bc4 Rd7 43. Be5 c5 {White loses on time} 0-1
+
+[Event "?"]
+[Site "?"]
+[Date "2026.06.13"]
+[Round "1"]
+[White "opponent"]
+[Black "checkforge"]
+[Result "1-0"]
+[FEN "rnbqkbnr/pppppppp/8/8/2P5/8/PP1PPPPP/RNBQKBNR b KQkq - 0 1"]
+[GameDuration "00:00:11"]
+[GameEndTime "2026-06-13T13:14:33.218 Hora de verano romance"]
+[GameStartTime "2026-06-13T13:14:21.385 Hora de verano romance"]
+[PlyCount "62"]
+[SetUp "1"]
+[TimeControl "4+0.1"]
+
+1... Nc6 2. Nf3 d5 3. cxd5 Qxd5 4. Nc3 Qd7 5. d4 Nf6 6. d5 Nb4 7. Ne5 Qd6 8. Nc4
+Qc5 9. e4 Bg4 10. Be3 Bxd1 11. Bxc5 Nc2+ 12. Kxd1 Nxa1 13. Bd4 a5 14. Ne5 e6
+15. Bb5+ c6 16. Nxc6 exd5 17. exd5 Kd7 18. Nxa5+ Kc7 19. Be5+ Kc8 20. Nc4 Nd7
+21. Bxd7+ Kd8 22. Bf5 f6 23. Bd4 Bb4 24. Re1 Kc7 25. d6+ Kb8 26. Re7 Bxc3
+27. bxc3 Rxa2 28. Be4 Rg8 29. Bd5 Rf8 30. Rxb7+ Kc8 31. Nb6+ Kd8
+32. Rb8# {White mates} 1-0
+
+[Event "?"]
+[Site "?"]
+[Date "2026.06.13"]
+[Round "1"]
+[White "checkforge"]
+[Black "opponent"]
+[Result "0-1"]
+[FEN "rnbqkb1r/pppppppp/5n2/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 1"]
+[GameDuration "00:00:16"]
+[GameEndTime "2026-06-13T13:14:49.906 Hora de verano romance"]
+[GameStartTime "2026-06-13T13:14:33.219 Hora de verano romance"]
+[PlyCount "94"]
+[SetUp "1"]
+[Termination "time forfeit"]
+[TimeControl "4+0.1"]
+
+1. e5 Nd5 2. Nc3 Nxc3 3. dxc3 Nc6 4. Nf3 d6 5. exd6 cxd6 6. Be3 Be6 7. a4 a5
+8. Bb5 Bd7 9. h4 f5 10. h5 e5 11. Qd5 Be7 12. Bc4 Rf8 13. Ra2 f4 14. Bd2 Bf5
+15. Bb5 Bxc2 16. b4 Bf5 17. bxa5 Rxa5 18. c4 Ra7 19. Bxc6+ bxc6 20. Qxc6+ Qd7
+21. Qd5 Rxa4 22. Rxa4 Qxa4 23. Rh2 g5 24. hxg6 hxg6 25. g3 g5 26. gxf4 gxf4
+27. Rh5 Bg4 28. Rh7 Bxf3 29. Qxf3 Qxc4 30. Qa8+ Bd8 31. Qb7 Rf7 32. Rxf7 Qxf7
+33. Qc6+ Qd7 34. Qe4 Be7 35. Bc3 Qc8 36. Qg6+ Kf8 37. Qd3 Qc5 38. Bd2 Bf6
+39. Qf5 Kg7 40. Qe6 d5 41. Qd7+ Kg6 42. Qe6 d4 43. Ke2 Qb5+ 44. Ke1 Qb1+ 45. Bc1
+Qxc1+ 46. Ke2 Qc2+ 47. Kf3 Qd3+ {White loses on time} 0-1
+
+[Event "?"]
+[Site "?"]
+[Date "2026.06.13"]
+[Round "1"]
+[White "opponent"]
+[Black "checkforge"]
+[Result "1-0"]
+[FEN "rnbqkb1r/pppppppp/5n2/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 1"]
+[GameDuration "00:00:14"]
+[GameEndTime "2026-06-13T13:15:04.270 Hora de verano romance"]
+[GameStartTime "2026-06-13T13:14:49.906 Hora de verano romance"]
+[PlyCount "79"]
+[SetUp "1"]
+[TimeControl "4+0.1"]
+
+1. Nc3 d5 2. e5 Ne4 3. Nxe4 dxe4 4. d4 Nc6 5. Be3 f6 6. exf6 gxf6 7. Qh5+ Kd7
+8. Qd5+ Ke8 9. Qxe4 f5 10. Qf3 Bg7 11. Qh5+ Kf8 12. Bc4 e6 13. Nf3 Nxd4
+14. O-O-O c5 15. c3 b5 16. Bf1 Qc7 17. b4 Bb7 18. bxc5 Bxf3 19. gxf3 Nc6 20. c4
+Qe5 21. Rd6 Qa1+ 22. Kd2 Qxa2+ 23. Kc1 Qa1+ 24. Kd2 Qc3+ 25. Kd1 Qa1+ 26. Ke2
+Qa2+ 27. Ke1 Bc3+ 28. Kd1 Qa4+ 29. Kc1 bxc4 30. Qh6+ Bg7 31. Qxe6 Qa1+ 32. Kc2
+Qc3+ 33. Kd1 Qb3+ 34. Ke2 Ne7 35. Bh3 Qc2+ 36. Rd2 Qc3 37. Bxf5 Nxf5 38. Qxf5+
+Ke7 39. Rd7+ Ke8 40. Qf7# {White mates} 1-0
+
+[Event "?"]
+[Site "?"]
+[Date "2026.06.13"]
+[Round "1"]
+[White "checkforge"]
+[Black "opponent"]
+[Result "0-1"]
+[FEN "rnbqkbnr/pppppppp/8/8/8/5N2/PPPPPPPP/RNBQKB1R b KQkq - 0 1"]
+[GameDuration "00:00:16"]
+[GameEndTime "2026-06-13T13:15:20.605 Hora de verano romance"]
+[GameStartTime "2026-06-13T13:15:04.272 Hora de verano romance"]
+[PlyCount "95"]
+[SetUp "1"]
+[TimeControl "4+0.1"]
+
+1... Nc6 2. e4 Nf6 3. Nc3 d5 4. e5 Ng4 5. Bb5 a6 6. Bxc6+ bxc6 7. h3 d4 8. Ne2
+Nh6 9. Nexd4 c5 10. Nb3 Qd5 11. d4 Qe4+ 12. Be3 cxd4 13. Nbxd4 c5 14. Ne2 f6
+15. Qd3 Qxd3 16. cxd3 Bf5 17. Bxc5 Bxd3 18. Nf4 Be4 19. exf6 gxf6 20. Nd2 Bc6
+21. Nc4 Nf5 22. a4 Bh6 23. Na5 Bxf4 24. Nxc6 Rc8 25. Nxe7 Rxc5 26. Nxf5 Rxf5
+27. g4 Re5+ 28. Kd1 h5 29. Re1 hxg4 30. a5 Rxh3 31. Rxe5+ Bxe5 32. Ra2 Rh1+
+33. Kd2 Rh2 34. Ke3 f5 35. b4 g3 36. Rc2 gxf2 37. Rc8+ Kd7 38. Rc1 Ke7 39. Ke2
+f1=Q+ 40. Kxf1 Rh1+ 41. Ke2 Rxc1 42. Kd3 f4 43. Ke4 Bd6 44. Kd5 f3 45. b5 f2
+46. b6 f1=Q 47. Ke4 Rc3 48. b7 Qd3# {Black mates} 0-1
+
+[Event "?"]
+[Site "?"]
+[Date "2026.06.13"]
+[Round "1"]
+[White "opponent"]
+[Black "checkforge"]
+[Result "1/2-1/2"]
+[FEN "rnbqkbnr/pppppppp/8/8/8/5N2/PPPPPPPP/RNBQKB1R b KQkq - 0 1"]
+[GameDuration "00:00:18"]
+[GameEndTime "2026-06-13T13:15:38.712 Hora de verano romance"]
+[GameStartTime "2026-06-13T13:15:20.608 Hora de verano romance"]
+[PlyCount "108"]
+[SetUp "1"]
+[TimeControl "4+0.1"]
+
+1... Nc6 2. Na3 Nf6 3. Nb5 e6 4. d3 Bb4+ 5. c3 Be7 6. e4 d6 7. Be3 Ng4 8. Bd2
+Bd7 9. Nfd4 Nxd4 10. Nxd4 f5 11. f4 Nf6 12. Qb3 fxe4 13. Nxe6 Bxe6 14. Qxe6 Qd7
+15. Qxd7+ Kxd7 16. a4 a5 17. h4 c5 18. Be2 exd3 19. Bxd3 h5 20. Bf5+ Kd8 21. c4
+d5 22. cxd5 Nxd5 23. Be4 Nb4 24. Bxb7 Ra7 25. Be4 Bf6 26. Be3 Bd4 27. O-O-O Rd7
+28. Bd2 Re8 29. Bg6 Re2 30. Kb1 Bxb2 31. Bxb4 axb4 32. Rxd7+ Kxd7 33. Rh2 Bd4
+34. Bxh5 Re1+ 35. Kc2 Kd8 36. Bg4 Ra1 37. Be6 Rxa4 38. Bd5 Bg1 39. Rh3 Bd4
+40. f5 Ra6 41. h5 Rd6 42. Be4 c4 43. Kb1 b3 44. g4 Ra6 45. Kc1 b2+ 46. Kc2 Ra1
+47. Rh1 Rxh1 48. Bxh1 Kc8 49. g5 Kb8 50. g6 Kc8 51. Kb1 Kb8 52. Ka2 Kc8 53. Kb1
+Kb8 54. Ka2 Kc8 55. Kb1 {Draw by 3-fold repetition} 1/2-1/2
+
+[Event "?"]
+[Site "?"]
+[Date "2026.06.13"]
+[Round "1"]
+[White "checkforge"]
+[Black "opponent"]
+[Result "1/2-1/2"]
+[FEN "rnbqkbnr/pp1ppppp/2p5/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 1"]
+[GameDuration "00:00:05"]
+[GameEndTime "2026-06-13T13:15:43.797 Hora de verano romance"]
+[GameStartTime "2026-06-13T13:15:38.714 Hora de verano romance"]
+[PlyCount "21"]
+[SetUp "1"]
+[TimeControl "4+0.1"]
+
+1. Nc3 Na6 2. Nf3 Nf6 3. d4 d5 4. e5 Ne4 5. Nd2 Nxc3 6. bxc3 Qa5 7. Bb2 Qb6
+8. Ba3 Qa5 9. Bb2 Qb6 10. Ba3 Qa5 11. Bb2 {Draw by 3-fold repetition} 1/2-1/2
+
+[Event "?"]
+[Site "?"]
+[Date "2026.06.13"]
+[Round "1"]
+[White "opponent"]
+[Black "checkforge"]
+[Result "1/2-1/2"]
+[FEN "rnbqkbnr/pp1ppppp/2p5/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 1"]
+[GameDuration "00:00:14"]
+[GameEndTime "2026-06-13T13:15:58.482 Hora de verano romance"]
+[GameStartTime "2026-06-13T13:15:43.799 Hora de verano romance"]
+[PlyCount "80"]
+[SetUp "1"]
+[TimeControl "4+0.1"]
+
+1. Nc3 Na6 2. Nf3 Nf6 3. d4 d5 4. e5 Ne4 5. Nd2 Bf5 6. Qf3 Nb4 7. Bd3 Nxc3
+8. Bxf5 Ncxa2 9. c3 Nxc1 10. cxb4 e6 11. Bc2 Bxb4 12. Rxc1 Qb6 13. Qf4 Bxd2+
+14. Qxd2 a5 15. Qc3 f5 16. Bd3 g5 17. h4 g4 18. h5 Ra7 19. f4 h6 20. Rh4 Qb4
+21. g3 Kf8 22. b3 Ke8 23. Ke2 Qxc3 24. Rxc3 Kd7 25. Rh2 b5 26. Rh4 b4 27. Rc5
+Rg8 28. Rc2 Rg7 29. Ra2 Ra8 30. Rh2 Ra7 31. Bc2 c5 32. dxc5 Kc6 33. Bd3 Kxc5
+34. Rc2+ Kb6 35. Rc8 a4 36. Re8 Rae7 37. Rb8+ Rb7 38. Re8 Rbe7 39. Rb8+ Rb7
+40. Re8 Rbe7 {Draw by 3-fold repetition} 1/2-1/2
+
+[Event "?"]
+[Site "?"]
+[Date "2026.06.13"]
+[Round "1"]
+[White "checkforge"]
+[Black "opponent"]
+[Result "0-1"]
+[FEN "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 1"]
+[GameDuration "00:00:11"]
+[GameEndTime "2026-06-13T13:16:09.694 Hora de verano romance"]
+[GameStartTime "2026-06-13T13:15:58.483 Hora de verano romance"]
+[PlyCount "58"]
+[SetUp "1"]
+[TimeControl "4+0.1"]
+
+1. Nc3 Nc6 2. Bd3 Bd6 3. Qg4 g5 4. Nf3 h6 5. Nb5 Bc5 6. Qg3 a6 7. Nc3 d6 8. Na4
+Ba7 9. Nc3 g4 10. Nh4 Be6 11. Nf5 Qg5 12. Nd5 Rc8 13. Nc3 Nge7 14. h4 gxh3
+15. Ng7+ Kd7 16. Qxg5 hxg5 17. Nxe6 hxg2 18. Nf8+ Rcxf8 19. Rg1 Rh1 20. Ne2 Nd4
+21. f4 Nxe2 22. Kxe2 Rxg1 23. Kf3 gxf4 24. Bc4 Rg8 25. Be6+ fxe6 26. Ke2 Rf1
+27. d4 g1=Q 28. dxe5 Rg2+ 29. Kd3 Qd4# {Black mates} 0-1
+
+[Event "?"]
+[Site "?"]
+[Date "2026.06.13"]
+[Round "1"]
+[White "opponent"]
+[Black "checkforge"]
+[Result "0-1"]
+[FEN "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 1"]
+[GameDuration "00:00:11"]
+[GameEndTime "2026-06-13T13:16:20.846 Hora de verano romance"]
+[GameStartTime "2026-06-13T13:16:09.696 Hora de verano romance"]
+[PlyCount "58"]
+[SetUp "1"]
+[TimeControl "4+0.1"]
+
+1. Nc3 Nc6 2. Bd3 Bd6 3. Qg4 g5 4. Nf3 h6 5. Nb5 Bc5 6. Qg3 a6 7. Nc3 d6 8. Na4
+Ba7 9. Nc3 g4 10. Nh4 Be6 11. Nf5 Qg5 12. Nd5 Rc8 13. Nc3 Nge7 14. h4 gxh3
+15. Ng7+ Kd7 16. Qxg5 hxg5 17. Nxe6 hxg2 18. Nf8+ Rcxf8 19. Rg1 Rh1 20. Ne2 Nd4
+21. f4 Nxe2 22. Kxe2 Rxg1 23. Kf3 gxf4 24. Bc4 Rg8 25. Be6+ fxe6 26. Ke2 Rf1
+27. d4 g1=Q 28. dxe5 Rg2+ 29. Kd3 Qd4# {Black mates} 0-1
+
+[Event "?"]
+[Site "?"]
+[Date "2026.06.13"]
+[Round "1"]
+[White "checkforge"]
+[Black "opponent"]
+[Result "1/2-1/2"]
+[FEN "rnbqkb1r/pppppppp/5n2/8/3P4/8/PPP1PPPP/RNBQKBNR w KQkq - 0 1"]
+[GameDuration "00:00:14"]
+[GameEndTime "2026-06-13T13:16:35.518 Hora de verano romance"]
+[GameStartTime "2026-06-13T13:16:20.848 Hora de verano romance"]
+[PlyCount "80"]
+[SetUp "1"]
+[TimeControl "4+0.1"]
+
+1. Nc3 Nc6 2. Nf3 d5 3. a4 Be6 4. Ng5 Bf5 5. Be3 e5 6. Nf3 Nb4 7. Rc1 e4 8. Ne5
+a5 9. g3 Bd6 10. Nb5 Be7 11. Bg2 Ng4 12. Nxg4 Bxg4 13. Bf4 Rc8 14. f3 exf3
+15. Bxf3 h5 16. Be5 f6 17. Bf4 c5 18. h4 Bxf3 19. exf3 Nc6 20. c4 dxc4 21. Rxc4
+Qd5 22. b3 g5 23. Nc7+ Rxc7 24. Bxc7 Kd7 25. Bb6 Nxd4 26. Bxa5 Nxf3+ 27. Kf2
+Qxd1 28. Rxd1+ Nd4 29. Bc3 gxh4 30. gxh4 f5 31. Ke3 f4+ 32. Ke4 Rh6 33. Bxd4
+cxd4 34. Rdxd4+ Bd6 35. a5 Ke6 36. Rc8 Kd7 37. Rc5 Ke8 38. Rc8+ Kd7 39. Rc5 Ke8
+40. Rc8+ Kd7 {Draw by 3-fold repetition} 1/2-1/2
+
+[Event "?"]
+[Site "?"]
+[Date "2026.06.13"]
+[Round "1"]
+[White "opponent"]
+[Black "checkforge"]
+[Result "1/2-1/2"]
+[FEN "rnbqkb1r/pppppppp/5n2/8/3P4/8/PPP1PPPP/RNBQKBNR w KQkq - 0 1"]
+[GameDuration "00:00:18"]
+[GameEndTime "2026-06-13T13:16:53.600 Hora de verano romance"]
+[GameStartTime "2026-06-13T13:16:35.520 Hora de verano romance"]
+[PlyCount "108"]
+[SetUp "1"]
+[TimeControl "4+0.1"]
+
+1. Nc3 Nc6 2. Nf3 d5 3. a4 Be6 4. Ng5 Bf5 5. Be3 e5 6. Nf3 Nb4 7. Rc1 e4 8. Ne5
+a5 9. Nb5 c6 10. Nc3 Bd6 11. h4 Ng4 12. Nxg4 Bxg4 13. g3 f5 14. Bh3 h5 15. Qd2
+Ra7 16. Bg5 Qd7 17. Be3 Rh7 18. b3 b6 19. Rb1 c5 20. Nb5 Ra6 21. dxc5 Bxc5
+22. Bd4 g6 23. c4 dxc4 24. Bxc5 Qxd2+ 25. Kxd2 c3+ 26. Nxc3 bxc5 27. Kc1 Kd8
+28. Rb2 Kc8 29. Rh2 Kb8 30. Bxg4 hxg4 31. Rd2 Ka8 32. Nb5 Rf6 33. Nd6 Nd3+
+34. exd3 Rxd6 35. dxe4 Rxd2 36. Kxd2 Rd7+ 37. Ke3 Re7 38. f3 gxf3 39. e5 Rxe5+
+40. Kxf3 Re6 41. Rc2 Re5 42. g4 Kb8 43. g5 Rd5 44. Kf4 Ka8 45. h5 Rd4+ 46. Ke5
+Re4+ 47. Kf6 Rd4 48. hxg6 f4 49. Rxc5 Kb8 50. Ke5 Rd7 51. Rb5+ Kc8 52. Rc5+ Kb8
+53. Rb5+ Kc8 54. Rc5+ Kb8 {Draw by 3-fold repetition} 1/2-1/2
+
+[Event "?"]
+[Site "?"]
+[Date "2026.06.13"]
+[Round "1"]
+[White "checkforge"]
+[Black "opponent"]
+[Result "1-0"]
+[FEN "rnbqkbnr/pppp1ppp/4p3/8/3P4/8/PPP1PPPP/RNBQKBNR w KQkq - 0 1"]
+[GameDuration "00:00:11"]
+[GameEndTime "2026-06-13T13:17:04.997 Hora de verano romance"]
+[GameStartTime "2026-06-13T13:16:53.603 Hora de verano romance"]
+[PlyCount "59"]
+[SetUp "1"]
+[TimeControl "4+0.1"]
+
+1. Nc3 Nc6 2. Be3 Bd6 3. d5 exd5 4. Nxd5 Nge7 5. Nf3 Nxd5 6. Qxd5 Qf6 7. c3 a5
+8. Nd4 Qe5 9. Qxe5+ Nxe5 10. Nf5 g6 11. Nxd6+ cxd6 12. f4 Nc4 13. Bd4 O-O 14. b3
+Na3 15. Rc1 Nb5 16. Be3 Re8 17. Kd2 Nc7 18. c4 Ne6 19. g4 h5 20. Bh3 Nc5 21. Bd4
+Re4 22. e3 Re7 23. Kc2 Ne4 24. gxh5 gxh5 25. Bf5 Ra6 26. h4 b6 27. Rcg1+ Kf8
+28. Bh7 Nf6 29. Bxf6 Rxe3 30. Rg8# {White mates} 1-0
+
+[Event "?"]
+[Site "?"]
+[Date "2026.06.13"]
+[Round "1"]
+[White "opponent"]
+[Black "checkforge"]
+[Result "1-0"]
+[FEN "rnbqkbnr/pppp1ppp/4p3/8/3P4/8/PPP1PPPP/RNBQKBNR w KQkq - 0 1"]
+[GameDuration "00:00:17"]
+[GameEndTime "2026-06-13T13:17:22.246 Hora de verano romance"]
+[GameStartTime "2026-06-13T13:17:04.999 Hora de verano romance"]
+[PlyCount "99"]
+[SetUp "1"]
+[Termination "time forfeit"]
+[TimeControl "4+0.1"]
+
+1. Nc3 Nc6 2. Be3 Bd6 3. d5 exd5 4. Nxd5 Nge7 5. Nf3 Nxd5 6. Qxd5 Qf6 7. c3 a5
+8. Nd4 Qe5 9. Qxe5+ Nxe5 10. Nf5 g6 11. Nxd6+ cxd6 12. f4 Nc4 13. Bd4 O-O 14. b3
+Na3 15. Rc1 Nb5 16. Be3 Re8 17. Kd2 Nc7 18. c4 Ne6 19. g4 h5 20. Bh3 Nc5 21. Bd4
+Re4 22. e3 Re7 23. Kc2 Ne4 24. gxh5 Nf2 25. Bf6 Rxe3 26. Bg2 Nxh1 27. Bxh1 gxh5
+28. h4 Re2+ 29. Kb1 Rf2 30. Bg5 Ra7 31. Bd5 b6 32. Rg1 Kf8 33. Bh6+ Ke7 34. Re1+
+Kf6 35. Bg5+ Kg7 36. Re7 Rf1+ 37. Kb2 Ba6 38. Rxf7+ Kg6 39. Rf6+ Kg7 40. Rxd6
+Rf2+ 41. Kc3 b5 42. Bf6+ Kf8 43. Bd4 b4+ 44. Kd3 Rxf4 45. Bxa7 Bc8 46. Rh6 Kg7
+47. Rxh5 Kg6 48. Rh8 Ba6 49. Bd4 Rf1 50. h5+ {Black loses on time} 1-0
+
+[Event "?"]
+[Site "?"]
+[Date "2026.06.13"]
+[Round "1"]
+[White "checkforge"]
+[Black "opponent"]
+[Result "0-1"]
+[FEN "rnbqkbnr/pppp1ppp/4p3/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 1"]
+[GameDuration "00:00:11"]
+[GameEndTime "2026-06-13T13:17:34.177 Hora de verano romance"]
+[GameStartTime "2026-06-13T13:17:22.248 Hora de verano romance"]
+[PlyCount "64"]
+[SetUp "1"]
+[TimeControl "4+0.1"]
+
+1. Nc3 Nc6 2. Bd3 Nge7 3. Nf3 d6 4. Nb5 e5 5. b3 a6 6. Nc3 Be6 7. Bb2 h5 8. Ng5
+Bd7 9. Bc4 d5 10. Nxd5 Nxd5 11. exd5 Qxg5 12. dxc6 Bxc6 13. Rg1 Bxg2 14. Bf1 Qf4
+15. Rxg2 Bd6 16. Rxg7 Qxh2 17. Qf3 Qf4 18. Qxb7 Kd7 19. Bxa6 Rab8 20. Qd5 Rbf8
+21. Bb5+ Kd8 22. Bc3 Rhg8 23. Rxg8 Rxg8 24. Qa8+ Ke7 25. Qxg8 Qe4+ 26. Kd1 Qf3+
+27. Ke1 Qe4+ 28. Kd1 Qf3+ 29. Kc1 Ba3+ 30. Bb2 Qh1+ 31. Qg1 Qxg1+ 32. Bf1
+Qxf1# {Black mates} 0-1
+
+[Event "?"]
+[Site "?"]
+[Date "2026.06.13"]
+[Round "1"]
+[White "opponent"]
+[Black "checkforge"]
+[Result "1-0"]
+[FEN "rnbqkbnr/pppp1ppp/4p3/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 1"]
+[GameDuration "00:00:19"]
+[GameEndTime "2026-06-13T13:17:54.001 Hora de verano romance"]
+[GameStartTime "2026-06-13T13:17:34.179 Hora de verano romance"]
+[PlyCount "123"]
+[SetUp "1"]
+[Termination "time forfeit"]
+[TimeControl "4+0.1"]
+
+1. Nc3 Nc6 2. Bd3 Bd6 3. Qg4 g5 4. Nf3 Bf4 5. a4 Nf6 6. Qh3 g4 7. Qh4 gxf3
+8. Qxf4 fxg2 9. Rg1 e5 10. Qf3 Nb4 11. Rxg2 Nxd3+ 12. cxd3 a5 13. b3 b6 14. Rg5
+d6 15. Bb2 h6 16. Rg7 Be6 17. Ra3 Kf8 18. Rg3 Ra7 19. Nb5 Rb7 20. Bc3 Rh7 21. d4
+d5 22. d3 c6 23. dxe5 cxb5 24. Qxf6 Qxf6 25. exf6 b4 26. Rg7 Rh8 27. exd5 Bxd5
+28. Bxb4+ axb4 29. Ra2 Bxb3 30. Rb2 Bxa4 31. Rxb4 Bc6 32. Rc4 Bd7 33. Rc3 Be6
+34. Ra3 Rb8 35. f4 Rg8 36. Rxg8+ Kxg8 37. d4 Rb7 38. Ra8+ Kh7 39. Rd8 Kg6 40. d5
+Bd7 41. Rh8 Bf5 42. h4 Be4 43. d6 Bd5 44. h5+ Kxf6 45. Kd2 Kg7 46. Rd8 Bf3
+47. d7 Kf6 48. Ke3 Bxh5 49. Rc8 Rxd7 50. Rc6+ Kg7 51. Rxb6 f5 52. Rb8 Bf7
+53. Rb6 Bd5 54. Rb8 h5 55. Rb6 h4 56. Rb8 Rd6 57. Rb5 Rd7 58. Rb6 Be4 59. Rb8
+Rd6 60. Rb5 Kf7 61. Rb8 Kg7 62. Rb5 {Black loses on time} 1-0
+
+[Event "?"]
+[Site "?"]
+[Date "2026.06.13"]
+[Round "1"]
+[White "checkforge"]
+[Black "opponent"]
+[Result "1-0"]
+[FEN "rnbqkbnr/ppp1pppp/3p4/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 1"]
+[GameDuration "00:00:11"]
+[GameEndTime "2026-06-13T13:18:05.878 Hora de verano romance"]
+[GameStartTime "2026-06-13T13:17:54.003 Hora de verano romance"]
+[PlyCount "63"]
+[SetUp "1"]
+[TimeControl "4+0.1"]
+
+1. Nc3 Nd7 2. Bd3 Ngf6 3. Nf3 Nc5 4. Nd4 Nxd3+ 5. cxd3 c5 6. Nf5 Be6 7. Ne3 Nd7
+8. f4 g6 9. Ncd5 Bg7 10. Qb3 b6 11. Qc4 Bd4 12. a4 Nf6 13. h4 Kf8 14. f5 gxf5
+15. Nxf5 Be5 16. d4 cxd4 17. Nxd4 Bg3+ 18. Ke2 Nxe4 19. Nxe6+ fxe6 20. Qxe4 exd5
+21. Qf3+ Ke8 22. Qxg3 a5 23. d4 Rc8 24. Qd3 e5 25. Qb5+ Qd7 26. Qxd5 Qg4+
+27. Kd3 exd4 28. Qxd6 Rd8 29. Re1+ Qe2+ 30. Rxe2+ Kf7 31. Qe6+ Kf8
+32. Bh6# {White mates} 1-0
+
+[Event "?"]
+[Site "?"]
+[Date "2026.06.13"]
+[Round "1"]
+[White "opponent"]
+[Black "checkforge"]
+[Result "1/2-1/2"]
+[FEN "rnbqkbnr/ppp1pppp/3p4/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 1"]
+[GameDuration "00:00:16"]
+[GameEndTime "2026-06-13T13:18:21.940 Hora de verano romance"]
+[GameStartTime "2026-06-13T13:18:05.881 Hora de verano romance"]
+[PlyCount "90"]
+[SetUp "1"]
+[TimeControl "4+0.1"]
+
+1. Nc3 Nd7 2. Bd3 Ngf6 3. Nf3 Nc5 4. Nd4 Nxd3+ 5. cxd3 c5 6. Nf5 Be6 7. Ne3 Nd7
+8. f4 g6 9. Ncd5 Bg7 10. Qb3 b6 11. Qc4 Bd4 12. a4 Nf6 13. h4 Kf8 14. f5 gxf5
+15. Nxf5 Be5 16. d4 Nxd5 17. dxe5 Nf4 18. Qc3 dxe5 19. g3 Qd3 20. Qxd3 Nxd3+
+21. Ke2 c4 22. Ne3 a5 23. h5 Rg8 24. Kf3 Rg5 25. h6 Ra7 26. g4 Rc7 27. Ra3 Rd7
+28. Rc3 Nc5 29. Nxc4 Bxg4+ 30. Ke3 Rd4 31. d3 f6 32. Rf1 Nxa4 33. Nxe5 Nxc3
+34. bxc3 Ra4 35. d4 Ra1 36. Kf4 Be6 37. Rh1 Rg8 38. Nc6 Rg4+ 39. Kf3 f5 40. exf5
+Bxf5 41. Ne5 Rg8 42. Rh5 Bg6 43. Rh1 Bf5 44. Rh5 Bg6 45. Rh1
+Bf5 {Draw by 3-fold repetition} 1/2-1/2
+
+[Event "?"]
+[Site "?"]
+[Date "2026.06.13"]
+[Round "1"]
+[White "checkforge"]
+[Black "opponent"]
+[Result "0-1"]
+[FEN "rnbqkbnr/ppp1pppp/8/3p4/3P4/8/PPP1PPPP/RNBQKBNR w KQkq - 0 1"]
+[GameDuration "00:00:17"]
+[GameEndTime "2026-06-13T13:18:39.671 Hora de verano romance"]
+[GameStartTime "2026-06-13T13:18:21.941 Hora de verano romance"]
+[PlyCount "108"]
+[SetUp "1"]
+[TimeControl "4+0.1"]
+
+1. Nc3 Nc6 2. Be3 Be6 3. Nh3 Nh6 4. Ng5 Nf5 5. Nxe6 fxe6 6. a4 e5 7. g4 Nfxd4
+8. f4 Qd6 9. Bg2 Qg6 10. Bxd4 Nxd4 11. e4 dxe4 12. Bxe4 Qe6 13. O-O O-O-O
+14. Re1 Nc6 15. Bf5 Qxf5 16. gxf5 Rxd1 17. Raxd1 exf4 18. Nd5 e5 19. fxe6 Bc5+
+20. Kg2 g5 21. e7 Re8 22. Nf6 Rxe7 23. Rxe7 Bxe7 24. Nxh7 Ne5 25. b4 f3+ 26. Kg3
+g4 27. Rd5 Bd6 28. Ng5 Nd7+ 29. Kh4 Bxh2 30. Ne6 Bd6 31. Nd4 Bxb4 32. Nb5 Bc5
+33. Rg5 Be7 34. Kxg4 Bxg5 35. Kxg5 f2 36. Nxa7+ Kb8 37. Nb5 f1=Q 38. c3 Qc1+
+39. Kh5 b6 40. Kg4 Nc5 41. a5 bxa5 42. Kh5 Ne4 43. Kg4 c6 44. Kf5 cxb5 45. Kxe4
+Qxc3 46. Kd5 a4 47. Kd6 a3 48. Kd5 b4 49. Ke4 b3 50. Kd5 a2 51. Kd6 a1=Q 52. Kd5
+b2 53. Kd6 Qae1 54. Kd7 Qc7# {Black mates} 0-1
+
+[Event "?"]
+[Site "?"]
+[Date "2026.06.13"]
+[Round "1"]
+[White "opponent"]
+[Black "checkforge"]
+[Result "1-0"]
+[FEN "rnbqkbnr/ppp1pppp/8/3p4/3P4/8/PPP1PPPP/RNBQKBNR w KQkq - 0 1"]
+[GameDuration "00:00:16"]
+[GameEndTime "2026-06-13T13:18:56.048 Hora de verano romance"]
+[GameStartTime "2026-06-13T13:18:39.673 Hora de verano romance"]
+[PlyCount "97"]
+[SetUp "1"]
+[TimeControl "4+0.1"]
+
+1. Nc3 Nc6 2. Be3 Be6 3. Nh3 Nh6 4. Ng5 Nf5 5. Nxe6 fxe6 6. a4 e5 7. dxe5 d4
+8. Bf4 g5 9. e4 dxc3 10. Qh5+ Kd7 11. exf5 gxf4 12. Rd1+ Kc8 13. Rxd8+ Kxd8
+14. bxc3 Bg7 15. f6 exf6 16. Qf7 Re8 17. Qxg7 fxe5 18. Bb5 a6 19. Bxc6 bxc6
+20. Qxh7 Ra7 21. Qe4 Re6 22. g3 Kd7 23. Kf1 fxg3 24. hxg3 a5 25. f4 Kd6
+26. fxe5+ Rxe5 27. Rh6+ Kd7 28. Qxe5 Kc8 29. Rxc6 Kb8 30. Rc5 Ka8 31. c4 Kb8
+32. Rb5+ Rb7 33. Rxa5 Rb1+ 34. Ke2 Kb7 35. Rb5+ Rxb5 36. axb5 Kb6 37. Qd4+ Kb7
+38. Qd8 Kb6 39. Qc8 Ka5 40. Qxc7+ Ka4 41. b6 Kb4 42. b7 Kc3 43. Kd1 Kb4 44. c5
+Kb5 45. g4 Kb4 46. Qe5 Kc4 47. c6 Kb4 48. b8=Q+ Ka4 49. Qb3# {White mates} 1-0
+
+[Event "?"]
+[Site "?"]
+[Date "2026.06.13"]
+[Round "1"]
+[White "checkforge"]
+[Black "opponent"]
+[Result "0-1"]
+[FEN "rnbqkbnr/pppp1ppp/8/4p3/2P5/8/PP1PPPPP/RNBQKBNR w KQkq - 0 1"]
+[GameDuration "00:00:15"]
+[GameEndTime "2026-06-13T13:19:12.043 Hora de verano romance"]
+[GameStartTime "2026-06-13T13:18:56.051 Hora de verano romance"]
+[PlyCount "94"]
+[SetUp "1"]
+[TimeControl "4+0.1"]
+
+1. Nc3 Nc6 2. a4 Na5 3. e4 Bd6 4. Qg4 g5 5. d3 f6 6. Qh5+ Kf8 7. Be3 Nb3 8. Ra2
+Ne7 9. Qf3 Kg7 10. Nge2 Nc5 11. Ng3 Rf8 12. Nh5+ Kg6 13. Nb5 a6 14. Nxd6 cxd6
+15. b4 Qb6 16. Bxc5 dxc5 17. b5 axb5 18. cxb5 Qe6 19. Qe2 Qb3 20. Rd2 Rxa4
+21. Qf3 Ra1+ 22. Ke2 Qxb5 23. h4 Qb1 24. d4 Qe1+ 25. Kd3 Ra3+ 26. Kc2 Rxf3
+27. gxf3 Nc6 28. Bg2 Nb4+ 29. Kb3 Qxd2 30. dxc5 Kxh5 31. hxg5+ Kxg5 32. Rxh7
+Qxf2 33. Kxb4 Qd2+ 34. Kb3 Qd3+ 35. Ka4 Qc2+ 36. Kb5 Qb3+ 37. Ka5 Qa2+ 38. Kb6
+Qb2+ 39. Kc7 Rg8 40. Bh3 Qa3 41. Kb8 Qxc5 42. Bg4 b5 43. Rh5+ Kg6 44. Bf5+ Kxh5
+45. Bg4+ Kh6 46. Bxd7 Ba6+ 47. Bc8 Rxc8# {Black mates} 0-1
+
+[Event "?"]
+[Site "?"]
+[Date "2026.06.13"]
+[Round "1"]
+[White "opponent"]
+[Black "checkforge"]
+[Result "1/2-1/2"]
+[FEN "rnbqkbnr/pppp1ppp/8/4p3/2P5/8/PP1PPPPP/RNBQKBNR w KQkq - 0 1"]
+[GameDuration "00:00:16"]
+[GameEndTime "2026-06-13T13:19:28.457 Hora de verano romance"]
+[GameStartTime "2026-06-13T13:19:12.044 Hora de verano romance"]
+[PlyCount "94"]
+[SetUp "1"]
+[TimeControl "4+0.1"]
+
+1. Nc3 Nc6 2. a4 Na5 3. e4 Bd6 4. Qg4 g5 5. d3 f6 6. Qh5+ Kf8 7. Nd5 c6 8. Ne3
+Nb3 9. Rb1 Qa5+ 10. Kd1 Nxc1 11. Rxc1 Qxa4+ 12. Rc2 Qa1+ 13. Ke2 Ne7 14. Ng4 Ng6
+15. Qh6+ Kf7 16. Nf3 Nf4+ 17. Ke3 Bc5+ 18. d4 exd4+ 19. Nxd4 Qe1+ 20. Kf3 Bxd4
+21. Ne3 Bxe3 22. fxe3 Qd1+ 23. Be2 Qxc2 24. exf4 gxf4 25. Qxf4 Qxb2 26. Bd3 Qd4
+27. Qe3 Qxe3+ 28. Kxe3 b6 29. h4 d6 30. h5 Be6 31. Rh4 Rag8 32. Kf2 Rg5 33. h6
+Rc5 34. g4 Bxc4 35. Bxc4+ Rxc4 36. Ke3 Re8 37. g5 fxg5 38. Rg4 d5 39. Rxg5
+Rexe4+ 40. Kd3 Ke8 41. Rg7 Rcd4+ 42. Kc3 Rc4+ 43. Kb3 Rb4+ 44. Ka3 Ra4+ 45. Kb3
+Rab4+ 46. Ka3 Ra4+ 47. Kb3 Rab4+ {Draw by 3-fold repetition} 1/2-1/2
+

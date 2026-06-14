@@ -462,12 +462,23 @@ Board make_move(const Board& board, const Move& move) {
 
 std::vector<Move> generate_legal_moves(const Board& board) {
     std::vector<Move> pseudo_moves;
+    pseudo_moves.reserve(64);
     generate_pseudo_legal_moves(board, &pseudo_moves);
 
+    // Legality = our king not attacked after the move. Find our king once here
+    // instead of scanning all 64 squares per move (find_king inside is_in_check):
+    // the king square only changes when the king itself moves, so it can be
+    // derived per move in O(1). Same result as is_in_check(next, us).
+    const Color us = board.side_to_move;
+    const Color enemy = opposite(us);
+    const int king_square = find_king(board, us);
+
     std::vector<Move> legal_moves;
+    legal_moves.reserve(pseudo_moves.size());
     for (const Move& move : pseudo_moves) {
         const Board next = make_move(board, move);
-        if (!is_in_check(next, board.side_to_move)) {
+        const int king_sq = (move.from == king_square) ? move.to : king_square;
+        if (!is_square_attacked(next, king_sq, enemy)) {
             legal_moves.push_back(move);
         }
     }

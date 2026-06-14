@@ -1,0 +1,120 @@
+{
+  "benchmark": "tactics",
+  "engine": "build/engine/checkforge.exe",
+  "engine_version": "CheckForge 0.1.0-phase4",
+  "git_commit": "5bb997e8024f43ecf482d3c2ce8e2795a7e613af",
+  "config": {
+    "path": "configs/default.json",
+    "sha256": "caa48937cb6c1315cd3cd3fa3df84e3d59c0673d7f6c1a0a8f8ad281499086eb"
+  },
+  "created_at": "2026-06-14T20:03:06.685828+00:00",
+  "passed": true,
+  "solved": 8,
+  "total": 8,
+  "cases": [
+    {
+      "id": "free-queen",
+      "fen": "4k3/8/8/8/4q3/8/4R3/4K3 w - - 0 1",
+      "depth": 1,
+      "expected": [
+        "e2e4"
+      ],
+      "actual": "e2e4",
+      "passed": true,
+      "stdout": "bestmove e2e4 score cp 503",
+      "stderr": "",
+      "returncode": 0
+    },
+    {
+      "id": "free-rook",
+      "fen": "4k3/8/8/8/4r3/3B4/8/4K3 w - - 0 1",
+      "depth": 1,
+      "expected": [
+        "d3e4"
+      ],
+      "actual": "d3e4",
+      "passed": true,
+      "stdout": "bestmove d3e4 score cp 362",
+      "stderr": "",
+      "returncode": 0
+    },
+    {
+      "id": "mate-back-rank",
+      "fen": "6k1/5ppp/8/8/8/8/8/R3K3 w - - 0 1",
+      "depth": 3,
+      "expected": [
+        "a1a8"
+      ],
+      "actual": "a1a8",
+      "passed": true,
+      "stdout": "bestmove a1a8 score cp 99999",
+      "stderr": "",
+      "returncode": 0
+    },
+    {
+      "id": "mate-scholars-qf7",
+      "fen": "r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/5Q2/PPPP1PPP/RNB1K1NR w KQkq - 0 1",
+      "depth": 3,
+      "expected": [
+        "f3f7"
+      ],
+      "actual": "f3f7",
+      "passed": true,
+      "stdout": "bestmove f3f7 score cp 99999",
+      "stderr": "",
+      "returncode": 0
+    },
+    {
+      "id": "win-bishop-rxd3",
+      "fen": "4k3/8/8/8/8/3b4/3R4/4K3 w - - 0 1",
+      "depth": 2,
+      "expected": [
+        "d2d3"
+      ],
+      "actual": "d2d3",
+      "passed": true,
+      "stdout": "bestmove d2d3 score cp 503",
+      "stderr": "",
+      "returncode": 0
+    },
+    {
+      "id": "win-rook-fork-nxe6",
+      "fen": "4k3/8/4r3/8/3N4/8/8/4K3 w - - 0 1",
+      "depth": 3,
+      "expected": [
+        "d4e6"
+      ],
+      "actual": "d4e6",
+      "passed": true,
+      "stdout": "bestmove d4e6 score cp 378",
+      "stderr": "",
+      "returncode": 0
+    },
+    {
+      "id": "win-knight-rxd5",
+      "fen": "4k3/8/8/3n4/8/8/3R4/4K3 w - - 0 1",
+      "depth": 2,
+      "expected": [
+        "d2d5"
+      ],
+      "actual": "d2d5",
+      "passed": true,
+      "stdout": "bestmove d2d5 score cp 503",
+      "stderr": "",
+      "returncode": 0
+    },
+    {
+      "id": "royal-fork-nc7",
+      "fen": "r3k3/8/8/3N4/8/8/8/4K3 w - - 0 1",
+      "depth": 3,
+      "expected": [
+        "d5c7"
+      ],
+      "actual": "d5c7",
+      "passed": true,
+      "stdout": "bestmove d5c7 score cp 330",
+      "stderr": "",
+      "returncode": 0
+    }
+  ]
+}

@@ -97,29 +97,87 @@ void handle_position(Board* board, const std::vector<std::string>& tokens, std::
     }
 }
 
-int parse_go_depth(const std::vector<std::string>& tokens, const EngineConfig& config) {
+struct GoParams {
+    bool has_depth = false;
+    int depth = 0;
+    bool has_movetime = false;
+    long movetime = 0;
+    long wtime = -1;
+    long btime = -1;
+    long winc = 0;
+    long binc = 0;
+};
+
+long parse_long(const std::string& text) {
+    return std::stol(text);
+}
+
+GoParams parse_go(const std::vector<std::string>& tokens) {
+    GoParams params;
     for (std::size_t i = 1; i + 1 < tokens.size(); ++i) {
-        if (tokens[i] == "depth") {
-            const int depth = std::stoi(tokens[i + 1]);
-            return depth < 1 ? 1 : depth;
-        }
-        if (tokens[i] == "movetime") {
-            return config.default_depth;
+        const std::string& key = tokens[i];
+        try {
+            if (key == "depth") {
+                params.has_depth = true;
+                params.depth = static_cast<int>(parse_long(tokens[i + 1]));
+            } else if (key == "movetime") {
+                params.has_movetime = true;
+                params.movetime = parse_long(tokens[i + 1]);
+            } else if (key == "wtime") {
+                params.wtime = parse_long(tokens[i + 1]);
+            } else if (key == "btime") {
+                params.btime = parse_long(tokens[i + 1]);
+            } else if (key == "winc") {
+                params.winc = parse_long(tokens[i + 1]);
+            } else if (key == "binc") {
+                params.binc = parse_long(tokens[i + 1]);
+            }
+        } catch (const std::exception&) {
+            // Ignore malformed numeric arguments; fall back to defaults.
         }
     }
+    return params;
+}
 
-    return config.default_depth;
+// Turn the side-to-move clock into a per-move time budget in milliseconds.
+long time_budget_ms(const Board& board, const GoParams& params) {
+    const bool white = board.side_to_move == Color::White;
+    const long remaining = white ? params.wtime : params.btime;
+    const long increment = white ? params.winc : params.binc;
+
+    // Spend a small fraction of the remaining time plus most of the increment,
+    // leaving a safety margin so we never flag. Clamp to a sane minimum.
+    // (A more aggressive remaining/20 + full increment was tried in exp012 and
+    // rejected: it flagged at bullet TC and lost ~98 Elo.)
+    long budget = remaining / 30 + (increment * 3) / 4;
+    const long safety_cap = (remaining * 4) / 5;  // never commit more than 80%
+    if (budget > safety_cap) {
+        budget = safety_cap;
+    }
+    if (budget < 5) {
+        budget = 5;
+    }
+    return budget;
 }
 
 void handle_go(const Board& board, const EngineConfig& config, const std::vector<std::string>& tokens, std::vector<std::string>* output) {
-    int depth = 3;
-    try {
-        depth = parse_go_depth(tokens, config);
-    } catch (const std::exception&) {
-        depth = config.default_depth;
+    const GoParams params = parse_go(tokens);
+
+    SearchResult result;
+    constexpr int kMaxTimedDepth = 64;
+    if (params.has_depth) {
+        // Explicit fixed-depth request (used by tactical tests and tooling).
+        result = search_bestmove(board, params.depth < 1 ? 1 : params.depth, config);
+    } else if (params.has_movetime) {
+        result = search_bestmove_timed(board, kMaxTimedDepth, params.movetime, config);
+    } else if (params.wtime >= 0 || params.btime >= 0) {
+        // Clock-based search: deepen iteratively within the computed budget.
+        result = search_bestmove_timed(board, kMaxTimedDepth, time_budget_ms(board, params), config);
+    } else {
+        // No limits given: fall back to the configured fixed depth.
+        result = search_bestmove(board, config.default_depth, config);
     }
 
-    const SearchResult result = search_bestmove(board, depth, config);
     if (!result.has_move) {
         add_output(output, "bestmove 0000");
         return;

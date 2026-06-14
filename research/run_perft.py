@@ -7,7 +7,7 @@ import json
 import subprocess
 from pathlib import Path
 
-from harness import DEFAULT_CONFIG, base_metadata
+from harness import DEFAULT_CONFIG, base_metadata, _resolve_engine
 
 CASES = [
     ("startpos", 1, 20),
@@ -22,7 +22,7 @@ CASES = [
 
 def run_case(engine: str, config: str, fen: str, depth: int, expected: int) -> dict:
     completed = subprocess.run(
-        [engine, "--config", config, "--perft", fen, str(depth)],
+        [_resolve_engine(engine), "--config", config, "--perft", fen, str(depth)],
         check=False,
         capture_output=True,
         text=True,

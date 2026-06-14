@@ -35,12 +35,13 @@ make match
 make benchmark
 ```
 
-Windows commands:
+Windows commands (call cmake/python directly; `task.ps1 -ExecutionPolicy Bypass` is
+blocked by the agent sandbox):
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File task.ps1 build
-powershell -ExecutionPolicy Bypass -File task.ps1 test
-powershell -ExecutionPolicy Bypass -File task.ps1 benchmark
+cmake -S . -B build; cmake --build build
+ctest --test-dir build --output-on-failure
+python research/run_benchmark.py --engine build/engine/checkforge.exe
 ```
 
 Acceptance:
@@ -283,21 +284,15 @@ See [[dashboard-strategy]].
 ## Current Milestones
 
 ```text
-M1 Legal engine:
-  board, FEN, legal movegen, perft
-
-M2 Basic playable engine:
-  material eval, alpha-beta, bestmove
-
-M3 UCI + cutechess:
-  UCI protocol, automated games
-
-M4 Research loop:
-  configs, benchmark JSON, experiment reports
-
-M5 Stronger classical engine:
-  quiescence, iterative deepening, transposition table, move ordering
-
-M6 Dashboard:
-  experiment history, charts, portfolio view
+M1 Legal engine:                     DONE  board, FEN, legal movegen, perft
+M2 Basic playable engine:            DONE  material eval, alpha-beta, bestmove
+M3 UCI + cutechess:                  DONE  UCI, automated varied-opening matches
+M4 Research loop:                    DONE  configs, benchmark JSON, exp001-exp014 reports, versions/
+M5 Stronger classical engine:        IN PROGRESS
+  done:  quiescence, MVV-LVA ordering, check extension, time management (v008),
+         transposition table (v009), TT-move ordering (v010)
+  next:  Elo anchor -> faster movegen -> real eval -> search pruning (see roadmap-to-2000)
+M6 Dashboard:                        NOT STARTED  experiment history, charts, portfolio view
 ```
+
+Head version: v010-tt-move-ordering. Strategy for M5 onward: [[roadmap-to-2000]].

@@ -1,0 +1,92 @@
+# Roadmap To ~2000 Elo
+
+Target: a deterministic classical engine around 2000 Elo, reached through the
+autoresearch loop. This page is the strategic plan. Read it before choosing the next
+experiment.
+
+## Where the engine is
+
+As of v010: depth ~3-4 alpha-beta with material + crude piece-square eval, quiescence,
+MVV-LVA ordering, check extension, iterative deepening + time management,
+transposition table, TT-move ordering, minimal UCI.
+
+Absolute Elo is known via the Stockfish anchor: **v011 ≈ 1714 ±46** (exp016, vs SF1700,
+95-87-18); v010 was ≈1581 (exp015, vs SF1600). The engine is still structurally weak
+(no king safety / pawn structure / mobility eval; slow make-on-copy movegen; draws many
+games by repetition) — the headroom to ~2000 is in the structural items below.
+
+**exp016 finding:** the build was compiling at -O0 (no optimization). Defaulting to
+Release (-O3) was a 4.1× nodes/sec win → +117 Elo, zero logic change. Always build
+optimized; verify before micro-optimizing code.
+
+## The key finding that sets the strategy
+
+With varied openings (exp009) the metric finally produces decisive games. Results:
+
+```text
+- v007 vs v000 (eval vs material-only): 15 - 0 - 5  -> big differences ARE decisive
+- depth-4 vs depth-3: +147 Elo at 30+0.3            -> depth is the dominant lever
+- adjacent micro-tweaks (root-PV, budget, TT, TT-move) at 4+0.1: all within noise
+```
+
+Conclusion: **at ~depth 3-4, small eval/search tweaks cannot win — there is no extra
+ply to convert.** The path to 2000 is structural depth and real eval, not polish.
+
+## Order of work (structural first, fine-tuning last)
+
+### 1. Elo anchor (DONE — exp015)
+Anchor = Stockfish 18 pinned via `UCI_LimitStrength` + `UCI_Elo`, measured by
+`research/run_anchor.py` (absolute Elo = anchor_elo + cutechess Elo diff). v010 ≈ 1581.
+Set `--anchor-elo` near the expected level so the match scores ~50% (tightest error).
+Caveat: `UCI_Elo` is calibrated for slower TC; the bullet number is an anchored estimate.
+
+### 2. Faster move generation (biggest single lever) — IN PROGRESS
+exp016 took the free part: enabling -O3 (4.1× nodes/sec, +117 Elo). Remaining
+algorithmic work: replace make-on-copy (allocates a Board per move) with make-unmake or
+bitboards; cache the king square (legality currently calls `find_king`, a 64-square
+scan, per move); `reserve()` the move vector. More nodes/sec → depth, and depth was
+worth +147 Elo for one ply here. Gate hard with perft (must stay exact at depths 1-5 +
+tricky positions).
+
+### 3. Real evaluation — IN PROGRESS
+exp018 added pawn structure (doubled/isolated/passed): +51 Elo internal vs v012 → v013.
+Remaining: king safety (pawn shield / open files near king), mobility, tuned PSTs. Expose
+weights in config so later tuning is config-only. Several hundred Elo of headroom lives
+here, and eval terms are measurable at the current depth (unlike search micro-tweaks).
+
+**Anchor-noise caveat (exp018):** the SF `UCI_Elo` anchor at 200 games / bullet TC has
+±47 Elo error and miscalibrates/saturates — the same engine measured 1684 vs SF1700 and
+1937 vs SF1800. Trust the internal version-vs-version ladder for deltas; use the anchor
+only as a coarse band. For a tighter absolute number, raise game counts or pick one fixed
+unsaturated SF level.
+
+### 4. Search pruning / extensions — IN PROGRESS
+exp021 added null-move pruning: +20 Elo over 400 games vs v013 → v014, with a measured
+1.76× fixed-depth speedup. Remaining: late move reductions (LMR), aspiration windows,
+principal variation search. These compound with depth and with -O3. Depth-sensitive, so
+confirm at more than one TC (bullet understates them).
+
+### 5. Parameter fine-tuning (last)
+Once real structure exists, tune eval weights and search params (hand-tuning or
+SPSA-style) against the anchor with large samples.
+
+## Is ~2000 reachable this way?
+
+Yes, in principle — 2000 is routine for a classical engine with fast movegen
+(depth 8-12+), a real eval, and standard pruning, and the autoresearch loop is a sound
+way to get there as long as experiments tackle the structural items above and are
+verified at 200+ games / SPRT. It will NOT happen via micro-tweaks at the current
+depth. Beyond ~2300-2400 the effort rises steeply (strong eval tuning, SF-grade
+search) and is out of scope for now.
+
+## Testing requirement
+
+Strength claims require 200+ games or SPRT. See [[acceptance-rules]]. Small matches are
+screening only.
+
+## Links
+
+- [[overview]]
+- [[research-loop]]
+- [[acceptance-rules]]
+- [[implementation-roadmap]]

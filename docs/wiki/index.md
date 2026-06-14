@@ -5,8 +5,12 @@ This is the content map for CheckForge's LLM-maintained project wiki. Read this 
 ## Start Here
 
 - [[overview]] - project purpose, constraints, and success definition.
+- [[roadmap-to-2000]] - **current strategy: structural work first, fine-tuning last; how to reach ~2000 Elo.**
 - [[implementation-roadmap]] - phased implementation plan from scaffold to dashboard.
 - [[agent-maintenance]] - rules for future agents maintaining this wiki.
+
+New agents: read `CLAUDE.md` and `AGENT_INSTRUCTIONS.md` (repo root) before starting.
+Head version is the highest-numbered `versions/vNNN-*/`.
 
 ## Architecture
 
