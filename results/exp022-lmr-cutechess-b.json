@@ -1,0 +1,9 @@
+{
+  "benchmark": "cutechess",
+  "detached": true,
+  "pid": 19140,
+  "pgn": "matches/exp022-lmr-vs-v014-b.pgn",
+  "log": "matches\\exp022-lmr-vs-v014-b.cutechess.log",
+  "games_requested": 200,
+  "note": "detached match; poll PGN + score with research/score_pgn.py"
+}

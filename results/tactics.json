@@ -2,12 +2,12 @@
   "benchmark": "tactics",
   "engine": "build/engine/checkforge.exe",
   "engine_version": "CheckForge 0.1.0-phase4",
-  "git_commit": "5bb997e8024f43ecf482d3c2ce8e2795a7e613af",
+  "git_commit": "59b6d4f91640911df94dc5c6fc6ca5dd55803a03",
   "config": {
     "path": "configs/default.json",
     "sha256": "caa48937cb6c1315cd3cd3fa3df84e3d59c0673d7f6c1a0a8f8ad281499086eb"
   },
-  "created_at": "2026-06-14T20:03:06.685828+00:00",
+  "created_at": "2026-06-22T18:24:55.017664+00:00",
   "passed": true,
   "solved": 8,
   "total": 8,

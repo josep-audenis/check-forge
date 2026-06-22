@@ -60,11 +60,31 @@ here, and eval terms are measurable at the current depth (unlike search micro-tw
 only as a coarse band. For a tighter absolute number, raise game counts or pick one fixed
 unsaturated SF level.
 
-### 4. Search pruning / extensions — IN PROGRESS
-exp021 added null-move pruning: +20 Elo over 400 games vs v013 → v014, with a measured
-1.76× fixed-depth speedup. Remaining: late move reductions (LMR), aspiration windows,
-principal variation search. These compound with depth and with -O3. Depth-sensitive, so
-confirm at more than one TC (bullet understates them).
+### 4. Search pruning / extensions / ordering — IN PROGRESS
+exp021 null-move pruning: +20 → v014 (1.76× fixed-depth). exp022 LMR: +48 over 400g →
+v015 (5.7×, LOS ~99.7%). exp023 PVS: REJECTED −44 (move ordering too weak). exp024 killer
+moves + history heuristic: +110 → v016 (7.2× fixed-depth, LOS ~100%) — ordering was the
+real bottleneck. exp025 retried PVS on the strong ordering and it **still lost −44**: the
+node cost here is dominated by make-on-copy + full-board hashing, not the search window,
+so PVS cannot pay until nodes are cheap.
+
+Estimate after v016 ≈ 1925–1945 — within striking distance of the 2000 target.
+
+exp026 added **make/unmake** (v017, infrastructure) — but it was **performance-neutral**:
+the ~80-byte Board copy is a cheap memcpy, not the bottleneck. Corrected node-cost model:
+the real per-node costs are move generation, the **full-board FNV hash recomputed every
+node**, and the eval scan. exp027 then added **incremental Zobrist hashing** (v018, infra) — also **neutral**: the
+per-node FNV hash was not the bottleneck either. Two experiments now agree the real
+per-node cost is **move generation + `is_square_attacked` ray scans (legality on every
+pseudo-move) + the eval scan**, not move-copy or hashing. The only big nps lever left is a
+**bitboard movegen/attack-detection rewrite** (a multi-experiment project). Otherwise,
+keep gaining via tree-size levers (ordering/pruning — where LMR +48 and killers+history
++110 came from) and real eval.
+
+exp028 added **aspiration windows** (v019): +29 Elo over 400 games (LOS ~95%) — a real
+tree-size gain. **Estimate ≈ 1955–1975, essentially at the 2000 target band.** Remaining
+clean levers: mobility / tuned eval (steps 3/5), then a bitboard rewrite (step 2) to push
+well past 2000.
 
 ### 5. Parameter fine-tuning (last)
 Once real structure exists, tune eval weights and search params (hand-tuning or

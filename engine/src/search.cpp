@@ -53,33 +53,26 @@ void tt_reset() {
     }
 }
 
-std::uint64_t hash_board(const Board& board) {
-    std::uint64_t h = 1469598103934665603ull;  // FNV-1a
-    for (char c : board.squares) {
-        h ^= static_cast<unsigned char>(c);
-        h *= 1099511628211ull;
-    }
-    if (board.side_to_move == Color::Black) {
-        h ^= 0x9e3779b97f4a7c15ull;
-    }
-    h ^= static_cast<std::uint64_t>(board.en_passant_square + 1) * 0x100000001b3ull;
-    const std::uint64_t cr =
-        (board.castling.white_kingside ? 1u : 0u) | (board.castling.white_queenside ? 2u : 0u) |
-        (board.castling.black_kingside ? 4u : 0u) | (board.castling.black_queenside ? 8u : 0u);
-    h ^= cr * 0xff51afd7ed558ccdull;
-    return h;
-}
+// Position hashing now uses the incrementally-maintained Zobrist key (board.zobrist,
+// seeded with compute_zobrist at the search root) — see movegen.cpp. The old per-node
+// full-board FNV hash was removed in exp027.
 
 // State threaded through the recursive search. For fixed-depth search
 // time_limited is false, so the deadline checks are inert and traversal is
 // identical to a plain alpha-beta. For timed search the deadline aborts the
 // current iteration; partial results from an aborted depth are discarded.
+constexpr int kMaxPly = 128;
+
 struct SearchContext {
     const EngineConfig& config;
     bool time_limited = false;
     ms_t deadline = 0;
     long nodes = 0;
     bool aborted = false;
+    // Quiet-move ordering heuristics (exp024): two killer moves per ply, and a
+    // from->to history table credited on quiet beta-cutoffs.
+    Move killers[kMaxPly][2]{};
+    int history[64][64]{};
 };
 
 bool out_of_time(SearchContext* ctx) {
@@ -175,7 +168,52 @@ void promote_move_to_front(const Move& hint, std::vector<Move>* moves) {
     }
 }
 
-int quiescence(const Board& board, int alpha, int beta, int remaining_depth, SearchContext* ctx) {
+// Ordering score used inside the main search: winning captures/promotions first
+// (MVV-LVA), then killer moves, then quiet moves by history. Tiers are separated by
+// large constants so a quiet move can never outrank a capture.
+constexpr int kCaptureBase = 1000000;
+constexpr int kKillerBase = 900000;
+constexpr int kHistoryCap = 800000;
+
+int search_move_score(const Board& board, SearchContext* ctx, int ply, const Move& move) {
+    int victim = piece_value(board.squares[move.to], ctx->config);
+    if (move.is_en_passant) {
+        victim = ctx->config.pawn_value;
+    }
+    const int promotion = piece_value(move.promotion, ctx->config);
+    if (victim != 0 || promotion != 0) {
+        const int attacker = piece_value(board.squares[move.from], ctx->config);
+        return kCaptureBase + (victim + promotion) * 100 - attacker;
+    }
+    if (ply < kMaxPly) {
+        if (same_move(move, ctx->killers[ply][0])) {
+            return kKillerBase + 1;
+        }
+        if (same_move(move, ctx->killers[ply][1])) {
+            return kKillerBase;
+        }
+    }
+    const int h = ctx->history[move.from][move.to];
+    return h > kHistoryCap ? kHistoryCap : h;
+}
+
+void order_moves_search(const Board& board, SearchContext* ctx, int ply, std::vector<Move>* moves) {
+    std::stable_sort(moves->begin(), moves->end(),
+                     [&board, ctx, ply](const Move& left, const Move& right) {
+                         return search_move_score(board, ctx, ply, left) >
+                                search_move_score(board, ctx, ply, right);
+                     });
+}
+
+void record_quiet_cutoff(SearchContext* ctx, int ply, int depth, const Move& move) {
+    if (ply < kMaxPly && !same_move(ctx->killers[ply][0], move)) {
+        ctx->killers[ply][1] = ctx->killers[ply][0];
+        ctx->killers[ply][0] = move;
+    }
+    ctx->history[move.from][move.to] += depth * depth;
+}
+
+int quiescence(Board& board, int alpha, int beta, int remaining_depth, SearchContext* ctx) {
     const int stand_pat = evaluate_static_for_side_to_move(board, ctx->config);
     if (stand_pat >= beta) {
         return beta;
@@ -199,8 +237,9 @@ int quiescence(const Board& board, int alpha, int beta, int remaining_depth, Sea
             return alpha;
         }
 
-        const Board next = make_move(board, move);
-        const int score = -quiescence(next, -beta, -alpha, remaining_depth - 1, ctx);
+        const Undo undo = make_move_inplace(board, move);
+        const int score = -quiescence(board, -beta, -alpha, remaining_depth - 1, ctx);
+        unmake_move(board, move, undo);
         if (score >= beta) {
             return beta;
         }
@@ -212,7 +251,7 @@ int quiescence(const Board& board, int alpha, int beta, int remaining_depth, Sea
     return alpha;
 }
 
-int negamax(const Board& board, int depth, int alpha, int beta, int ply, SearchContext* ctx) {
+int negamax(Board& board, int depth, int alpha, int beta, int ply, SearchContext* ctx) {
     std::vector<Move> moves = generate_legal_moves(board);
 
     if (moves.empty()) {
@@ -232,7 +271,7 @@ int negamax(const Board& board, int depth, int alpha, int beta, int ply, SearchC
 
     // Transposition table probe. Reuse a stored result only when it was searched
     // at least as deep and its bound is usable against the current window.
-    const std::uint64_t key = hash_board(board);
+    const std::uint64_t key = board.zobrist;  // maintained incrementally (exp027)
     const int alpha_orig = alpha;
     TTEntry& entry = g_tt[key & kTTMask];
     Move tt_move{};
@@ -255,37 +294,66 @@ int negamax(const Board& board, int depth, int alpha, int beta, int ply, SearchC
     // high, the position is so good that a real move surely does too — prune. Skipped at
     // PV/full-window nodes (beta is a mate/infinity bound there), when in check, at low
     // depth, and without non-pawn material (zugzwang).
+    const bool node_in_check = is_in_check(board, board.side_to_move);
     constexpr int kNullReduction = 2;
     if (depth >= 3 && beta < kMateZone &&
         has_non_pawn_material(board, board.side_to_move) &&
-        !is_in_check(board, board.side_to_move)) {
-        Board null_board = board;
-        null_board.side_to_move = board.side_to_move == Color::White ? Color::Black : Color::White;
-        null_board.en_passant_square = -1;
-        const int null_score = -negamax(null_board, depth - 1 - kNullReduction,
+        !node_in_check) {
+        const Color saved_side = board.side_to_move;
+        const int saved_ep = board.en_passant_square;
+        const std::uint64_t saved_zobrist = board.zobrist;
+        board.side_to_move = saved_side == Color::White ? Color::Black : Color::White;
+        board.en_passant_square = -1;
+        board.zobrist = compute_zobrist(board);  // null nodes are rare; recompute is fine
+        const int null_score = -negamax(board, depth - 1 - kNullReduction,
                                         -beta, -beta + 1, ply + 1, ctx);
+        board.side_to_move = saved_side;
+        board.en_passant_square = saved_ep;
+        board.zobrist = saved_zobrist;
         if (!ctx->aborted && null_score >= beta) {
             return beta;
         }
     }
 
-    order_moves(board, ctx->config, &moves);
+    order_moves_search(board, ctx, ply, &moves);
     promote_move_to_front(tt_move, &moves);
 
     int best_score = -kInfinity;
     Move best_move{};
+    int move_count = 0;
     for (const Move& move : moves) {
         if (out_of_time(ctx)) {
             break;
         }
-        const Board next = make_move(board, move);
-        const int score = -negamax(next, depth - 1, -beta, -alpha, ply + 1, ctx);
+        // Late move reductions: late, quiet moves are unlikely to beat the best move
+        // found so far. Search them shallower with a null window first; only if that
+        // surprises us (beats alpha) do we re-search at full depth/window. The first
+        // few moves, captures/promotions, and check positions are searched in full.
+        // (Full PVS was rejected twice: exp023/exp025, both −44 — until exp026 node cost
+        // is dominated by make-on-copy + hashing, not the window. Retry PVS after this.)
+        const bool reduce = depth >= 3 && move_count >= 4 && !node_in_check &&
+                            !is_capture_or_promotion(board, move);
+        const Undo undo = make_move_inplace(board, move);
+        int score;
+        if (reduce) {
+            score = -negamax(board, depth - 2, -alpha - 1, -alpha, ply + 1, ctx);
+            if (score > alpha && !ctx->aborted) {
+                score = -negamax(board, depth - 1, -beta, -alpha, ply + 1, ctx);
+            }
+        } else {
+            score = -negamax(board, depth - 1, -beta, -alpha, ply + 1, ctx);
+        }
+        unmake_move(board, move, undo);
+        ++move_count;
         if (score > best_score) {
             best_score = score;
             best_move = move;
         }
         alpha = std::max(alpha, score);
         if (alpha >= beta) {
+            if (!is_capture_or_promotion(board, move)) {
+                record_quiet_cutoff(ctx, ply, depth, move);
+            }
             break;
         }
     }
@@ -305,8 +373,11 @@ int negamax(const Board& board, int depth, int alpha, int beta, int ply, SearchC
     return best_score;
 }
 
-// Run a full-width root search at a single depth using the given context.
-SearchResult search_root(const Board& board, int depth, SearchContext* ctx) {
+// Root search at a single depth within the window [alpha_in, beta_in]. A full window
+// (the defaults) behaves like before; a narrow window is used by aspiration search, which
+// re-searches wider on a fail-low (best <= alpha_in) or fail-high (best >= beta_in).
+SearchResult search_root(const Board& board, int depth, SearchContext* ctx,
+                         int alpha_in = -kInfinity, int beta_in = kInfinity) {
     SearchResult result;
     result.depth = depth;
 
@@ -316,31 +387,69 @@ SearchResult search_root(const Board& board, int depth, SearchContext* ctx) {
         return result;
     }
 
-    order_moves(board, ctx->config, &moves);
+    order_moves_search(board, ctx, 0, &moves);
 
-    const std::uint64_t key = hash_board(board);
+    const std::uint64_t key = compute_zobrist(board);
     const TTEntry& entry = g_tt[key & kTTMask];
     if (entry.key == key) {
         promote_move_to_front(entry.best, &moves);
     }
 
-    int alpha = -kInfinity;
-    const int beta = kInfinity;
+    int alpha = alpha_in;
+    const int beta = beta_in;
+    Board work = board;  // one copy per depth; make/unmake within
+    work.zobrist = key;  // seed the incremental key for this subtree
     for (const Move& move : moves) {
         if (out_of_time(ctx)) {
             break;
         }
-        const Board next = make_move(board, move);
-        const int score = -negamax(next, depth - 1, -beta, -alpha, 1, ctx);
+        const Undo undo = make_move_inplace(work, move);
+        const int score = -negamax(work, depth - 1, -beta, -alpha, 1, ctx);
+        unmake_move(work, move, undo);
         if (!result.has_move || score > result.score) {
             result.best_move = move;
             result.score = score;
             result.has_move = true;
         }
         alpha = std::max(alpha, score);
+        if (alpha >= beta) {
+            break;  // fail-high; aspiration will re-search wider
+        }
     }
 
     return result;
+}
+
+// One iterative-deepening step with aspiration windows: search a narrow band around the
+// previous score and widen on failure. Shallow depths use a full window (cheap, unstable
+// scores). Returns the completed result (or an aborted partial the caller discards).
+SearchResult search_root_aspiration(const Board& board, int depth, int prev_score,
+                                    SearchContext* ctx) {
+    if (depth < 4) {
+        return search_root(board, depth, ctx);
+    }
+    int delta = 35;
+    int alpha = prev_score - delta;
+    int beta = prev_score + delta;
+    while (true) {
+        const SearchResult res = search_root(board, depth, ctx, alpha, beta);
+        if (ctx->aborted) {
+            return res;
+        }
+        if (res.score <= alpha) {
+            alpha -= delta;  // fail-low: widen downward
+            delta *= 2;
+        } else if (res.score >= beta) {
+            beta += delta;   // fail-high: widen upward
+            delta *= 2;
+        } else {
+            return res;      // inside the window
+        }
+        if (delta > 2000) {  // give up narrowing; full window
+            alpha = -kInfinity;
+            beta = kInfinity;
+        }
+    }
 }
 
 }  // namespace
@@ -375,7 +484,7 @@ SearchResult search_bestmove_timed(const Board& board, int max_depth, long budge
     SearchResult best = search_root(board, 1, &ctx);
 
     for (int depth = 2; depth <= max_depth; ++depth) {
-        const SearchResult candidate = search_root(board, depth, &ctx);
+        const SearchResult candidate = search_root_aspiration(board, depth, best.score, &ctx);
         if (ctx.aborted) {
             break;  // discard partial iteration, keep last completed depth
         }

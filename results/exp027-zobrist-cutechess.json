@@ -1,0 +1,12 @@
+{
+  "engine": "checkforge",
+  "pgn": "matches/exp027-zobrist-vs-v017.pgn",
+  "wins": 50,
+  "losses": 51,
+  "draws": 99,
+  "games": 200,
+  "illegal": false,
+  "score": 0.4975,
+  "elo_diff": -1.7,
+  "elo_err": 24.6
+}

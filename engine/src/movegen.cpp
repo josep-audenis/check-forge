@@ -1,6 +1,8 @@
 #include "checkforge/movegen.h"
 
 #include <cctype>
+#include <cstdio>
+#include <cstdlib>
 #include <stdexcept>
 
 namespace checkforge {
@@ -400,7 +402,73 @@ void clear_castling_for_square(Board* board, int square) {
     }
 }
 
+// ---- Zobrist hashing (exp027) ----------------------------------------------------
+// 12 piece types x 64 squares, side-to-move, 16 castling masks, 8 e.p. files.
+std::uint64_t z_piece[12][64];
+std::uint64_t z_side;
+std::uint64_t z_castle[16];
+std::uint64_t z_ep[8];
+
+int piece_index(char piece) {
+    switch (piece) {
+        case 'P': return 0;  case 'N': return 1;  case 'B': return 2;
+        case 'R': return 3;  case 'Q': return 4;  case 'K': return 5;
+        case 'p': return 6;  case 'n': return 7;  case 'b': return 8;
+        case 'r': return 9;  case 'q': return 10; case 'k': return 11;
+        default:  return -1;
+    }
+}
+
+int castle_mask(const CastlingRights& c) {
+    return (c.white_kingside ? 1 : 0) | (c.white_queenside ? 2 : 0) |
+           (c.black_kingside ? 4 : 0) | (c.black_queenside ? 8 : 0);
+}
+
+struct ZobristInit {
+    ZobristInit() {
+        std::uint64_t s = 0x9e3779b97f4a7c15ull;  // deterministic splitmix64 seed
+        auto next = [&s]() {
+            s += 0x9e3779b97f4a7c15ull;
+            std::uint64_t z = s;
+            z = (z ^ (z >> 30)) * 0xbf58476d1ce4e5b9ull;
+            z = (z ^ (z >> 27)) * 0x94d049bb133111ebull;
+            return z ^ (z >> 31);
+        };
+        for (auto& row : z_piece) {
+            for (auto& v : row) {
+                v = next();
+            }
+        }
+        z_side = next();
+        for (auto& v : z_castle) {
+            v = next();
+        }
+        for (auto& v : z_ep) {
+            v = next();
+        }
+    }
+};
+const ZobristInit g_zobrist_init;
+
 }  // namespace
+
+std::uint64_t compute_zobrist(const Board& board) {
+    std::uint64_t h = 0;
+    for (int sq = 0; sq < 64; ++sq) {
+        const int idx = piece_index(board.squares[sq]);
+        if (idx >= 0) {
+            h ^= z_piece[idx][sq];
+        }
+    }
+    if (board.side_to_move == Color::Black) {
+        h ^= z_side;
+    }
+    h ^= z_castle[castle_mask(board.castling)];
+    if (board.en_passant_square >= 0) {
+        h ^= z_ep[board.en_passant_square % 8];
+    }
+    return h;
+}
 
 bool is_in_check(const Board& board, Color color) {
     return is_square_attacked(board, find_king(board, color), opposite(color));
@@ -457,7 +525,134 @@ Board make_move(const Board& board, const Move& move) {
     }
 
     next.side_to_move = opposite(moving_color);
+    next.zobrist = compute_zobrist(next);  // copy path is not hot; recompute for validity
     return next;
+}
+
+Undo make_move_inplace(Board& board, const Move& move) {
+    Undo undo;
+    undo.castling = board.castling;
+    undo.en_passant_square = board.en_passant_square;
+    undo.halfmove_clock = board.halfmove_clock;
+    undo.fullmove_number = board.fullmove_number;
+    undo.zobrist = board.zobrist;
+
+    const char piece = board.squares[move.from];
+    undo.moved = piece;
+    const Color moving_color = board.side_to_move;
+
+    // Incrementally update the Zobrist key: start from the current key, remove the old
+    // castling/e.p. state, then XOR each piece move as it happens, flip side, and add the
+    // new castling/e.p. state at the end.
+    std::uint64_t h = board.zobrist;
+    h ^= z_castle[castle_mask(board.castling)];
+    if (board.en_passant_square >= 0) {
+        h ^= z_ep[board.en_passant_square % 8];
+    }
+
+    char captured = '\0';
+    int captured_square = -1;
+    if (move.is_en_passant) {
+        captured_square = moving_color == Color::White ? move.to + 8 : move.to - 8;
+        captured = board.squares[captured_square];
+        board.squares[captured_square] = '\0';
+    } else if (board.squares[move.to] != '\0') {
+        captured = board.squares[move.to];
+        captured_square = move.to;
+    }
+    undo.captured = captured;
+    undo.captured_square = captured_square;
+    if (captured != '\0') {
+        h ^= z_piece[piece_index(captured)][captured_square];
+    }
+
+    const char placed = move.promotion != '\0' ? move.promotion : piece;
+    h ^= z_piece[piece_index(piece)][move.from];  // lift moving piece off 'from'
+    h ^= z_piece[piece_index(placed)][move.to];   // place (possibly promoted) on 'to'
+    board.squares[move.from] = '\0';
+    board.squares[move.to] = placed;
+
+    if (move.is_castling) {
+        int rook_from = -1;
+        int rook_to = -1;
+        char rook = 'R';
+        if (move.to == square_index('g', '1')) {
+            rook_from = square_index('h', '1'); rook_to = square_index('f', '1'); rook = 'R';
+        } else if (move.to == square_index('c', '1')) {
+            rook_from = square_index('a', '1'); rook_to = square_index('d', '1'); rook = 'R';
+        } else if (move.to == square_index('g', '8')) {
+            rook_from = square_index('h', '8'); rook_to = square_index('f', '8'); rook = 'r';
+        } else if (move.to == square_index('c', '8')) {
+            rook_from = square_index('a', '8'); rook_to = square_index('d', '8'); rook = 'r';
+        }
+        board.squares[rook_from] = '\0';
+        board.squares[rook_to] = rook;
+        h ^= z_piece[piece_index(rook)][rook_from];
+        h ^= z_piece[piece_index(rook)][rook_to];
+    }
+
+    clear_castling_for_square(&board, move.from);
+    clear_castling_for_square(&board, move.to);
+
+    board.en_passant_square = -1;
+    if (piece == 'P' && move.from - move.to == 16) {
+        board.en_passant_square = move.from - 8;
+    } else if (piece == 'p' && move.to - move.from == 16) {
+        board.en_passant_square = move.from + 8;
+    }
+
+    if (piece == 'P' || piece == 'p' || captured != '\0') {
+        board.halfmove_clock = 0;
+    } else {
+        ++board.halfmove_clock;
+    }
+
+    if (moving_color == Color::Black) {
+        ++board.fullmove_number;
+    }
+
+    board.side_to_move = opposite(moving_color);
+
+    // Add new castling/e.p. state and the side-to-move flip.
+    h ^= z_castle[castle_mask(board.castling)];
+    if (board.en_passant_square >= 0) {
+        h ^= z_ep[board.en_passant_square % 8];
+    }
+    h ^= z_side;
+    board.zobrist = h;
+    return undo;
+}
+
+void unmake_move(Board& board, const Move& move, const Undo& undo) {
+    const Color moved_color = opposite(board.side_to_move);  // side that made the move
+    board.side_to_move = moved_color;
+    board.castling = undo.castling;
+    board.en_passant_square = undo.en_passant_square;
+    board.halfmove_clock = undo.halfmove_clock;
+    board.fullmove_number = undo.fullmove_number;
+    board.zobrist = undo.zobrist;
+
+    board.squares[move.from] = undo.moved;
+    board.squares[move.to] = '\0';
+    if (undo.captured != '\0') {
+        board.squares[undo.captured_square] = undo.captured;
+    }
+
+    if (move.is_castling) {
+        if (move.to == square_index('g', '1')) {
+            board.squares[square_index('h', '1')] = 'R';
+            board.squares[square_index('f', '1')] = '\0';
+        } else if (move.to == square_index('c', '1')) {
+            board.squares[square_index('a', '1')] = 'R';
+            board.squares[square_index('d', '1')] = '\0';
+        } else if (move.to == square_index('g', '8')) {
+            board.squares[square_index('h', '8')] = 'r';
+            board.squares[square_index('f', '8')] = '\0';
+        } else if (move.to == square_index('c', '8')) {
+            board.squares[square_index('a', '8')] = 'r';
+            board.squares[square_index('d', '8')] = '\0';
+        }
+    }
 }
 
 std::vector<Move> generate_legal_moves(const Board& board) {
@@ -465,22 +660,23 @@ std::vector<Move> generate_legal_moves(const Board& board) {
     pseudo_moves.reserve(64);
     generate_pseudo_legal_moves(board, &pseudo_moves);
 
-    // Legality = our king not attacked after the move. Find our king once here
-    // instead of scanning all 64 squares per move (find_king inside is_in_check):
-    // the king square only changes when the king itself moves, so it can be
-    // derived per move in O(1). Same result as is_in_check(next, us).
+    // Legality = our king not attacked after the move. Find our king once; it only
+    // moves when the king itself moves, so the post-move king square is O(1). One
+    // mutable copy of the board is made/unmade per pseudo move (no per-move copy).
     const Color us = board.side_to_move;
     const Color enemy = opposite(us);
     const int king_square = find_king(board, us);
 
     std::vector<Move> legal_moves;
     legal_moves.reserve(pseudo_moves.size());
+    Board work = board;
     for (const Move& move : pseudo_moves) {
-        const Board next = make_move(board, move);
+        const Undo undo = make_move_inplace(work, move);
         const int king_sq = (move.from == king_square) ? move.to : king_square;
-        if (!is_square_attacked(next, king_sq, enemy)) {
+        if (!is_square_attacked(work, king_sq, enemy)) {
             legal_moves.push_back(move);
         }
+        unmake_move(work, move, undo);
     }
 
     return legal_moves;
@@ -501,8 +697,11 @@ std::uint64_t perft(const Board& board, int depth) {
     }
 
     std::uint64_t nodes = 0;
+    Board work = board;
     for (const Move& move : moves) {
-        nodes += perft(make_move(board, move), depth - 1);
+        const Undo undo = make_move_inplace(work, move);
+        nodes += perft(work, depth - 1);
+        unmake_move(work, move, undo);
     }
 
     return nodes;

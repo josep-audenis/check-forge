@@ -527,3 +527,122 @@ consistency (vs the noise that sank exp019/020). 55% draws inflate Elo error (LO
 but the consistent +20 plus the depth win justify accept; bullet TC likely understates a
 depth-sensitive change. --detach fix worked (both batches completed, no reaping).
 Estimate now ~1770-1785. Next: LMR or make-unmake.
+
+## [2026-06-15] autoresearch | exp022 late move reductions (LMR) -> v015
+
+Roadmap step 4. LMR in negamax: depth>=3, move_count>=4, not in check, quiet move ->
+search depth-2 null-window, re-search full depth if it beats alpha.
+
+```text
+gates:    ctest pass, perft exact, tactics 8/8
+speed:    fixed depth-8 5.7x faster (9.1s vs 51.8s v014), same score
+verify:   LMR vs v014, 400 games (two detached batches) 8+0.08 -> 117-62-221, +48.1 Elo (+/-17.5 1sigma), LOS ~99.7%, 0 illegal
+decision: ACCEPTED (strength). head -> versions/v015-lmr
+```
+
+Strongest gain since -O3. Reductions apply to most (late quiet) moves at every node, so
+the tree shrinks super-linearly with depth -> 5.7x speedup. Compounds with NMP.
+Estimate now ~1815-1835. Next: PVS or make-unmake.
+
+## [2026-06-20] autoresearch | exp023 PVS -> REJECTED
+
+Added principal variation search (null-window scout for all non-first moves, re-search
+inside window) on top of LMR.
+
+```text
+gates:    ctest pass, perft exact, tactics 8/8; PVS scores IDENTICAL to v015 (exact)
+speed:    fixed depth-8 only ~5% faster
+verify:   PVS vs v015, 200g 8+0.08 -> 37-62-101, -43.7 Elo (+/-24.8), 0 illegal
+decision: REJECTED (-44 Elo). reverted. head stays v015-lmr
+```
+
+PVS is correct but loses in timed play: move ordering is too weak (MVV-LVA + TT move
+only), so scouts fail high often -> frequent full re-searches cost more than they save ->
+less depth. Prerequisite for PVS = killer/history move ordering. Next: killers+history.
+
+## [2026-06-20] autoresearch | exp024 killer moves + history heuristic -> v016
+
+Roadmap step 4 (ordering, motivated by exp023). Added two killers/ply + from->to history
+table; quiet-move ordering = captures(MVV-LVA) > killers > history. Updated on quiet
+beta-cutoffs.
+
+```text
+gates:    ctest pass, perft exact, tactics 8/8
+speed:    fixed depth-9 7.2x faster (31s vs 3m43s v015), same move/score
+verify:   vs v015, 200g 8+0.08 -> 76-15-109, +109.5 Elo (+/-25.8), LOS ~100%, 0 illegal
+decision: ACCEPTED (strength). head -> versions/v016-killers-history
+```
+
+Biggest gain since -O3. Move ordering was the bottleneck (exp023 PVS failed for lack of
+it); fixing it is worth +110 and sharpens NMP/LMR. Estimate now ~1925-1945 (closing on
+2000). Unblocks PVS retry. Next: retry PVS, or make-unmake.
+
+## [2026-06-20] autoresearch | exp025 PVS retry on v016 -> REJECTED
+
+Retried PVS now that v016 has killer/history ordering.
+
+```text
+gates:    ctest pass, perft exact, tactics 8/8 (PVS exact)
+speed:    fixed depth-9 ~9% SLOWER (23.8s vs 21.8s v016)
+verify:   PVS vs v016, 200g 8+0.08 -> 34-59-107, -43.7 Elo (+/-24.8), 0 illegal
+decision: REJECTED (-44, same as exp023). reverted. head stays v016-killers-history
+```
+
+Corrected lesson: PVS loses NOT because of ordering but because node cost is dominated by
+make-on-copy + full-board hashing, so a null-window scout saves ~nothing while re-searches
+pay full board-copy cost. PVS needs cheap nodes. Next structural lever: make-unmake
+(and/or incremental Zobrist hashing).
+
+## [2026-06-20] autoresearch | exp026 make/unmake move -> v017 (infrastructure)
+
+Replaced make-on-copy with in-place make/unmake in legality, perft, and the whole search
+(negamax/quiescence/root + null-move). make_move (copy) kept for external callers.
+
+```text
+gates:    ctest pass, perft EXACT (all depths), tactics 8/8; search output bit-identical to v016
+speed:    perft6 206.2s vs 207.6s v016 -> identical (both ~3x slower than past = thermal throttle)
+verify:   vs v016, 200g 8+0.08 -> 51-46-103, +8.7 Elo (+/-24.6), 0 illegal -> neutral
+decision: ACCEPTED as INFRASTRUCTURE (no Elo). head -> versions/v017-make-unmake
+```
+
+Refutes exp025's hypothesis: the ~80-byte Board copy is NOT the bottleneck (cheap memcpy
+== make/unmake+Undo). Real per-node cost = movegen + full-board FNV hash per node + eval
+scan. Kept as the standard foundation that ENABLES the real win: incremental Zobrist
+hashing (update key in make/unmake vs rescanning 64 squares/node). Next: incremental
+Zobrist hashing, then retry PVS.
+
+## [2026-06-22] autoresearch | exp027 incremental Zobrist hashing -> v018 (infrastructure)
+
+Replaced per-node full-board FNV hash with a Zobrist key maintained incrementally in
+make/unmake (board.zobrist; seeded by compute_zobrist at root + from_fen). Old hash_board
+removed.
+
+```text
+gates:    ctest pass, perft exact, tactics 8/8
+correctness: temp self-check board.zobrist==compute_zobrist after every make ran clean
+             through perft on startpos/kiwipete/ep/promotions (millions of makes)
+speed:    fixed depth-9 18.99s vs 18.97s v017 -> identical
+verify:   vs v017, 200g 8+0.08 -> 50-51-99, -1.7 Elo (+/-24.6), 0 illegal -> neutral
+decision: ACCEPTED as INFRASTRUCTURE (no Elo). head -> versions/v018-zobrist
+```
+
+Second neutral per-node change after make/unmake. Confirms node-cost bottleneck is
+movegen + is_square_attacked ray scans + eval, NOT move-copy or hashing. Kept as correct
+standard O(1) design. Real nps lever left = bitboard movegen (big rewrite); otherwise
+gains come from tree-size (ordering/pruning) and eval. Next: aspiration windows or
+mobility eval.
+
+## [2026-06-23] autoresearch | exp028 aspiration windows -> v019
+
+Roadmap step 4. Iterative deepening now searches depth>=4 within [prev-35, prev+35],
+widening on fail. search_root takes a window + beta-cuts; fixed-depth path unchanged.
+
+```text
+gates:    ctest pass, perft exact, tactics 8/8
+verify:   vs v018, 400 games (two detached batches) 8+0.08 -> 111-78-211, +28.7 Elo (+/-17.4), LOS ~95%, 0 illegal
+          both batches positive (A +41.9, B +15.6)
+decision: ACCEPTED (strength). head -> versions/v019-aspiration
+```
+
+Real tree-size gain (vs the neutral per-node exp026/027). Estimate now ~1955-1975 -
+essentially at the 2000 band. Next: mobility eval or weight tuning; bitboards for big nps.

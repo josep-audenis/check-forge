@@ -12,24 +12,27 @@ If you are an agent continuing this project, **read in this order before doing a
    `docs/wiki/research-loop.md`, `docs/wiki/agent-maintenance.md`.
 4. `docs/wiki/log.md` (tail) — what the last sessions did.
 
-Do **not** start from scratch. There is a working engine and 21 experiments of history.
+Do **not** start from scratch. There is a working engine and 28 experiments of history.
 
-## Current state (2026-06-15)
+## Current state (2026-06-23)
 
-- **Head version: `versions/v014-null-move`** (latest accepted). Each
+- **Head version: `versions/v019-aspiration`** (latest accepted). Each
   `versions/vNNN-*/` holds the frozen `checkforge.exe`, `default.json`, and its match
   results. The live source builds the head.
-- History: experiments `exp001`–`exp021` in `experiments/`; per-version match data in
+- History: experiments `exp001`–`exp028` in `experiments/`; per-version match data in
   `versions/`, `results/`, `matches/`.
 - Engine has: FEN/board, legal movegen + perft, material + crude piece-square eval,
   quiescence, negamax alpha-beta, MVV-LVA ordering, check extension, **iterative
   deepening + time management (v008)**, **transposition table (v009)**, **TT-move
   ordering (v010)**, **pawn-structure eval (doubled/isolated/passed, v013)**,
-  **null-move pruning (v014)**, minimal UCI.
-- **Absolute Elo ≈ 1770–1785 (estimate).** Anchor = Stockfish 18 pinned via
+  **null-move pruning (v014)**, **late move reductions (v015)**,
+  **killer + history move ordering (v016)**, **make/unmake search (v017, infra)**,
+  **incremental Zobrist hashing (v018, infra)**, **aspiration windows (v019)**, minimal UCI.
+- **Absolute Elo ≈ 1955–1975 (estimate).** Anchor = Stockfish 18 pinned via
   `UCI_LimitStrength`/`UCI_Elo` (avx2, winget); measure with `research/run_anchor.py`.
   Internal ladder: v010 ≈1581 → v011 (+117, -O3) ≈1714 → v012 neutral → v013 (+51, pawn
-  structure) → v014 (+20, null-move, 400 games). **Trust the internal version-vs-version ladder for deltas, NOT the SF
+  structure) → v014 (+20, null-move) → v015 (+48, LMR) → v016 (+110, killers+history) →
+  v017/v018 neutral infra → v019 (+29, aspiration). **Trust the internal version-vs-version ladder for deltas, NOT the SF
   anchor**: at 200 games / bullet TC the anchor has ±47 noise and `UCI_Elo` is
   miscalibrated/saturates (exp018: same engine gave 1684 vs SF1700 and 1937 vs SF1800).
   Treat the anchor as a coarse band only. See `docs/wiki/roadmap-to-2000.md`.
@@ -84,22 +87,22 @@ python research/run_tactics.py --engine build/engine/checkforge.exe   # expect 8
 
 # full benchmark vs current head (correctness + internal match)
 python research/run_benchmark.py --engine build/engine/checkforge.exe `
-  --opponent-engine versions/v014-null-move/checkforge.exe `
-  --opponent-config versions/v014-null-move/default.json `
-  --experiment-id exp022-<slug> --output results/exp022-<slug>.json
+  --opponent-engine versions/v019-aspiration/checkforge.exe `
+  --opponent-config versions/v019-aspiration/default.json `
+  --experiment-id exp029-<slug> --output results/exp029-<slug>.json
 
 # verification match (200 games, varied openings)
 python research/run_cutechess.py --engine build/engine/checkforge.exe `
-  --opponent-engine versions/v014-null-move/checkforge.exe `
-  --opponent-config versions/v014-null-move/default.json `
-  --tc 8+0.08 --output results/exp022-<slug>-cutechess.json `
-  --pgn matches/exp022-<slug>.pgn
+  --opponent-engine versions/v019-aspiration/checkforge.exe `
+  --opponent-config versions/v019-aspiration/default.json `
+  --tc 8+0.08 --output results/exp029-<slug>-cutechess.json `
+  --pgn matches/exp029-<slug>.pgn
 
 # absolute Elo vs the anchor (Stockfish auto-detected; set --anchor-elo near expected
 # level so the match scores ~50% for tightest error bars)
 python research/run_anchor.py --engine build/engine/checkforge.exe `
   --anchor-elo 1700 --games 200 --tc 8+0.08 `
-  --output results/exp022-<slug>-anchor.json --pgn matches/exp022-<slug>-anchor.pgn
+  --output results/exp029-<slug>-anchor.json --pgn matches/exp029-<slug>-anchor.pgn
 ```
 
 Notes: the engine ignores the clock only for `go depth N` (fixed depth, used by
@@ -114,7 +117,7 @@ compile on this toolchain (missing `features.h`) — timing uses `GetTickCount64
 3. Append `docs/wiki/log.md` (`## [YYYY-MM-DD] autoresearch | expNNN <title>`).
 4. Update any wiki page whose subject changed (commands, schema, roadmap, rules).
 
-Next experiment id is **exp022**; next version is **v015**. (exp015 = Elo anchor, infra.
+Next experiment id is **exp029**; next version is **v020**. (exp015 = Elo anchor, infra.
 exp016 = Release build → v011, +117 Elo. exp017 = movegen king-cache → v012, infra/neutral.
 exp018 = pawn-structure eval → v013, +51 Elo. exp019 = king-safety pawn-shield → REJECTED,
-strength-neutral, head stays v013. exp020 = PST swap → REJECTED, neutral. exp021 = null-move pruning → v014, +20 Elo.)
+strength-neutral, head stays v013. exp020 = PST swap → REJECTED, neutral. exp021 = null-move pruning → v014, +20 Elo. exp022 = LMR → v015, +48 Elo. exp023 = PVS → REJECTED, -44 Elo (ordering too weak). exp024 = killers+history ordering → v016, +110 Elo. exp025 = PVS retry → REJECTED again, -44. exp026 = make/unmake → v017, infra/neutral. exp027 = incremental Zobrist → v018, infra/neutral (hashing also NOT the bottleneck; node cost = movegen + is_square_attacked ray scans + eval). nps lever left = bitboards; else gain via pruning/eval/ordering. exp028 = aspiration windows → v019, +29 Elo (400g). Est ~1955-1975, near 2000.)

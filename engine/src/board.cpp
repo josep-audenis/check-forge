@@ -1,5 +1,7 @@
 #include "checkforge/board.h"
 
+#include "checkforge/movegen.h"
+
 #include <cctype>
 #include <cstdlib>
 #include <stdexcept>
@@ -200,6 +202,7 @@ Board Board::from_fen(const std::string& fen) {
         throw std::invalid_argument("fullmove number must be positive");
     }
 
+    board.zobrist = compute_zobrist(board);
     return board;
 }
 

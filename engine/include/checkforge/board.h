@@ -1,5 +1,6 @@
 #pragma once
 
+#include <cstdint>
 #include <string>
 
 namespace checkforge {
@@ -23,6 +24,7 @@ struct Board {
     int en_passant_square = -1;
     int halfmove_clock = 0;
     int fullmove_number = 1;
+    std::uint64_t zobrist = 0;  // incrementally maintained in make/unmake (exp027)
 
     static Board startpos();
     static Board from_fen(const std::string& fen);

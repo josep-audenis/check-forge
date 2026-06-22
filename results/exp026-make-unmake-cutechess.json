@@ -1,0 +1,12 @@
+{
+  "engine": "checkforge",
+  "pgn": "matches/exp026-make-unmake-vs-v016.pgn",
+  "wins": 51,
+  "losses": 46,
+  "draws": 103,
+  "games": 200,
+  "illegal": false,
+  "score": 0.5125,
+  "elo_diff": 8.7,
+  "elo_err": 24.6
+}
