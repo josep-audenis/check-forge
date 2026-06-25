@@ -1,0 +1,10 @@
+{
+  "benchmark": "anchor",
+  "detached": true,
+  "pid": 19216,
+  "pgn": "matches/v022-anchor-sf2000.pgn",
+  "log": "matches\\v022-anchor-sf2000.cutechess.log",
+  "anchor_elo": 2000,
+  "games_requested": 200,
+  "note": "detached match; poll PGN + score with research/score_pgn.py (checkforge_elo = anchor_elo + elo_diff)"
+}

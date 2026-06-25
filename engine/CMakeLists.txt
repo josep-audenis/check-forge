@@ -1,4 +1,5 @@
 add_executable(checkforge
+    src/bitboard.cpp
     src/board.cpp
     src/config.cpp
     src/eval.cpp
@@ -11,6 +12,7 @@ add_executable(checkforge
 target_include_directories(checkforge PRIVATE include)
 
 add_executable(checkforge_smoke_tests
+    src/bitboard.cpp
     src/board.cpp
     src/config.cpp
     src/eval.cpp

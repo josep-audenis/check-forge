@@ -1,5 +1,7 @@
 #include "checkforge/movegen.h"
 
+#include "checkforge/bitboard.h"
+
 #include <cctype>
 #include <cstdio>
 #include <cstdlib>
@@ -76,99 +78,67 @@ int find_king(const Board& board, Color color) {
     throw std::invalid_argument("board has no king");
 }
 
-bool attacks_by_pawn(const Board& board, int square, Color attacker) {
-    const int rank = rank_of(square);
-    const int file = file_of(square);
-    const int pawn_rank = attacker == Color::White ? rank + 1 : rank - 1;
-    const char pawn = attacker == Color::White ? 'P' : 'p';
-
-    for (int pawn_file : {file - 1, file + 1}) {
-        if (on_board(pawn_rank, pawn_file) && board.squares[index_of(pawn_rank, pawn_file)] == pawn) {
-            return true;
-        }
+// Bitboard attack detection (exp031): uses the piece bitboards maintained on the Board.
+// A square is attacked by `attacker` if any of its pieces hits it.
+Bitboard color_occupancy(const Board& board, Color color) {
+    Bitboard occ = 0;
+    const int base = color == Color::White ? 0 : 6;
+    for (int i = 0; i < 6; ++i) {
+        occ |= board.bb[base + i];
     }
-
-    return false;
+    return occ;
 }
 
-bool attacks_by_knight(const Board& board, int square, Color attacker) {
-    const int offsets[8][2] = {
-        {-2, -1}, {-2, 1}, {-1, -2}, {-1, 2},
-        {1, -2},  {1, 2},  {2, -1},  {2, 1},
-    };
-    const int rank = rank_of(square);
-    const int file = file_of(square);
-    const char knight = attacker == Color::White ? 'N' : 'n';
-
-    for (const auto& offset : offsets) {
-        const int target_rank = rank + offset[0];
-        const int target_file = file + offset[1];
-        if (on_board(target_rank, target_file) && board.squares[index_of(target_rank, target_file)] == knight) {
-            return true;
-        }
+Bitboard total_occupancy(const Board& board) {
+    Bitboard occ = 0;
+    for (int i = 0; i < 12; ++i) {
+        occ |= board.bb[i];
     }
-
-    return false;
+    return occ;
 }
 
-bool attacks_by_king(const Board& board, int square, Color attacker) {
-    const int rank = rank_of(square);
-    const int file = file_of(square);
-    const char king = attacker == Color::White ? 'K' : 'k';
-
-    for (int rank_delta = -1; rank_delta <= 1; ++rank_delta) {
-        for (int file_delta = -1; file_delta <= 1; ++file_delta) {
-            if (rank_delta == 0 && file_delta == 0) {
-                continue;
-            }
-
-            const int target_rank = rank + rank_delta;
-            const int target_file = file + file_delta;
-            if (on_board(target_rank, target_file) && board.squares[index_of(target_rank, target_file)] == king) {
-                return true;
-            }
-        }
+// Emit a quiet/capture move to every set bit of `targets`.
+void emit_targets(int from, Bitboard targets, std::vector<Move>* moves) {
+    while (targets) {
+        const int to = bb_lsb(targets);
+        targets &= targets - 1;
+        add_move(moves, from, to);
     }
-
-    return false;
-}
-
-bool attacks_by_slider(const Board& board, int square, Color attacker, const int directions[][2], int direction_count, char piece_a, char piece_b) {
-    const int start_rank = rank_of(square);
-    const int start_file = file_of(square);
-    const char attacker_a = attacker == Color::White ? piece_a : static_cast<char>(std::tolower(static_cast<unsigned char>(piece_a)));
-    const char attacker_b = attacker == Color::White ? piece_b : static_cast<char>(std::tolower(static_cast<unsigned char>(piece_b)));
-
-    for (int i = 0; i < direction_count; ++i) {
-        int current_rank = start_rank + directions[i][0];
-        int current_file = start_file + directions[i][1];
-
-        while (on_board(current_rank, current_file)) {
-            const char piece = board.squares[index_of(current_rank, current_file)];
-            if (piece != '\0') {
-                if (piece == attacker_a || piece == attacker_b) {
-                    return true;
-                }
-                break;
-            }
-
-            current_rank += directions[i][0];
-            current_file += directions[i][1];
-        }
-    }
-
-    return false;
 }
 
 bool is_square_attacked(const Board& board, int square, Color attacker) {
-    const int bishop_dirs[4][2] = {{-1, -1}, {-1, 1}, {1, -1}, {1, 1}};
-    const int rook_dirs[4][2] = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+    Bitboard occ = 0;
+    for (int i = 0; i < 12; ++i) {
+        occ |= board.bb[i];
+    }
+    const int base = attacker == Color::White ? 0 : 6;  // bb index of this color's pawns
+    const Bitboard pawns = board.bb[base + 0];
+    const Bitboard knights = board.bb[base + 1];
+    const Bitboard bishops = board.bb[base + 2];
+    const Bitboard rooks = board.bb[base + 3];
+    const Bitboard queens = board.bb[base + 4];
+    const Bitboard king = board.bb[base + 5];
 
-    return attacks_by_pawn(board, square, attacker) ||
-           attacks_by_knight(board, square, attacker) ||
-           attacks_by_king(board, square, attacker) ||
-           attacks_by_slider(board, square, attacker, bishop_dirs, 4, 'B', 'Q') ||
-           attacks_by_slider(board, square, attacker, rook_dirs, 4, 'R', 'Q');
+    // A white pawn attacks `square` iff it stands on one of the squares that a *black*
+    // pawn on `square` would attack (and vice-versa) — so index the opposite table.
+    const Bitboard pawn_from = attacker == Color::White ? g_pawn_attacks[1][square]
+                                                        : g_pawn_attacks[0][square];
+    if (pawn_from & pawns) {
+        return true;
+    }
+    if (g_knight_attacks[square] & knights) {
+        return true;
+    }
+    if (g_king_attacks[square] & king) {
+        return true;
+    }
+    if (bishop_attacks(square, occ) & (bishops | queens)) {
+        return true;
+    }
+    if (rook_attacks(square, occ) & (rooks | queens)) {
+        return true;
+    }
+    return false;
 }
 
 void generate_pawn_moves(const Board& board, int square, std::vector<Move>* moves) {
@@ -223,76 +193,9 @@ void generate_pawn_moves(const Board& board, int square, std::vector<Move>* move
     }
 }
 
-void generate_knight_moves(const Board& board, int square, std::vector<Move>* moves) {
-    const int offsets[8][2] = {
-        {-2, -1}, {-2, 1}, {-1, -2}, {-1, 2},
-        {1, -2},  {1, 2},  {2, -1},  {2, 1},
-    };
-    const int rank = rank_of(square);
-    const int file = file_of(square);
-
-    for (const auto& offset : offsets) {
-        const int target_rank = rank + offset[0];
-        const int target_file = file + offset[1];
-        if (!on_board(target_rank, target_file)) {
-            continue;
-        }
-
-        const int target = index_of(target_rank, target_file);
-        if (!is_color_piece(board.squares[target], board.side_to_move)) {
-            add_move(moves, square, target);
-        }
-    }
-}
-
-void generate_sliding_moves(const Board& board, int square, const int directions[][2], int direction_count, std::vector<Move>* moves) {
-    const int start_rank = rank_of(square);
-    const int start_file = file_of(square);
-
-    for (int i = 0; i < direction_count; ++i) {
-        int current_rank = start_rank + directions[i][0];
-        int current_file = start_file + directions[i][1];
-
-        while (on_board(current_rank, current_file)) {
-            const int target = index_of(current_rank, current_file);
-            if (is_color_piece(board.squares[target], board.side_to_move)) {
-                break;
-            }
-
-            add_move(moves, square, target);
-
-            if (is_enemy_piece(board.squares[target], board.side_to_move)) {
-                break;
-            }
-
-            current_rank += directions[i][0];
-            current_file += directions[i][1];
-        }
-    }
-}
-
 void generate_king_moves(const Board& board, int square, std::vector<Move>* moves) {
-    const int rank = rank_of(square);
-    const int file = file_of(square);
-
-    for (int rank_delta = -1; rank_delta <= 1; ++rank_delta) {
-        for (int file_delta = -1; file_delta <= 1; ++file_delta) {
-            if (rank_delta == 0 && file_delta == 0) {
-                continue;
-            }
-
-            const int target_rank = rank + rank_delta;
-            const int target_file = file + file_delta;
-            if (!on_board(target_rank, target_file)) {
-                continue;
-            }
-
-            const int target = index_of(target_rank, target_file);
-            if (!is_color_piece(board.squares[target], board.side_to_move)) {
-                add_move(moves, square, target);
-            }
-        }
-    }
+    const Bitboard own = color_occupancy(board, board.side_to_move);
+    emit_targets(square, g_king_attacks[square] & ~own, moves);
 
     const Color enemy = opposite(board.side_to_move);
     if (is_in_check(board, board.side_to_move)) {
@@ -349,9 +252,8 @@ void generate_king_moves(const Board& board, int square, std::vector<Move>* move
 }
 
 void generate_pseudo_legal_moves(const Board& board, std::vector<Move>* moves) {
-    const int bishop_dirs[4][2] = {{-1, -1}, {-1, 1}, {1, -1}, {1, 1}};
-    const int rook_dirs[4][2] = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
-    const int queen_dirs[8][2] = {{-1, -1}, {-1, 1}, {1, -1}, {1, 1}, {-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+    const Bitboard own = color_occupancy(board, board.side_to_move);
+    const Bitboard occ = total_occupancy(board);
 
     for (int square = 0; square < 64; ++square) {
         const char piece = board.squares[square];
@@ -364,16 +266,16 @@ void generate_pseudo_legal_moves(const Board& board, std::vector<Move>* moves) {
                 generate_pawn_moves(board, square, moves);
                 break;
             case 'n':
-                generate_knight_moves(board, square, moves);
+                emit_targets(square, g_knight_attacks[square] & ~own, moves);
                 break;
             case 'b':
-                generate_sliding_moves(board, square, bishop_dirs, 4, moves);
+                emit_targets(square, bishop_attacks(square, occ) & ~own, moves);
                 break;
             case 'r':
-                generate_sliding_moves(board, square, rook_dirs, 4, moves);
+                emit_targets(square, rook_attacks(square, occ) & ~own, moves);
                 break;
             case 'q':
-                generate_sliding_moves(board, square, queen_dirs, 8, moves);
+                emit_targets(square, queen_attacks(square, occ) & ~own, moves);
                 break;
             case 'k':
                 generate_king_moves(board, square, moves);
@@ -452,6 +354,18 @@ const ZobristInit g_zobrist_init;
 
 }  // namespace
 
+void rebuild_bitboards(Board& board) {
+    for (int i = 0; i < 12; ++i) {
+        board.bb[i] = 0;
+    }
+    for (int sq = 0; sq < 64; ++sq) {
+        const int idx = bb_piece_index(board.squares[sq]);
+        if (idx >= 0) {
+            board.bb[idx] |= (Bitboard{1} << sq);
+        }
+    }
+}
+
 std::uint64_t compute_zobrist(const Board& board) {
     std::uint64_t h = 0;
     for (int sq = 0; sq < 64; ++sq) {
@@ -472,6 +386,100 @@ std::uint64_t compute_zobrist(const Board& board) {
 
 bool is_in_check(const Board& board, Color color) {
     return is_square_attacked(board, find_king(board, color), opposite(color));
+}
+
+namespace {
+
+// All pieces (both colors) attacking `sq` given occupancy `occ` (recomputed each SEE
+// swap so slider x-rays are handled). Restricted to currently-present pieces.
+Bitboard attackers_to(const Board& board, int sq, Bitboard occ) {
+    Bitboard att = 0;
+    att |= g_pawn_attacks[1][sq] & board.bb[0];                       // white pawns
+    att |= g_pawn_attacks[0][sq] & board.bb[6];                       // black pawns
+    att |= g_knight_attacks[sq] & (board.bb[1] | board.bb[7]);
+    att |= g_king_attacks[sq] & (board.bb[5] | board.bb[11]);
+    const Bitboard ba = bishop_attacks(sq, occ);
+    att |= ba & (board.bb[2] | board.bb[8] | board.bb[4] | board.bb[10]);
+    const Bitboard ra = rook_attacks(sq, occ);
+    att |= ra & (board.bb[3] | board.bb[9] | board.bb[4] | board.bb[10]);
+    return att & occ;
+}
+
+int piece_type_value(char piece, const int vals[6]) {
+    switch (std::tolower(static_cast<unsigned char>(piece))) {
+        case 'p': return vals[0];
+        case 'n': return vals[1];
+        case 'b': return vals[2];
+        case 'r': return vals[3];
+        case 'q': return vals[4];
+        case 'k': return vals[5];
+        default:  return 0;
+    }
+}
+
+}  // namespace
+
+int see_capture(const Board& board, const Move& move,
+                int pawn, int knight, int bishop, int rook, int queen) {
+    const int vals[6] = {pawn, knight, bishop, rook, queen, 100000};
+    const int to = move.to;
+    const Color mover = board.side_to_move;
+
+    Bitboard occ = 0;
+    for (int i = 0; i < 12; ++i) {
+        occ |= board.bb[i];
+    }
+
+    int captured_val;
+    if (move.is_en_passant) {
+        captured_val = pawn;
+        const int ep_sq = mover == Color::White ? to + 8 : to - 8;
+        occ ^= (Bitboard{1} << ep_sq);  // remove the e.p.-captured pawn
+    } else {
+        captured_val = piece_type_value(board.squares[to], vals);
+    }
+
+    occ ^= (Bitboard{1} << move.from);  // the mover leaves 'from', now sits on 'to'
+    int on_square_val = piece_type_value(
+        move.promotion != '\0' ? move.promotion : board.squares[move.from], vals);
+
+    Bitboard attackers = attackers_to(board, to, occ);
+    int gain[32];
+    int d = 0;
+    gain[0] = captured_val;
+    Color side = mover == Color::White ? Color::Black : Color::White;
+
+    while (true) {
+        ++d;
+        gain[d] = on_square_val - gain[d - 1];
+        // Least valuable attacker for `side`.
+        const int base = side == Color::White ? 0 : 6;
+        Bitboard from_bb = 0;
+        int t = -1;
+        for (int pt = 0; pt < 6; ++pt) {
+            const Bitboard cand = board.bb[base + pt] & attackers;
+            if (cand) {
+                from_bb = cand & (~cand + 1);  // pick one bit
+                t = pt;
+                break;
+            }
+        }
+        if (t < 0) {
+            break;  // no attacker -> sequence ends
+        }
+        on_square_val = vals[t];
+        occ ^= from_bb;                       // that attacker captures on 'to'
+        attackers = attackers_to(board, to, occ);
+        side = side == Color::White ? Color::Black : Color::White;
+        if (d >= 31) {
+            break;
+        }
+    }
+
+    while (--d > 0) {
+        gain[d - 1] = -((-gain[d - 1] > gain[d]) ? -gain[d - 1] : gain[d]);
+    }
+    return gain[0];
 }
 
 Board make_move(const Board& board, const Move& move) {
@@ -526,6 +534,7 @@ Board make_move(const Board& board, const Move& move) {
 
     next.side_to_move = opposite(moving_color);
     next.zobrist = compute_zobrist(next);  // copy path is not hot; recompute for validity
+    rebuild_bitboards(next);
     return next;
 }
 
@@ -564,11 +573,14 @@ Undo make_move_inplace(Board& board, const Move& move) {
     undo.captured_square = captured_square;
     if (captured != '\0') {
         h ^= z_piece[piece_index(captured)][captured_square];
+        board.bb[bb_piece_index(captured)] &= ~(Bitboard{1} << captured_square);
     }
 
     const char placed = move.promotion != '\0' ? move.promotion : piece;
     h ^= z_piece[piece_index(piece)][move.from];  // lift moving piece off 'from'
     h ^= z_piece[piece_index(placed)][move.to];   // place (possibly promoted) on 'to'
+    board.bb[bb_piece_index(piece)] &= ~(Bitboard{1} << move.from);
+    board.bb[bb_piece_index(placed)] |= (Bitboard{1} << move.to);
     board.squares[move.from] = '\0';
     board.squares[move.to] = placed;
 
@@ -589,6 +601,8 @@ Undo make_move_inplace(Board& board, const Move& move) {
         board.squares[rook_to] = rook;
         h ^= z_piece[piece_index(rook)][rook_from];
         h ^= z_piece[piece_index(rook)][rook_to];
+        board.bb[bb_piece_index(rook)] &= ~(Bitboard{1} << rook_from);
+        board.bb[bb_piece_index(rook)] |= (Bitboard{1} << rook_to);
     }
 
     clear_castling_for_square(&board, move.from);
@@ -632,6 +646,15 @@ void unmake_move(Board& board, const Move& move, const Undo& undo) {
     board.fullmove_number = undo.fullmove_number;
     board.zobrist = undo.zobrist;
 
+    // Restore bitboards: lift the placed piece off 'to', put the original mover back on
+    // 'from', and restore any captured piece.
+    const char placed = move.promotion != '\0' ? move.promotion : undo.moved;
+    board.bb[bb_piece_index(placed)] &= ~(Bitboard{1} << move.to);
+    board.bb[bb_piece_index(undo.moved)] |= (Bitboard{1} << move.from);
+    if (undo.captured != '\0') {
+        board.bb[bb_piece_index(undo.captured)] |= (Bitboard{1} << undo.captured_square);
+    }
+
     board.squares[move.from] = undo.moved;
     board.squares[move.to] = '\0';
     if (undo.captured != '\0') {
@@ -639,19 +662,22 @@ void unmake_move(Board& board, const Move& move, const Undo& undo) {
     }
 
     if (move.is_castling) {
+        int rook_from = -1;
+        int rook_to = -1;
+        char rook = 'R';
         if (move.to == square_index('g', '1')) {
-            board.squares[square_index('h', '1')] = 'R';
-            board.squares[square_index('f', '1')] = '\0';
+            rook_from = square_index('h', '1'); rook_to = square_index('f', '1'); rook = 'R';
         } else if (move.to == square_index('c', '1')) {
-            board.squares[square_index('a', '1')] = 'R';
-            board.squares[square_index('d', '1')] = '\0';
+            rook_from = square_index('a', '1'); rook_to = square_index('d', '1'); rook = 'R';
         } else if (move.to == square_index('g', '8')) {
-            board.squares[square_index('h', '8')] = 'r';
-            board.squares[square_index('f', '8')] = '\0';
+            rook_from = square_index('h', '8'); rook_to = square_index('f', '8'); rook = 'r';
         } else if (move.to == square_index('c', '8')) {
-            board.squares[square_index('a', '8')] = 'r';
-            board.squares[square_index('d', '8')] = '\0';
+            rook_from = square_index('a', '8'); rook_to = square_index('d', '8'); rook = 'r';
         }
+        board.squares[rook_to] = '\0';
+        board.squares[rook_from] = rook;
+        board.bb[bb_piece_index(rook)] &= ~(Bitboard{1} << rook_to);
+        board.bb[bb_piece_index(rook)] |= (Bitboard{1} << rook_from);
     }
 }
 

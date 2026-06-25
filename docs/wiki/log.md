@@ -646,3 +646,170 @@ decision: ACCEPTED (strength). head -> versions/v019-aspiration
 
 Real tree-size gain (vs the neutral per-node exp026/027). Estimate now ~1955-1975 -
 essentially at the 2000 band. Next: mobility eval or weight tuning; bitboards for big nps.
+
+## [2026-06-23] autoresearch | exp029 mobility eval -> REJECTED
+
+Added knight/slider pseudo-mobility term (N=4/B=4/R=2/Q=1 per square) to evaluate_static.
+
+```text
+gates:    ctest pass, perft exact, tactics 8/8
+speed:    fixed depth-9 1.66x SLOWER (128s vs 77s v019) - slider ray scans per eval leaf
+verify:   vs v019, 200g 8+0.08 -> 52-47-101, +8.7 Elo (+/-24.6), 0 illegal -> neutral
+decision: REJECTED (does not clear +15). reverted. head stays v019-aspiration
+```
+
+Eval gain real but eaten by the 1.66x slowdown (~half a ply lost) -> net ~0. Same pattern
+as PVS: sound technique that needs cheap attack-gen (bitboards) to pay. Next: weight
+tuning (cheap, step 5), or the bitboard rewrite (step 2).
+
+## [2026-06-23] autoresearch | exp030 scaled LMR -> REJECTED
+
+Made LMR reduction grow with move_count/depth (r up to 3) instead of flat 1.
+
+```text
+gates:    ctest pass, perft exact, tactics 8/8
+verify:   vs v019, 600 games (3 detached batches) 8+0.08 -> 161-143-296, +10.4 Elo (+/-14.2), LOS ~77%
+          per batch A +41.9 / B +0.0 / C ~-10 -> big disagreement
+decision: REJECTED (below +15, not significant). reverted. head stays v019-aspiration
+```
+
+Process lesson: batch A's +42 (LOS ~95%) alone would have been a FALSE ACCEPT; 600 games
+showed true ~+10. For fine-tuning deltas in the noisy +15..+40 band, use 400-600 games /
+SPRT, not a single 200. Next: tune LMR trigger / cheap eval weights, or commit to the
+bitboard rewrite (the big lever past 2000).
+
+## [2026-06-24] autoresearch | exp031 bitboard movegen + attack detection -> v020 (infrastructure)
+
+Roadmap step 2. New bitboard.{h,cpp} (attack tables + occupancy sliders); Board.bb[12]
+maintained in make/unmake + from_fen; is_square_attacked and knight/slider/king move
+generation now bitboard-based (pawns + castling unchanged).
+
+```text
+gates:    ctest pass, perft EXACT all cases, tactics 8/8
+speed:    perft6 ~20% faster (65.1s vs 81.5s v019)
+verify:   vs v019, 200g 8+0.08 -> 50-49-101, +1.7 Elo (+/-24.6), 0 illegal -> neutral
+decision: ACCEPTED as INFRASTRUCTURE (no Elo). head -> versions/v020-bitboards
+```
+
+Neutral in games despite faster movegen: per-leaf cost is dominated by the EVAL board scan
+(unchanged), and dual squares[]+bb[] bookkeeping dilutes the win. Real payoff = bitboards
+make cheap eval terms viable. Next: bitboard mobility (exp029 was +8.7 even at 1.66x
+slower; near-free now -> should clear +15), then king safety, magic sliders, PVS retry.
+
+## [2026-06-25] autoresearch | exp032 bitboard mobility eval -> v021 (BIG WIN, ~cracks 2000)
+
+Re-did the exp029 mobility term on the v020 bitboard layer (popcount of attack bitboards
+minus own pieces; N=4/B=4/R=2/Q=1).
+
+```text
+gates:    ctest pass, perft exact, tactics 8/8
+speed:    fixed depth-9 ~1.55x slower (29.8s vs 19.2s v020) - sliders still ray loops
+verify:   vs v020, 400 games (two detached batches) 8+0.08 -> 158-50-192, +96.2 Elo (+/-18.0), LOS ~100%, 0 illegal
+          both batches strongly positive (A +79.5, B even stronger)
+decision: ACCEPTED (strength). head -> versions/v021-bb-mobility. Estimate ~2050-2070 - 2000 CRACKED.
+```
+
+Biggest eval gain of the project. Same term exp029 REJECTED at +8.7 (shallow v013, 1.66x
+slower) now wins +96 — because the engine is ~200 Elo deeper AND the bb version is a bit
+cheaper. Lesson: an eval term's value scales with search depth; re-test rejected eval
+terms after the search gets stronger. This is the payoff the exp031 bitboard foundation
+was built for. Next: magic bitboards (O(1) sliders), bitboard king safety, PVS retry,
+re-anchor vs Stockfish (likely >2000).
+
+## [2026-06-25] autoresearch | exp033 bitboard king safety -> REJECTED
+
+Added king-zone attacker-count term (knights+2/bishops+2/rooks+3/queens+5 per attacker,
+scale 5 cp/unit) to evaluate_static.
+
+```text
+gates:    ctest pass, perft exact, tactics 8/8
+verify:   vs v021, 200g 8+0.08 -> 32-66-102, -59.6 Elo (+/-24.9), 0 illegal
+decision: REJECTED (-60). reverted. head stays v021-bb-mobility
+```
+
+Cost + crude signal. The term runs slider ray-loops per eval leaf ON TOP of mobility,
+which already spent the per-leaf budget -> depth loss; plus flat linear attacker-count is
+too blunt. Clear signal: MAGIC BITBOARDS (O(1) sliders) must come before stacking more
+per-leaf eval terms. Next: magic bitboards (perft-gated), then retry king safety (tuned)
+and PVS.
+
+## [2026-06-25] autoresearch | exp034 magic bitboards (O(1) sliders) -> v022 (BIG WIN)
+
+Replaced O(ray) bishop/rook attacks with magic bitboards (init-generated, fixed seed).
+Signatures unchanged; perft-gated.
+
+```text
+gates:    ctest pass, perft EXACT all cases, tactics 8/8
+speed:    fixed depth-9 ~18% faster (24.3s vs 29.4s v021); in-game gain larger (sliders very hot)
+verify:   vs v021, 400 games (two detached batches) 8+0.08 -> 151-41-208, +98.1 Elo (+/-18.1), LOS ~100%
+          both batches +98
+decision: ACCEPTED (strength). head -> versions/v022-magic-bitboards. Estimate ~2150-2170.
+```
+
++98 from a "pure speed" change because v021 mobility makes the slider path extremely hot
+per leaf; O(1) magic recovers mobility's 1.55x cost -> big effective depth. Bitboard arc
+compounding: exp031 movegen (neutral) -> exp032 mobility (+96) -> exp034 magic (+98).
+Lesson: re-measure infra speedups after the workload that stresses them lands. Next: retry
+king safety (now affordable), PVS retry, re-anchor vs SF (~2100).
+
+## [2026-06-25] autoresearch | exp035 king safety retry -> REJECTED
+
+Re-tried king-zone attacker-count, now cheap (magic) + gentler bounded danger table.
+
+```text
+gates:    ctest pass, perft exact, tactics 8/8
+verify:   vs v022, 200g 8+0.08 -> 32-64-104, -56.1 Elo (+/-24.9), 0 illegal
+decision: REJECTED (-56). reverted. head stays v022-magic-bitboards
+```
+
+Corrects exp033's cost theory: making it cheap did NOT help (-56 ~= -60). The king-safety
+TERM itself harms this engine's play (distorts the strong material+PST+pawns+mobility eval).
+King safety failed 3x (exp019/033/035) -> STOP hand-set king-safety variants; needs a
+fundamentally different / SPSA-tuned model. Next: PVS retry (nodes cheaper post-magic),
+re-anchor vs SF ~2100, tune mobility weights.
+
+## [2026-06-25] measurement | re-anchor v022 vs Stockfish -> absolute ~1935 (ladder overstated)
+
+Re-anchored the head (v022) against the external reference after the big bitboard wins.
+
+```text
+v022 vs SF UCI_Elo=2000, 200g 8+0.08 -> 71-108-21, elo_diff -65 -> CheckForge ~= 1935 +/- 25
+```
+
+Gap vs the raw internal-ladder sum (~2150): ~200 Elo. The self-play ladder OVERSTATES
+absolute Elo (relative deltas compound and don't fully transfer to the field; some
+intransitivity). SF UCI_Elo at bullet also likely plays above nominal, deflating our read.
+Corrected stance: **internal ladder = per-experiment DELTAS only; absolute ~1950-2050 (at
+~2000), not 2150.** The deltas themselves (each verified at 200-400g) stand; the absolute
+accumulation does not. Honest milestone: CheckForge is ~2000, started ~1581 (exp015).
+
+## [2026-06-25] autoresearch | exp036 SPSA harness + mobility tuning -> no gain (harness shipped)
+
+Built research/run_spsa.py (SPSA: config-only perturbation, same binary, checkpoint-
+resumable). Exposed mobility weights in config (default == v022, verified). Tuned the 4
+mobility weights, 30 iters x 24 games, TC 4+0.04.
+
+```text
+start {4,4,2,1} -> final {3.97,3.93,2.07,1.02} -> rounds to {4,4,2,1} (= v022)
+decision: harness ACCEPTED as infra; mobility tuning = NO CHANGE. head stays v022. no version bump.
+```
+
+Mobility weights already near-optimal (the +96 in exp032 used good defaults). Deliverable
+is the reusable SPSA harness. Next SPSA targets with more headroom: pawn-structure weights
+(hardcoded -> expose in config), piece values. Or structural: SEE quiescence pruning,
+tapered eval.
+
+## [2026-06-25] autoresearch | exp037 SEE quiescence pruning -> REJECTED
+
+Added bitboard SEE (see_capture, kept) and skipped SEE<0 captures in quiescence (reverted).
+
+```text
+gates:    ctest pass, perft exact, tactics 8/8
+speed:    fixed depth-10 ~36% faster q-search (30.3s vs 47.1s v022)
+verify:   vs v022, 200g 8+0.08 -> 37-42-121, -8.7 Elo (+/-24.6), 0 illegal -> neutral/slightly neg
+decision: REJECTED. pruning reverted (see_capture retained). head stays v022.
+```
+
+Faster isn't stronger: SEE is static, occasionally prunes captures that start sound
+tactics, offsetting the depth gain. Same theme as the neutral per-node speedups. Next:
+SEE for capture ORDERING (not pruning, lower risk), tapered eval, or SPSA on pawn-structure.

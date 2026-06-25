@@ -12,6 +12,11 @@ struct EngineConfig {
     int queen_value = 900;
     int default_depth = 3;
     int quiescence_depth = 4;
+    // Mobility eval weights (centipawns per reachable square), tunable via config (exp036).
+    int mob_knight = 4;
+    int mob_bishop = 4;
+    int mob_rook = 2;
+    int mob_queen = 1;
 };
 
 EngineConfig default_config();

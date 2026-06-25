@@ -1,0 +1,12 @@
+{
+  "engine": "checkforge",
+  "pgn": "matches/_c.pgn",
+  "wins": 151,
+  "losses": 41,
+  "draws": 208,
+  "games": 400,
+  "illegal": false,
+  "score": 0.6375,
+  "elo_diff": 98.1,
+  "elo_err": 18.1
+}

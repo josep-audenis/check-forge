@@ -1,0 +1,12 @@
+{
+  "engine": "checkforge",
+  "pgn": "matches/exp029-mobility-vs-v019.pgn",
+  "wins": 52,
+  "losses": 47,
+  "draws": 101,
+  "games": 200,
+  "illegal": false,
+  "score": 0.5125,
+  "elo_diff": 8.7,
+  "elo_err": 24.6
+}

@@ -25,6 +25,7 @@ struct Board {
     int halfmove_clock = 0;
     int fullmove_number = 1;
     std::uint64_t zobrist = 0;  // incrementally maintained in make/unmake (exp027)
+    std::uint64_t bb[12]{};     // piece bitboards (P N B R Q K p n b r q k), exp031
 
     static Board startpos();
     static Board from_fen(const std::string& fen);

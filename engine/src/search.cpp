@@ -233,6 +233,9 @@ int quiescence(Board& board, int alpha, int beta, int remaining_depth, SearchCon
         if (!is_capture_or_promotion(board, move)) {
             continue;
         }
+        // SEE quiescence pruning was tried (exp037) and was strength-neutral/slightly
+        // negative (-8.7), so it is not applied. `see_capture` is kept for possible future
+        // use in move ordering.
         if (out_of_time(ctx)) {
             return alpha;
         }

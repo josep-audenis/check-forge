@@ -1,0 +1,9 @@
+{
+  "benchmark": "cutechess",
+  "detached": true,
+  "pid": 11216,
+  "pgn": "matches/exp034-magic-vs-v021-b.pgn",
+  "log": "matches\\exp034-magic-vs-v021-b.cutechess.log",
+  "games_requested": 200,
+  "note": "detached match; poll PGN + score with research/score_pgn.py"
+}

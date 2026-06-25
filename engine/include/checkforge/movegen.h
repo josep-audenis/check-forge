@@ -33,7 +33,15 @@ struct Undo {
 // board.zobrist incrementally).
 std::uint64_t compute_zobrist(const Board& board);
 
+// Rebuild the piece bitboards (board.bb) from board.squares. Called by from_fen; make/
+// unmake then maintain them incrementally.
+void rebuild_bitboards(Board& board);
+
 std::vector<Move> generate_legal_moves(const Board& board);
+// Static exchange evaluation of a capture: net material (centipawns, mover's perspective)
+// after the optimal sequence of recaptures on move.to. Negative = losing capture.
+int see_capture(const Board& board, const Move& move,
+                int pawn, int knight, int bishop, int rook, int queen);
 Board make_move(const Board& board, const Move& move);
 Undo make_move_inplace(Board& board, const Move& move);
 void unmake_move(Board& board, const Move& move, const Undo& undo);

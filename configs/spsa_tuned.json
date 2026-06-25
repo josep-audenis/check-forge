@@ -1,0 +1,1 @@
+{"piece_values": {"pawn": 100, "knight": 320, "bishop": 330, "rook": 500, "queen": 900}, "eval_weights": {"mob_knight": 4, "mob_bishop": 4, "mob_rook": 2, "mob_queen": 1}, "search_params": {"default_depth": 3, "quiescence_depth": 4}}

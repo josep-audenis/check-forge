@@ -1,0 +1,12 @@
+{
+  "engine": "checkforge",
+  "pgn": "matches/exp031-bitboards-vs-v019.pgn",
+  "wins": 50,
+  "losses": 49,
+  "draws": 101,
+  "games": 200,
+  "illegal": false,
+  "score": 0.5025,
+  "elo_diff": 1.7,
+  "elo_err": 24.6
+}

@@ -202,6 +202,7 @@ Board Board::from_fen(const std::string& fen) {
         throw std::invalid_argument("fullmove number must be positive");
     }
 
+    rebuild_bitboards(board);
     board.zobrist = compute_zobrist(board);
     return board;
 }

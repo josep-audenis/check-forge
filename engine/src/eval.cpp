@@ -1,5 +1,7 @@
 #include "checkforge/eval.h"
 
+#include "checkforge/bitboard.h"
+
 #include <cctype>
 
 namespace checkforge {
@@ -192,6 +194,50 @@ int evaluate_pawn_structure(const Board& board) {
     return score;
 }
 
+// Bitboard mobility (exp032): near-free version of the term rejected in exp029 (which was
+// +8.7 even while 1.66x slower on the mailbox). Counts reachable squares (own pieces
+// excluded) for minor/major pieces via attack tables / occupancy sliders. White-perspective.
+int mobility_for(const Board& board, const EngineConfig& config, int base, Bitboard own, Bitboard occ) {
+    int score = 0;
+    Bitboard n = board.bb[base + 1];
+    while (n) {
+        const int sq = bb_lsb(n);
+        n &= n - 1;
+        score += bb_popcount(g_knight_attacks[sq] & ~own) * config.mob_knight;
+    }
+    Bitboard b = board.bb[base + 2];
+    while (b) {
+        const int sq = bb_lsb(b);
+        b &= b - 1;
+        score += bb_popcount(bishop_attacks(sq, occ) & ~own) * config.mob_bishop;
+    }
+    Bitboard r = board.bb[base + 3];
+    while (r) {
+        const int sq = bb_lsb(r);
+        r &= r - 1;
+        score += bb_popcount(rook_attacks(sq, occ) & ~own) * config.mob_rook;
+    }
+    Bitboard q = board.bb[base + 4];
+    while (q) {
+        const int sq = bb_lsb(q);
+        q &= q - 1;
+        score += bb_popcount(queen_attacks(sq, occ) & ~own) * config.mob_queen;
+    }
+    return score;
+}
+
+int evaluate_mobility(const Board& board, const EngineConfig& config) {
+    Bitboard white = 0, black = 0;
+    for (int i = 0; i < 6; ++i) {
+        white |= board.bb[i];
+    }
+    for (int i = 6; i < 12; ++i) {
+        black |= board.bb[i];
+    }
+    const Bitboard occ = white | black;
+    return mobility_for(board, config, 0, white, occ) - mobility_for(board, config, 6, black, occ);
+}
+
 }  // namespace
 
 int evaluate_material(const Board& board) {
@@ -247,6 +293,7 @@ int evaluate_static(const Board& board, const EngineConfig& config) {
         score -= kBishopPairBonus;
     }
     score += evaluate_pawn_structure(board);
+    score += evaluate_mobility(board, config);
     return score;
 }
 

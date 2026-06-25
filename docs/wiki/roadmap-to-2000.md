@@ -82,9 +82,26 @@ keep gaining via tree-size levers (ordering/pruning — where LMR +48 and killer
 +110 came from) and real eval.
 
 exp028 added **aspiration windows** (v019): +29 Elo over 400 games (LOS ~95%) — a real
-tree-size gain. **Estimate ≈ 1955–1975, essentially at the 2000 target band.** Remaining
-clean levers: mobility / tuned eval (steps 3/5), then a bitboard rewrite (step 2) to push
-well past 2000.
+tree-size gain. Then the bitboard project (step 2): exp031 bitboard movegen + attack
+detection (v020, infra/neutral — faster movegen but the eval scan dominates per-leaf), and
+exp032 **bitboard mobility eval (v021): +96 Elo over 400 games (LOS ~100%)** — the biggest
+eval gain of the project and the bitboard payoff (the same term was rejected at +8.7 on
+shallow v013 in exp029 — re-test rejected eval terms after the search deepens).
+
+Then exp034 **magic bitboards** (v022): +98 (recovers mobility's slider cost).
+
+**TARGET ~REACHED: absolute ≈ 1950–2050 (~at 2000).** Re-anchor (2026-06-25) put v022 at
+≈1935 ±25 vs SF UCI_Elo=2000 — ~200 below the raw internal-ladder sum (~2150). The
+self-play ladder **overstates absolute Elo** (relative deltas compound and don't fully
+transfer to the field; SF UCI_Elo also plays above nominal at bullet). The per-experiment
+deltas (each verified at 200-400g) are sound; the absolute accumulation is not — so the
+honest figure is ~2000, started ~1581.
+
+Dead ends found: king safety (3× — exp019/033/035, the term harms this engine's eval),
+PVS (2× — exp023/025). Remaining levers to push higher: SPSA/auto-tuned eval weights,
+tapered (midgame/endgame) PST, SEE-based quiescence pruning, futility/late-move pruning,
+longer-TC verification, and a stronger non-self-play opponent pool to keep the absolute
+honest.
 
 ### 5. Parameter fine-tuning (last)
 Once real structure exists, tune eval weights and search params (hand-tuning or
