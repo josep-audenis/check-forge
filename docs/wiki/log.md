@@ -813,3 +813,37 @@ decision: REJECTED. pruning reverted (see_capture retained). head stays v022.
 Faster isn't stronger: SEE is static, occasionally prunes captures that start sound
 tactics, offsetting the depth gain. Same theme as the neutral per-node speedups. Next:
 SEE for capture ORDERING (not pruning, lower risk), tapered eval, or SPSA on pawn-structure.
+
+## [2026-06-25] autoresearch | exp038 tapered eval (mg/eg PST) -> v023 (BIG WIN, breaks plateau)
+
+Replaced crude positional with PeSTO midgame+endgame PST interpolated by game phase
+(N1/B1/R2/Q4, max 24).
+
+```text
+gates:    ctest pass, perft exact, tactics 8/8, startpos eval 0 (symmetric)
+verify:   vs v022, 400 games (two detached batches) 8+0.08 -> 181-58-161, +110.4 Elo (+/-18.3), LOS ~100%
+          both batches ~+110
+decision: ACCEPTED (strength). head -> versions/v023-tapered-eval
+```
+
+Biggest eval gain since bitboard mobility; breaks the 6-experiment plateau (king-safety x3,
+scaled-LMR, mobility-SPSA, SEE all failed). Key vs exp020 (mg-only PST, neutral): the
+ENDGAME tables + phase blend fix the engine's weakest phase. Lesson again: a rejected idea
+becomes a win once the missing ingredient is added. Next: SPSA on new tapered base, tapered
+material, SEE-ordering, re-anchor.
+
+## [2026-07-09] autoresearch | exp039 tapered material (PeSTO mg/eg values) -> v024
+
+Folded PeSTO mg/eg piece values into the phase blend alongside the tapered PST (exp038).
+Config piece values still used by SEE/ordering/null-move.
+
+```text
+gates:    ctest pass, perft exact, tactics 8/8, startpos eval 0
+verify:   vs v023, 400 games (two detached batches) 8+0.08 -> 113-74-213, +34.0 Elo (+/-17.5), LOS ~97%
+          batch A +17.4 (borderline) -> batch B lifted to +34 combined (400g confirm needed)
+decision: ACCEPTED (strength). head -> versions/v024-tapered-material
+```
+
+Compounds exp038: phase-appropriate material (rooks/pawns up, minors down into endgame)
+improves trading/conversion. Next: SPSA on the tapered base, tapered pawn-structure,
+SEE-ordering, re-anchor vs SF (two eval wins since last anchor).

@@ -2,12 +2,12 @@
   "benchmark": "tactics",
   "engine": "build/engine/checkforge.exe",
   "engine_version": "CheckForge 0.1.0-phase4",
-  "git_commit": "98c2408b21adf94cf1451994cdd6bf92668b4ed2",
+  "git_commit": "482ab8b00fb57168f708c0e208ada046f937b371",
   "config": {
     "path": "configs/default.json",
     "sha256": "caa48937cb6c1315cd3cd3fa3df84e3d59c0673d7f6c1a0a8f8ad281499086eb"
   },
-  "created_at": "2026-06-25T21:50:17.618305+00:00",
+  "created_at": "2026-06-26T09:22:04.581778+00:00",
   "passed": true,
   "solved": 8,
   "total": 8,
@@ -21,7 +21,7 @@
       ],
       "actual": "e2e4",
       "passed": true,
-      "stdout": "bestmove e2e4 score cp 529",
+      "stdout": "bestmove e2e4 score cp 499",
       "stderr": "",
       "returncode": 0
     },
@@ -34,7 +34,7 @@
       ],
       "actual": "d3e4",
       "passed": true,
-      "stdout": "bestmove d3e4 score cp 414",
+      "stdout": "bestmove d3e4 score cp 359",
       "stderr": "",
       "returncode": 0
     },
@@ -73,7 +73,7 @@
       ],
       "actual": "d2d3",
       "passed": true,
-      "stdout": "bestmove d2d3 score cp 531",
+      "stdout": "bestmove d2d3 score cp 500",
       "stderr": "",
       "returncode": 0
     },
@@ -86,7 +86,7 @@
       ],
       "actual": "d4e6",
       "passed": true,
-      "stdout": "bestmove d4e6 score cp 410",
+      "stdout": "bestmove d4e6 score cp 301",
       "stderr": "",
       "returncode": 0
     },
@@ -99,7 +99,7 @@
       ],
       "actual": "d2d5",
       "passed": true,
-      "stdout": "bestmove d2d5 score cp 531",
+      "stdout": "bestmove d2d5 score cp 505",
       "stderr": "",
       "returncode": 0
     },
@@ -112,7 +112,7 @@
       ],
       "actual": "d5c7",
       "passed": true,
-      "stdout": "bestmove d5c7 score cp 338",
+      "stdout": "bestmove d5c7 score cp 190",
       "stderr": "",
       "returncode": 0
     }

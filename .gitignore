@@ -7,3 +7,5 @@ build-vs/
 *.user
 __pycache__/
 .pytest_cache/
+.claude
+.codex
