@@ -1,4 +1,4 @@
-.PHONY: build test perft tactics speed match benchmark cutechess clean
+.PHONY: build test measurement-test measurement perft tactics speed match benchmark cutechess clean
 
 BUILD_DIR := build
 ENGINE := $(BUILD_DIR)/engine/checkforge.exe
@@ -9,6 +9,13 @@ build:
 
 test: build
 	ctest --test-dir $(BUILD_DIR) --output-on-failure
+	python -m unittest discover -s research/tests -p "test_*.py"
+
+measurement-test:
+	python -m unittest discover -s research/tests -p "test_*.py"
+
+measurement: build
+	python research/run_measurement.py --engine "$(ENGINE)" --baseline-engine "$(ENGINE)" --profile smoke
 
 perft: build
 	python research/run_perft.py --engine "$(ENGINE)"

@@ -71,6 +71,61 @@ Aggregate shape:
 }
 ```
 
+## Measurement Result JSON (schema v2)
+
+External match outputs preserve `wins`, `losses`, `draws`, `games`, `score`,
+`elo_diff`, and `elo_err`. Added fields:
+
+```json
+{
+  "schema_version": 2,
+  "measurement_valid": true,
+  "profile_passed": true,
+  "results": {
+    "elo_se": 22.6,
+    "elo_ci": [-26.9, 62.3],
+    "elo_err": 44.9,
+    "elo_error_confidence": 0.95,
+    "pairing": {
+      "complete": true,
+      "pairs": 100,
+      "pentanomial": {"counts": [16, 11, 40, 13, 20]},
+      "confidence_unit": "opening_pair",
+      "schedule_validation": {"complete": true, "mismatches": []}
+    },
+    "validation_errors": []
+  },
+  "reproducibility": {
+    "seed": 1,
+    "concurrency": 1,
+    "openings": {
+      "path": "...",
+      "sha256": "...",
+      "nonempty_lines": 500,
+      "unique_nonempty_lines": 500,
+      "duplicate_nonempty_lines": 0,
+      "unique_positions": 500,
+      "duplicate_positions": 0
+    },
+    "opening_schedule": {
+      "sampling": "iid_with_replacement_from_unique_epd_positions",
+      "seed": 1,
+      "pairs": 2300,
+      "schedule": {"path": "...", "sha256": "..."}
+    },
+    "cutechess": {"path": "...", "version": "...", "sha256": "..."},
+    "opponent_artifact": {"path": "...", "version": "...", "sha256": "..."}
+  }
+}
+```
+
+`elo_err` is requested-confidence half-width when finite; default confidence is 95%.
+`elo_se` is one standard error. Pair validation, completed-game count, illegal markers,
+and any candidate/opponent time forfeits contribute to `measurement_valid`.
+Strength decisions use separate `profile_passed`; valid H0 or inconclusive results do
+not pass. Anchor aggregates use random effects plus spread, I-squared, artifact-hash,
+and engine-family gates.
+
 ## Experiment Report Markdown
 
 Reports live in:

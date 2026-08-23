@@ -1,0 +1,28 @@
+{
+  "anchors": [
+    {
+      "name": "stockfish18-2000",
+      "family": "stockfish",
+      "engine": "C:/path/to/stockfish.exe",
+      "rating": 2000,
+      "default_stockfish_options": true,
+      "options": {}
+    },
+    {
+      "name": "independent-classical-engine-a",
+      "family": "engine-a-codebase",
+      "engine": "C:/path/to/engine-a.exe",
+      "rating": 2500,
+      "default_stockfish_options": false,
+      "options": {}
+    },
+    {
+      "name": "independent-classical-engine-b",
+      "family": "engine-b-codebase",
+      "engine": "C:/path/to/engine-b.exe",
+      "rating": 2500,
+      "default_stockfish_options": false,
+      "options": {}
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "engine": "checkforge",
+  "pgn": "matches/v024-anchor-sf2000.pgn",
+  "wins": 93,
+  "losses": 83,
+  "draws": 24,
+  "games": 200,
+  "illegal": false,
+  "score": 0.525,
+  "elo_diff": 17.4,
+  "elo_err": 24.6
+}

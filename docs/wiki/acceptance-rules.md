@@ -31,12 +31,14 @@ Accept only if:
 Two kinds of match run, do not confuse them:
 
 ```text
-- Screening: small (<= ~40 games). Cheap. Only catches DISASTERS:
+- Smoke: small (<= ~40 games). Cheap. Only catches DISASTERS:
   flags/time losses, crashes, illegal moves, large (>100 Elo) regressions.
   Error is +-70..120 Elo, so it CANNOT confirm a small improvement.
   Use it to kill obviously-bad ideas fast.
-- Verification: 200+ games, or SPRT. Required before any strength-based
-  accept/reject. This is the only evidence that justifies an Elo claim.
+- Screening: 100-400 paired games. Useful for large effects, still too noisy for
+  precise low-double-digit Elo claims.
+- Verification: pair-level anytime-valid sequential test with predeclared bounds, or
+  enough fixed games for desired 95% interval. Required before strength accept/reject.
 ```
 
 Never report a single-digit / low Elo delta from a screening match as a gain.
@@ -47,13 +49,18 @@ Accept on strength only if a VERIFICATION match shows:
 
 ```text
 - at least +15 Elo over baseline
-- at least 200 games (or an SPRT pass, e.g. elo0=0 elo1=10 alpha=0.05 beta=0.05)
+- paired sequential H1 decision (e.g. elo0=0 elo1=10 alpha=0.05 beta=0.05), or
+  fixed-game 95% confidence interval wholly above 0 Elo
 - tactical accuracy does not drop more than 2%
 - zero time losses / illegal moves
 ```
 
-`research/run_cutechess.py` defaults to `--games 200` with varied openings. Add
-cutechess `-sprt elo0=0 elo1=10 alpha=0.05 beta=0.05` for sequential testing.
+`research/run_cutechess.py` exposes pair-level sequential bounds through legacy-named
+`--sprt-elo0`, `--sprt-elo1`, `--sprt-alpha`, and `--sprt-beta`. Cute Chess itself
+does not decide: harness applies anytime-valid bounded-score evidence to ordered
+opening-pair averages. Harness writes a seeded IID-with-replacement schedule from
+semantically unique source positions and records its hash.
+Sequential evidence requires concurrency 1 and exact PGN-to-schedule pair order.
 
 ## Infrastructure Accept (no measured Elo)
 
@@ -68,20 +75,27 @@ work in [[roadmap-to-2000]].
 
 ## Absolute Elo (anchor)
 
-An Elo anchor now exists (exp015): `research/run_anchor.py` plays CheckForge vs
-Stockfish pinned to a known `UCI_Elo` and reports `checkforge_elo = anchor_elo +
-cutechess Elo diff`. Use it to state results in absolute Elo, not only relative deltas.
-Pin `--anchor-elo` near the expected level so the match scores ~50% (tightest error).
-Caveat: `UCI_Elo` is calibrated for slower TC, so the bullet number is an anchored
-estimate. v010 baseline ≈ 1581 ±47.
+`research/run_anchor.py` measures against one declared external rating.
+`research/aggregate_anchors.py` combines distinct engine families with random effects,
+reports spread/I-squared/tau-squared, and rejects heterogeneous pools. One Stockfish
+`UCI_Elo` setting remains coarse calibration, not FIDE Elo. Precise public claims need
+multiple families and both STC/LTC measurements.
+Duplicate family or binary rows invalidate aggregate; they never receive extra weight.
 
-## Future Improvement
+## Confidence Targets
 
-Wire SPRT directly into `run_cutechess.py` / `run_anchor.py`. Add a longer-TC anchor run
-for a calibration-exact number.
+Near 50% score, rough independent-game requirements for a two-sided 95% interval are:
+
+```text
++-20 Elo: ~1,200 games
++-10 Elo: ~4,600 games
++-5 Elo:  ~18,500 games
+```
+
+Paired pentanomial variance determines exact requirements. Never describe one standard
+error as a 95% uncertainty interval.
 
 ## Links
 
 - [[research-loop]]
 - [[data-contracts]]
-

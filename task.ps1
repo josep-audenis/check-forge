@@ -1,6 +1,6 @@
 param(
     [Parameter(Position = 0)]
-    [ValidateSet("build", "test", "perft", "tactics", "speed", "match", "benchmark", "cutechess", "clean")]
+    [ValidateSet("build", "test", "measurement-test", "measurement", "perft", "tactics", "speed", "match", "benchmark", "cutechess", "clean")]
     [string] $Task = "build"
 )
 
@@ -49,6 +49,15 @@ switch ($Task) {
     "test" {
         Invoke-Build
         Invoke-Native ctest --test-dir $BuildDir --output-on-failure
+        Invoke-Native python -m unittest discover -s research/tests -p "test_*.py"
+    }
+    "measurement-test" {
+        Invoke-Native python -m unittest discover -s research/tests -p "test_*.py"
+    }
+    "measurement" {
+        Invoke-Build
+        $Engine = Get-EnginePath
+        Invoke-Native python research/run_measurement.py --engine $Engine --baseline-engine $Engine --profile smoke
     }
     "perft" {
         Invoke-Build

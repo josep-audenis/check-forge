@@ -847,3 +847,17 @@ decision: ACCEPTED (strength). head -> versions/v024-tapered-material
 Compounds exp038: phase-appropriate material (rooks/pawns up, minors down into endgame)
 improves trading/conversion. Next: SPSA on the tapered base, tapered pawn-structure,
 SEE-ordering, re-anchor vs SF (two eval wins since last anchor).
+
+## [2026-07-11] measurement | re-anchor v024 vs Stockfish -> ~2017 diagnostic estimate
+
+```text
+v024 vs SF UCI_Elo=2000, 200g 8+0.08 -> 93-83-24, elo_diff +17.4
+paired re-score: CheckForge ~= 2017, 95% CI ~= 1973-2062 (old +/-25 was one SE)
+measurement-v2 audit: INVALID for rating claim because Stockfish had 5 time forfeits
+```
+
+Up from the v022 anchor (1935). The two eval wins since (v023 tapered eval +110, v024
+tapered material +34 = +144 internal) transferred to +82 on the anchor (~0.57x) — same
+ladder-overstates factor seen before. Result is diagnostic only; no verified absolute
+rating or past-2000 claim until a zero-flag anchor run passes v2 gates. Journey estimate:
+exp015 ~1581 -> v024 ~2017.

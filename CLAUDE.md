@@ -30,18 +30,21 @@ Do **not** start from scratch. There is a working engine and 39 experiments of h
   **incremental Zobrist hashing (v018, infra)**, **aspiration windows (v019)**,
   **bitboard movegen + attack detection (v020, infra)**, **bitboard mobility eval (v021)**,
   **magic bitboards / O(1) sliders (v022)**, **tapered eval / mg-eg PST (v023, +110)**, **tapered material (v024, +34)**, minimal UCI.
-- **Absolute Elo ≈ 1950–2050 (best estimate, ~at 2000).** SF anchor re-measured v022 at
-  **≈1935 ±25** (vs SF UCI_Elo=2000, 71-108-21, bullet 8+0.08) — ~200 below the raw
-  internal-ladder sum (~2150). The **self-play ladder overstates absolute Elo** (deltas
+- **Absolute Elo remains unverified.** v024 vs SF UCI_Elo=2000 scored 93-83-24,
+  diagnostic estimate ≈2017 with paired 95% CI ≈1973–2062, but measurement v2 rejects
+  that run because Stockfish had 5 time forfeits (up from v022's ≈1935 before the two tapered
+  eval wins). The +144 internal since v022 (exp038 +110, exp039 +34) transferred to +82 on
+  the anchor (~0.57×) — the self-play ladder overstates absolute Elo. The **self-play ladder overstates absolute Elo** (deltas
   compound; beating a weaker prior self by X doesn't fully transfer to the field), and SF
   `UCI_Elo` likely plays above nominal at bullet (deflating our reading). **Use the
-  internal ladder for per-experiment DELTAS only; treat absolute as ~2000.** Anchor =
+  internal ladder for per-experiment DELTAS only; treat ~2000 as an unverified diagnostic.** Anchor =
   Stockfish 18 via `UCI_LimitStrength`/`UCI_Elo` (avx2, winget), `research/run_anchor.py`.
   Internal ladder (deltas, verified 200-400g each): v010 → v011 (+117, -O3) → v012 neutral
   → v013 (+51, pawn structure) → v014 (+20, null-move) → v015 (+48, LMR) →
   v016 (+110, killers+history) → v017/v018 neutral infra → v019 (+29, aspiration) →
   v020 neutral infra (bitboards) → v021 (+96, bitboard mobility) → v022 (+98, magic sliders) → v023 (+110, tapered eval) → v024 (+34, tapered material).
-  **Anchor caveat**: at 200g/bullet ±25-47 noise, `UCI_Elo` miscalibrated (exp018: same
+  **Anchor caveat**: old `±25` was one SE; paired 95% half-width is ≈45. At 200g/bullet,
+  `UCI_Elo` is also miscalibrated (exp018: same
   engine read 1684 vs SF1700 and 1937 vs SF1800). Coarse band only. See `docs/wiki/roadmap-to-2000.md`.
 - **The build defaults to Release (-O3) since exp016.** It had been compiling at -O0;
   fixing that alone was +117 Elo. Always build optimized.
@@ -67,13 +70,13 @@ Full rationale and the bullet-ceiling evidence: `docs/wiki/roadmap-to-2000.md`.
 
 ## Testing discipline (this changed too)
 
-- **Strength claims require large samples: 200+ games, or SPRT.** Small matches
+- **Strength claims require large samples or paired sequential evidence.** Small matches
   (≤ ~40 games) are **screening only** — they catch disasters (flags, crashes, illegal
   moves, large regressions) but have ±70–120 Elo error and **cannot** confirm a
   +15–30 Elo change. Never report a single-digit Elo delta from < 200 games as a gain.
-- `research/run_cutechess.py` now defaults to `--games 200` and uses varied openings
-  (`data/openings.epd`). For sequential testing add cutechess
-  `-sprt elo0=0 elo1=10 alpha=0.05 beta=0.05` (not yet wired into the script).
+- `research/run_cutechess.py` defaults to `--games 200` and uses varied openings.
+  `--sprt-*` bounds invoke harness pair-level anytime-valid evidence; Cute Chess's
+  game-level trinomial SPRT is intentionally not used with correlated colour pairs.
 - Correctness gates (perft, tactics 8/8, no illegal moves, no flags) are mandatory and
   unchanged.
 
